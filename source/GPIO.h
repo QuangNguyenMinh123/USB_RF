@@ -106,15 +106,6 @@ uint32_t GPIO_ReadPIN(IO_PIN PIN);
 /* GPIO Analog Module */
 void GPIO_SetAnalog(ADC_PIN PIN);
 uint32_t GPIO_ReadAnalog(ADC_TypeDef *ADCx);
-/* GPIO PWM Module */
-void GPIO_SetPWM(IO_PIN PIN);
-void GPIO_B6_PWM(uint16_t PWMValue);
-void GPIO_B7_PWM(uint16_t PWMValue);
-void GPIO_B8_PWM(uint16_t PWMValue);
-void GPIO_B9_PWM(uint16_t PWMValue);
 /* GPIO external IRQ Module */
 void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE);
-/* GPIO PWM measurement */
-void GPIO_SetPWMMeasurement(void);
-GPIO_PulseWidth_Type* GPIO_GetPWM(void);
 #endif   /* _GPIO_H */

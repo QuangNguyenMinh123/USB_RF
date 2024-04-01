@@ -1,33 +1,63 @@
-#include "USB.h"
-#include "GPIO.h"
-
+#include "FLASH.h"
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
-
+#define SECTOR_SIZE                     1024
+#define SECTOR_TO_ADRESS(x)             (x) * SECTOR_SIZE
+#define ADRESS_TO_SECTOR(x)             (x) / SECTOR_SIZE
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
+static void FLASH_Write(uint32_t Adress, uint32_t Data)
+{
 
+}
+
+static bool FLASH_SectorIsErased(uint8_t Sector)
+{
+	bool Ret_b = TRUE;
+	uint8_t* ui8pointer = (uint8_t*) ( SECTOR_TO_ADRESS(Sector) );
+	while ( ui8pointer < ( (uint8_t*) (SECTOR_TO_ADRESS(Sector+1) ) ) ) {
+        if (*ui8pointer != 0xFF) {
+            Ret_b = FALSE;
+            ui8pointer = ( (uint8_t*) (SECTOR_TO_ADRESS(Sector+1) ) );
+        }
+        ui8pointer++;
+    }
+	return Ret_b;
+}
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-DataDirectionType USB_DataDirection;
-bool USB_InitSuccess = FALSE;
-
+char FLASH_DeviceName[30] = {0};
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
-void USB_Init(void)
+void FLASH_EraseSector(uint32_t Sector)
 {
-	USB_InitSuccess = TRUE;
+	if (FLASH_SectorIsErased(Sector) == FALSE)
+	{
+
+		__asm("CPSID   I");
+
+		__asm("CPSIE   I");
+	}
+
 }
 
-void USB_EnableInterrupt(void)
+bool FLASH_WriteBlock(uint32_t Address, uint32_t* Data)
 {
-
+	bool Ret_b = FALSE;
+	uint32_t* ptr = Data;
+	uint32_t Adr = Address;
+	while (*ptr != 0)
+	{
+		FLASH_Write(Adr, *ptr);
+		ptr++;
+		Adr++;
+	}
+	return Ret_b;
 }
-
 /***********************************************************************************************************************
  * EOF
  **********************************************************************************************************************/

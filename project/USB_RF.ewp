@@ -666,7 +666,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>160</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2147,6 +2147,12 @@
     <group>
         <name>source</name>
         <file>
+            <name>$PROJ_DIR$\..\source\FLASH.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\FLASH.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\source\GPIO.c</name>
         </file>
         <file>
@@ -2154,6 +2160,12 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\source\main.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\nRF24L01.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\nRF24L01.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\source\SPI.c</name>

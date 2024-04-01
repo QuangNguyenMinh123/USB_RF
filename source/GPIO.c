@@ -10,15 +10,17 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
-static uint32_t RisingTimeTIM2;
-static uint32_t RisingTimeTIM3;
-GPIO_PulseWidth_Type GPIO_PulseWidth;
+static void delay(uint32_t delayTime) {
+	uint32_t ui32Cnt = 0U;
+	for (; ui32Cnt< delayTime; ui32Cnt++) {
+		__asm("nop");                                                                                                                               	}
+}
 /*******************************************************************************
  * Code
  ******************************************************************************/
 /* GPIO Output Module */
 void GPIO_SetOutPut(IO_PIN PIN, OUTPUT_MODE mode) {
-	IO_PIN ui32Temp = PIN % 16;
+	uint32_t ui32Temp = (uint32_t) (PIN % 16);
 	/* PORT A */
 	if (PIN / 16 == 0) {
 			/* Set Port A Clock */
@@ -164,7 +166,7 @@ void GPIO_SetOutPut(IO_PIN PIN, OUTPUT_MODE mode) {
 
 void GPIO_PINLow(IO_PIN PIN) {
 	/* PORT A */
-	IO_PIN ui32Temp = PIN % 16 ;
+	uint32_t ui32Temp = (uint32_t) PIN % 16 ;
 	if (PIN / 16 == 0) {
 		GPIOA->BSRR |= ( 1 << ( ui32Temp + 16 ) );
 	}
@@ -180,7 +182,7 @@ void GPIO_PINLow(IO_PIN PIN) {
 
 void GPIO_PINHigh(IO_PIN PIN) {
 	/* PORT A */
-	IO_PIN ui32Temp = PIN % 16;
+	uint32_t ui32Temp = (uint32_t) PIN % 16;
 	if (PIN / 16 == 0) {
 		GPIOA->BSRR |= (1<<ui32Temp);
 	}
@@ -197,7 +199,7 @@ void GPIO_PINHigh(IO_PIN PIN) {
 void GPIO_PINToggle(IO_PIN PIN) {
 	uint32_t Data = 0;
 	/* PORT A */
-	IO_PIN ui32Temp = PIN % 16;
+	uint32_t ui32Temp = (uint32_t) PIN % 16;
 	if (PIN / 16 == 0) {
 		Data = GPIOA->ODR;
 		if (Data & (1 << ui32Temp)) {
@@ -231,7 +233,7 @@ void GPIO_PINToggle(IO_PIN PIN) {
 
 /* GPIO Input Module */
 void GPIO_SetInPut(IO_PIN PIN, INPUT_MODE MODE) {
-	IO_PIN ui32Temp = PIN % 16;
+	uint32_t ui32Temp = (uint32_t) PIN % 16;
 	/* PORT A */
 	if (PIN / 16 == 0) {
 			/* Set Port A Clock */
@@ -384,7 +386,7 @@ uint32_t GPIO_ReadPIN(IO_PIN PIN) {
 }
 /* GPIO Analog Module */
 void GPIO_SetAnalog(ADC_PIN PIN) {
-	IO_PIN ui32Temp = PIN % 16;
+	uint32_t ui32Temp = (uint32_t) PIN % 16;
 
 	/* CLOCK enable */
 	/* PORT A */
@@ -474,64 +476,6 @@ void GPIO_SetAnalog(ADC_PIN PIN) {
 	delay(10);
 }
 
-uint32_t GPIO_ReadAnalog(ADC_TypeDef *ADCx) {
-	ADCx->CR2 |= (1<<20);
-	while ( (ADCx->SR  & (1<<1)) == 0 ) {}
-	return (uint32_t) ADCx->DR;
-}
-
-/* GPIO PWM Module */
-void GPIO_SetPWM(IO_PIN PIN) {
-	if ( (PIN > IO_B9) || (PIN < IO_B6) )
-	{
-		return;
-	}
-	GPIO_SetOutPut(PIN, Alternate_Push_Pull);
-	/* Timer 4 setting */
-	if ( (RCC->APB1ENR & BIT_2) == 0) {
-		RCC->APB1ENR |= BIT_2;
-	}
-	if ( (TIM4->CR1 & (BIT_0 | BIT_7 )) == 0) {
-		TIM4->CR1 |= BIT_0 | BIT_7;
-		TIM4->CR2 = 0;
-		TIM4->SMCR = 0;
-		TIM4->DIER = 0;
-		TIM4->EGR = 0;
-		TIM4->CCMR1 = 0;
-		TIM4->CCMR2 = 0;
-		TIM4->DCR = 0;
-	}
-	if ((PIN - IO_B6) < 2) {
-		TIM4->CCMR1 |= (6<<(4+ (PIN-IO_B6) * 8)) ;
-		TIM4->CCMR1 |=  (1<<(3+ (PIN-IO_B6) * 8)) ;
-	} else {
-		TIM4->CCMR2 |= (6<<(4+ (PIN-IO_B6 -2) * 8)) | (1<<(3+ (PIN-IO_B6-2) * 8));
-	}
-	if ( (TIM4->CCER & (1 << ((PIN-IO_B6)*4)) ) == 0 ) {
-		TIM4->CCER |= (1 << ((PIN-IO_B6)*4));
-	}
-	if (TIM4->PSC == 0) {
-		TIM4->PSC = 71;
-		TIM4->ARR = 5000;
-	}
-}
-
-__INLINE void GPIO_B6_PWM(uint16_t PWMValue) {
-	TIM4->CCR1 = PWMValue;
-}
-
-__INLINE void GPIO_B7_PWM(uint16_t PWMValue) {
-	TIM4->CCR2 = PWMValue;
-}
-
-__INLINE void GPIO_B8_PWM(uint16_t PWMValue) {
-	TIM4->CCR3 = PWMValue;
-}
-
-__INLINE void GPIO_B9_PWM(uint16_t PWMValue) {
-	TIM4->CCR4 = PWMValue;
-}
-
 /* GPIO external IRQ Module */
 void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE ) {
 	uint32_t IRQ_Idx = 0;
@@ -562,103 +506,7 @@ void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE ) {
 		EXTI->FTSR |= (1<<(PIN % 16));
 	}
 	/* IRQ handler */
-	NVIC_EnableIRQ( (IRQType)IRQ_Idx );
-}
-
-/* GPIO Pulse width measurement */
-void GPIO_SetPWMMeasurement(void) {
-	RisingTimeTIM2 = 0;
-	RisingTimeTIM3 = 0;
-	GPIO_PulseWidth.Roll = 0;
-	GPIO_PulseWidth.Aux1 = 0;
-	GPIO_PulseWidth.Yaw = 0;
-	GPIO_PulseWidth.Throttle = 0;
-	GPIO_PulseWidth.Pitch = 0;
-	GPIO_PulseWidth.Aux2 = 0;
-	GPIO_SetInPut(IO_A1,Input_doubleing);
-	GPIO_SetInPut(IO_A2,Input_doubleing);
-	GPIO_SetInPut(IO_A3,Input_doubleing);
-	GPIO_SetInPut(IO_A6,Input_doubleing);
-	GPIO_SetInPut(IO_A7,Input_doubleing);
-	/* Timer 2 setting */
-	RCC->APB1ENR |= BIT_0;
-	TIM2->CR1 |= BIT_0;
-	TIM2->CR2 = 0;
-	TIM2->SMCR = 0;
-	TIM2->DIER = BIT_2 | BIT_3 | BIT_4;
-	TIM2->EGR = 0;
-	TIM2->CCMR1 = 257;
-	TIM2->CCMR2 = 257;
-	TIM2->CCER = BIT_4 | (3<<8) | (3<<12);
-	TIM2->PSC = 71;
-	TIM2->ARR = 0xFFFF;
-	TIM2->DCR = 0;
-	NVIC_EnableIRQ(TIM2_IRQ);
-
-	/* Timer 3 setting */
-	RCC->APB1ENR |= BIT_1;
-	TIM3->CR1 |= BIT_0;
-	TIM3->CR2 = 0;
-	TIM3->SMCR = 0;
-	TIM3->DIER = BIT_1 | BIT_2;
-	TIM3->EGR = 0;
-	TIM3->CCMR1 = 257;
-	TIM3->CCMR2 = 257;
-	TIM3->CCER = (3<<0) | (3<<4);
-	TIM3->PSC = 71;
-	TIM3->ARR = 0xFFFF;
-	TIM3->DCR = 0;
-	NVIC_EnableIRQ(TIM3_IRQ);
-}
-
-/* Return pulse width all channel */
-__inline GPIO_PulseWidth_Type* GPIO_GetPWM(void) {
-	return &GPIO_PulseWidth;
-}
-
-/* Timer 2 interrupt handler */
-void TIM2_IRQHandler(void) {
-	if (GPIOA->IDR & BIT_1) {
-		/* Capture rising time */
-		RisingTimeTIM2 = TIM2->CCR2;
-		/* Detect falling edge */
-		TIM2->CCER |= BIT_5;
-		TIM2->SR = 0;
-		return;
-	}
-	if ((GPIOA->IDR & BIT_1) == 0) {
-		GPIO_PulseWidth.Roll = (TIM2->CCR2 - RisingTimeTIM2) & 0xfff - 1;
-		/* Detect rising edge */
-		TIM2->CCER &= ~BIT_5;
-	}
-	if ((GPIOA->IDR & BIT_2) == 0 ) {
-		GPIO_PulseWidth.Pitch = (TIM2->CCR3 - RisingTimeTIM2) & 0xfff - 1;
-	}
-	if ((GPIOA->IDR & BIT_3) == 0 ) {
-		GPIO_PulseWidth.Throttle = (TIM2->CCR4 - RisingTimeTIM2) & 0xfff - 1;
-	}
-	TIM2->SR = 0;
-}
-
-/* Timer 3 interrupt handler */
-void TIM3_IRQHandler(void) {
-	if (GPIOA->IDR & BIT_6) {
-		/* Capture rising time */
-		RisingTimeTIM3 = TIM3->CCR1;
-		/* Detect falling edge */
-		TIM3->CCER |= BIT_1;
-		TIM3->SR = 0;
-		return;
-	}
-	if ((GPIOA->IDR & BIT_6) == 0 ) {
-		GPIO_PulseWidth.Yaw = (TIM3->CCR1 - RisingTimeTIM3) & 0xfff - 1;
-		/* Detect rising edge */
-		TIM3->CCER &= ~BIT_1;
-	}
-	if ((GPIOA->IDR & BIT_7) == 0 ) {
-		GPIO_PulseWidth.Aux1 = (TIM3->CCR2 - RisingTimeTIM3) & 0xfff - 1;
-	}
-	TIM3->SR = 0;
+	NVIC_EnableIRQ(IRQ_Idx);
 }
 
 /*******************************************************************************
