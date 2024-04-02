@@ -5,48 +5,43 @@
  * Definitions
  ******************************************************************************/
 
-/*******************************ADC CONTROLLER*********************************/
-
-#define ADC_CONVERSION_COMPLETED			ADC1->SR  & (1<<1)
-#define SERVO_START							TIM4->CNT = 4999
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
-
 typedef enum {
-	IO_PORTA = 0,
-	IO_PORTB = 16,
-	IO_PORTC = 32,
-	IO_A0	= IO_PORTA + 0,
-	IO_A1	= IO_PORTA + 1,
-	IO_A2	= IO_PORTA + 2,
-	IO_A3	= IO_PORTA + 3,
-	IO_A4	= IO_PORTA + 4,
-	IO_A5	= IO_PORTA + 5,
-	IO_A6	= IO_PORTA + 6,
-	IO_A7	= IO_PORTA + 7,
-	IO_A8	= IO_PORTA + 8,
-	IO_A9	= IO_PORTA + 9,
-	IO_A10	= IO_PORTA + 10,
-	IO_A11	= IO_PORTA + 11,
-	IO_A12	= IO_PORTA + 12,
-	IO_A15	= IO_PORTA + 15,
-	IO_B0	= IO_PORTB + 0,
-	IO_B1	= IO_PORTB + 1,
-	IO_B5	= IO_PORTB + 5,
-	IO_B6	= IO_PORTB + 6,
-	IO_B7	= IO_PORTB + 7,
-	IO_B8	= IO_PORTB + 8,
-	IO_B9	= IO_PORTB + 9,
-	IO_B10	= IO_PORTB + 10,
-	IO_B11	= IO_PORTB + 11,
-	IO_B12	= IO_PORTB + 12,
-	IO_B13	= IO_PORTB + 13,
-	IO_B14	= IO_PORTB + 14,
-	IO_B15	= IO_PORTB + 15,
-	IO_C13	= IO_PORTC + 13,
-	IO_C14	= IO_PORTC + 14,
-	IO_C15 = IO_PORTC + 15
+	PORTA = 0,
+	PORTB = 16,
+	PORTC = 32,
+	PA0	= PORTA + 0,
+	PA1	= PORTA + 1,
+	PA2	= PORTA + 2,
+	PA3	= PORTA + 3,
+	PA4	= PORTA + 4,
+	PA5	= PORTA + 5,
+	PA6	= PORTA + 6,
+	PA7	= PORTA + 7,
+	PA8	= PORTA + 8,
+	PA9	= PORTA + 9,
+	PA10 = PORTA + 10,
+	PA11 = PORTA + 11,
+	PA12 = PORTA + 12,
+	PA15 = PORTA + 15,
+	PB0	= PORTB + 0,
+	PB1	= PORTB + 1,
+	PB5	= PORTB + 5,
+	PB6	= PORTB + 6,
+	PB7	= PORTB + 7,
+	PB8	= PORTB + 8,
+	PB9	= PORTB + 9,
+	PB10 = PORTB + 10,
+	PB11 = PORTB + 11,
+	PB12 = PORTB + 12,
+	PB13 = PORTB + 13,
+	PB14 = PORTB + 14,
+	PB15 = PORTB + 15,
+	PC13 = PORTC + 13,
+	PC14 = PORTC + 14,
+	PC15 = PORTC + 15
 } IO_PIN;
 
 typedef enum {
@@ -79,19 +74,10 @@ typedef enum {
 	RISING_EDGE = 1,
 	BOTH_EDGES = 2
 } EDGE;
-
-typedef struct {
-  uint16_t Throttle;
-  uint16_t Yaw;
-  uint16_t Pitch;
-  uint16_t Roll;
-  uint16_t Aux1;
-  uint16_t Aux2;
-} GPIO_PulseWidth_Type;
 /*******************************************************************************
  * Global variables
  ******************************************************************************/
-extern GPIO_PulseWidth_Type GPIO_PulseWidth;
+
 /*******************************************************************************
  * API
  ******************************************************************************/

@@ -2875,6 +2875,12 @@
             <name>$PROJ_DIR$\..\source\SPI.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\source\TIMER.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\TIMER.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\source\USB.c</name>
         </file>
         <file>

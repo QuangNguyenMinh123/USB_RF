@@ -49,10 +49,20 @@ build F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.xcl : COMPILER_XCL
   flags = F$:\USB_RF\source\SPI.c -D STM32F10X_MD -o F$:\USB_RF\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I F$:\USB_RF\project\ -I F$:\USB_RF\source\ -I F$:\USB_RF\startup\ -I F$:\USB_RF\CMSIS\ -Ol -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\CMSIS\Core\Include\\" --predef_macros F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.tmp
   rspfile_name = F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.xcl.rsp
 
+build F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\TIMER.c -xcl_file F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.xcl -macro_file F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\TIMER.c -D STM32F10X_MD -o F$:\USB_RF\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I F$:\USB_RF\project\ -I F$:\USB_RF\source\ -I F$:\USB_RF\startup\ -I F$:\USB_RF\CMSIS\ -Ol -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\CMSIS\Core\Include\\" --predef_macros F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.tmp
+  rspfile_name = F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.xcl.rsp
+
 build F$:\USB_RF\project\Debug\BrowseInfo\source\USB.xcl : COMPILER_XCL 
   xclcommand = -source_file F$:\USB_RF\source\USB.c -xcl_file F$:\USB_RF\project\Debug\BrowseInfo\source\USB.xcl -macro_file F$:\USB_RF\project\Debug\BrowseInfo\source\USB.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
   flags = F$:\USB_RF\source\USB.c -D STM32F10X_MD -o F$:\USB_RF\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I F$:\USB_RF\project\ -I F$:\USB_RF\source\ -I F$:\USB_RF\startup\ -I F$:\USB_RF\CMSIS\ -Ol -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\CMSIS\Core\Include\\" --predef_macros F$:\USB_RF\project\Debug\BrowseInfo\source\USB.tmp
   rspfile_name = F$:\USB_RF\project\Debug\BrowseInfo\source\USB.xcl.rsp
+
+build F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\startup\core_cm3.c -xcl_file F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.xcl -macro_file F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\startup\core_cm3.c -D STM32F10X_MD -o F$:\USB_RF\project\Debug\Obj\startup --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I F$:\USB_RF\project\ -I F$:\USB_RF\source\ -I F$:\USB_RF\startup\ -I F$:\USB_RF\CMSIS\ -Ol -I "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\CMSIS\Core\Include\\" --predef_macros F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.tmp
+  rspfile_name = F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.xcl.rsp
 
 build F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.xcl : COMPILER_XCL 
   xclcommand = -source_file F$:\USB_RF\startup\system_stm32f10x.c -xcl_file F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.xcl -macro_file F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
@@ -79,9 +89,17 @@ build F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi : INDEXER F$:\USB_RF\pr
 F$:\USB_RF\source\SPI.c
   flags = -out=F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi -f F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.xcl
 
+build F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.pbi : INDEXER F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.xcl |  $
+F$:\USB_RF\source\TIMER.c
+  flags = -out=F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.pbi -f F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.xcl
+
 build F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi : INDEXER F$:\USB_RF\project\Debug\BrowseInfo\source\USB.xcl |  $
 F$:\USB_RF\source\USB.c
   flags = -out=F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi -f F$:\USB_RF\project\Debug\BrowseInfo\source\USB.xcl
+
+build F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.pbi : INDEXER F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.xcl |  $
+F$:\USB_RF\startup\core_cm3.c
+  flags = -out=F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.pbi -f F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.xcl
 
 build F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.pbi : INDEXER F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.xcl |  $
 F$:\USB_RF\startup\system_stm32f10x.c
@@ -97,11 +115,13 @@ F$:\USB_RF\project\Debug\BrowseInfo\source\main.pbi
 
 build F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part1.pbi : PDBLINK F$:\USB_RF\project\Debug\BrowseInfo\source\nRF24L01.pbi |  $
 F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi $
-F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi
-  flags = -M F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part1.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\nRF24L01.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi
+F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.pbi
+  flags = -M F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part1.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\nRF24L01.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\TIMER.pbi
 
-build F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part2.pbi : PDBLINK F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.pbi
-  flags = -M F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part2.pbi F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.pbi
+build F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part2.pbi : PDBLINK F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi |  $
+F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.pbi $
+F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.pbi
+  flags = -M F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part2.pbi F$:\USB_RF\project\Debug\BrowseInfo\source\USB.pbi F$:\USB_RF\project\Debug\BrowseInfo\startup\core_cm3.pbi F$:\USB_RF\project\Debug\BrowseInfo\startup\system_stm32f10x.pbi
 
 build F$:\USB_RF\project\Debug\BrowseInfo\USB_RF.pbd : PDBLINK F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part0.pbi |  $
 F$:\USB_RF\project\Debug\BrowseInfo\USB_RF_part1.pbi $

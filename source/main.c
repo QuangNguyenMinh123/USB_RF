@@ -4,7 +4,7 @@
 #include "FLASH.h"
 #include "system_stm32f10x.h"
 #include "nRF24L01.h"
-
+#include "TIMER.h"
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
@@ -36,8 +36,8 @@ void main()
 	USB_Init();
  	USB_EnableInterrupt();
 	/* Led initialization */
-	GPIO_SetOutPut(IO_B10, General_Push_Pull);
-	GPIO_PINLow(IO_B10);
+	GPIO_SetOutPut(PB10, General_Push_Pull);
+	GPIO_PINLow(PB10);
 	/* nRF24L01 initialization */
 	while (SPI_InitSuccess == FALSE);
 	nRF24L01_Init();

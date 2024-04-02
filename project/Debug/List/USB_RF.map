@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.30.1.335/W64 for ARM                  02/Apr/2024  01:28:44
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  02/Apr/2024  13:23:23
 # Copyright 2007-2022 IAR Systems AB.
 #
 #    Output file  =  F:\USB_RF\project\Debug\Exe\USB_RF.out
@@ -14,6 +14,7 @@
 #        F:\USB_RF\project\Debug\Obj\source\SPI.o
 #        F:\USB_RF\project\Debug\Obj\startup\startup_stm32f10x_md.o
 #        F:\USB_RF\project\Debug\Obj\startup\system_stm32f10x.o
+#        F:\USB_RF\project\Debug\Obj\source\TIMER.o
 #        F:\USB_RF\project\Debug\Obj\source\USB.o --no_out_extension -o
 #        F:\USB_RF\project\Debug\Exe\USB_RF.out --map
 #        F:\USB_RF\project\Debug\List\USB_RF.map --config "C:\Program Files\IAR
