@@ -4,9 +4,15 @@
 
 "--fpu=None" 
 
+"-p" 
+
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32F103C8.ddf" 
+
 "--drv_verify_download" 
 
 "--semihosting" 
+
+"--device=STM32F103C8" 
 
 "--drv_communication=USB0" 
 

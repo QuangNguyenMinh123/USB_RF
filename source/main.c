@@ -27,8 +27,9 @@ static void delay(uint32_t delayTime) {
  **********************************************************************************************************************/
 void main()
 {
-	SystemInit();
+	/*SystemInit();
 	SystemCoreClockUpdate();
+	*/
 	/* Timer initialization */
 	TIMER_Init(TIM1, COUNTER_UP, 50000);
 	TIMER_Init(TIM2, COUNTER_UP, 50000);
@@ -61,6 +62,10 @@ void main()
 
 		}
 		delay(10*MS);
+		GPIO_PINHigh(PB10);
+		delay(2000*MS);
+		GPIO_PINLow(PB10);
+		delay(2000*MS);
 	}
 }
 /***********************************************************************************************************************
