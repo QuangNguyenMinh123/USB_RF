@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.30.1.335/W64 for ARM                  02/Apr/2024  13:23:23
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  03/Apr/2024  14:53:49
 # Copyright 2007-2022 IAR Systems AB.
 #
 #    Output file  =  F:\USB_RF\project\Debug\Exe\USB_RF.out
@@ -63,98 +63,102 @@ initialize by copy { rw };
   .intvec            ro code          0x0   0xec  startup_stm32f10x_md.o [2]
                                    - 0xec   0xec
 
-"P1":                                      0x860
+"P1":                                      0xa22
   .text              ro code         0xec  0x484  GPIO.o [1]
   .text              ro code        0x570  0x1a4  system_stm32f10x.o [2]
-  .text              ro code        0x714   0x58  main.o [1]
-  .text              ro code        0x76c    0xc  SPI.o [1]
-  .text              ro code        0x778    0xe  USB.o [1]
-  .text              ro code        0x786    0x2  nRF24L01.o [1]
-  .text              ro code        0x788   0x2a  copy_init3.o [4]
-  .text              ro code        0x7b4   0x28  data_init.o [4]
-  .iar.init_table    const          0x7dc   0x14  - Linker created -
-  .text              ro code        0x7f0   0x1e  cmain.o [4]
-  .text              ro code        0x80e    0x4  low_level_init.o [3]
-  .text              ro code        0x812    0x4  exit.o [3]
-  .text              ro code        0x818    0xa  cexit.o [4]
-  .text              ro code        0x824   0x14  exit.o [5]
-  .text              ro code        0x838   0x1c  cstartup_M.o [4]
-  Initializer bytes  const          0x854   0x18  <for P2-1>
-  .text              ro code        0x86c   0x10  startup_stm32f10x_md.o [2]
-  .text              ro code        0x87c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x880    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x884    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x888    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x88c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x890    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x894    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x898    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x89c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8a0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8a4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8a8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8ac    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8b0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8b4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8b8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8bc    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8c0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8c4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8c8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8cc    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8d0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8d4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8d8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8dc    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8e0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8e4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8e8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8ec    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8f0    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8f4    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8f8    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x8fc    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x900    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x904    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x908    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x90c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x910    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x914    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x918    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x91c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x920    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x924    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x928    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x92c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x930    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x934    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x938    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x93c    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x940    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x944    0x4  startup_stm32f10x_md.o [2]
-  .text              ro code        0x948    0x4  startup_stm32f10x_md.o [2]
-  .rodata            const          0x94c    0x0  copy_init3.o [4]
-                                  - 0x94c  0x860
+  .text              ro code        0x714  0x15c  TIMER.o [1]
+  .text              ro code        0x870   0xb8  main.o [1]
+  .text              ro code        0x928    0xc  SPI.o [1]
+  .text              ro code        0x934    0xe  USB.o [1]
+  .text              ro code        0x942    0x2  nRF24L01.o [1]
+  .text              ro code        0x944   0x3a  packbits_init_single.o [4]
+  .text              ro code        0x980   0x28  data_init.o [4]
+  .iar.init_table    const          0x9a8   0x10  - Linker created -
+  .text              ro code        0x9b8   0x1e  cmain.o [4]
+  .text              ro code        0x9d6    0x4  low_level_init.o [3]
+  .text              ro code        0x9da    0x4  exit.o [3]
+  .text              ro code        0x9e0    0xa  cexit.o [4]
+  .text              ro code        0x9ec   0x14  exit.o [5]
+  .text              ro code        0xa00   0x1c  cstartup_M.o [4]
+  .text              ro code        0xa1c   0x10  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa2c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa30    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa34    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa38    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa3c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa40    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa44    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa48    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa4c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa50    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa54    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa58    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa5c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa60    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa64    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa68    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa6c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa70    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa74    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa78    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa7c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa80    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa84    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa88    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa8c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa90    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa94    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa98    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xa9c    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaa0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaa4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaa8    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaac    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xab0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xab4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xab8    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xabc    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xac0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xac4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xac8    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xacc    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xad0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xad4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xad8    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xadc    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xae0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xae4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xae8    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaec    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaf0    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaf4    0x4  startup_stm32f10x_md.o [2]
+  .text              ro code        0xaf8    0x4  startup_stm32f10x_md.o [2]
+  .rodata            const          0xafc    0x0  packbits_init_single.o [4]
+  Initializer bytes  const          0xafc   0x12  <for P2-1>
+                                  - 0xb0e  0xa22
 
-"P2", part 1 of 2:                          0x18
-  P2-1                        0x2000'0000   0x16  <Init block>
+"P2", part 1 of 2:                          0x1e
+  P2-1                        0x2000'0000   0x1e  <Init block>
     .data            inited   0x2000'0000    0x4  system_stm32f10x.o [2]
     .data            inited   0x2000'0004   0x10  system_stm32f10x.o [2]
-    .bss             inited   0x2000'0014    0x1  SPI.o [1]
-    .bss             inited   0x2000'0015    0x1  USB.o [1]
-                            - 0x2000'0016   0x16
+    .bss             inited   0x2000'0014    0x4  TIMER.o [1]
+    .bss             inited   0x2000'0018    0x4  TIMER.o [1]
+    .bss             inited   0x2000'001c    0x1  SPI.o [1]
+    .bss             inited   0x2000'001d    0x1  USB.o [1]
+                            - 0x2000'001e   0x1e
 
 "P2", part 2 of 2:                         0x400
-  CSTACK                      0x2000'0018  0x400  <Block>
-    CSTACK           uninit   0x2000'0018  0x400  <Block tail>
-                            - 0x2000'0418  0x400
+  CSTACK                      0x2000'0020  0x400  <Block>
+    CSTACK           uninit   0x2000'0020  0x400  <Block tail>
+                            - 0x2000'0420  0x400
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0x94c     0x7'ffff  0x7'f6b4
-  0x2000'0418  0x2000'ffff    0xfbe8
+        0xb0e     0x7'ffff  0x7'f4f2
+  0x2000'001e  0x2000'001f       0x2
+  0x2000'0420  0x2000'ffff    0xfbe0
 
 
 *******************************************************************************
@@ -163,11 +167,11 @@ Unused ranges:
 
           Address      Size
           -------      ----
-Copy (__iar_copy_init3)
-    1 source range, total size 0x18 (109% of destination):
-                0x854  0x18
-    1 destination range, total size 0x16:
-          0x2000'0000  0x16
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x12 (60% of destination):
+                0xafc  0x12
+    1 destination range, total size 0x1e:
+          0x2000'0000  0x1e
 
 
 
@@ -184,17 +188,18 @@ command line/config:
 F:\USB_RF\project\Debug\Obj\source: [1]
     GPIO.o                    1'156
     SPI.o                        12        1        1
+    TIMER.o                     348        4        8
     USB.o                        14        1        1
-    main.o                       88
+    main.o                      184
     nRF24L01.o                    2
     -------------------------------------------------
-    Total:                    1'272        2        2
+    Total:                    1'716        6       10
 
 F:\USB_RF\project\Debug\Obj\startup: [2]
     startup_stm32f10x_md.o      460
-    system_stm32f10x.o          420       20       20
+    system_stm32f10x.o          420       12       20
     -------------------------------------------------
-    Total:                      880       20       20
+    Total:                      880       12       20
 
 dl7M_tln.a: [3]
     exit.o                        4
@@ -205,11 +210,11 @@ dl7M_tln.a: [3]
 rt7M_tl.a: [4]
     cexit.o                      10
     cmain.o                      30
-    copy_init3.o                 42
     cstartup_M.o                 28
     data_init.o                  40
+    packbits_init_single.o       58
     -------------------------------------------------
-    Total:                      150
+    Total:                      166
 
 shb_l.a: [5]
     exit.o                       20
@@ -217,9 +222,9 @@ shb_l.a: [5]
     Total:                       20
 
     Gaps                          6
-    Linker created                        22    1'024
+    Linker created                        16    1'024
 -----------------------------------------------------
-    Grand Total:              2'336       44    1'046
+    Grand Total:              2'796       34    1'054
 
 
 *******************************************************************************
@@ -228,102 +233,113 @@ shb_l.a: [5]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-.iar.init_table$$Base         0x7dc          --   Gb  - Linker created -
-.iar.init_table$$Limit        0x7f0          --   Gb  - Linker created -
-?main                         0x7f1         Code  Gb  cmain.o [4]
-ADC1_2_IRQHandler             0x8e9         Code  Wk  startup_stm32f10x_md.o [2]
+.iar.init_table$$Base         0x9a8          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x9b8          --   Gb  - Linker created -
+?main                         0x9b9         Code  Gb  cmain.o [4]
+ADC1_2_IRQHandler             0xa99         Code  Wk  startup_stm32f10x_md.o [2]
 AHBPrescTable           0x2000'0004   0x10  Data  Gb  system_stm32f10x.o [2]
-BusFault_Handler              0x889         Code  Wk  startup_stm32f10x_md.o [2]
-CAN1_RX1_IRQHandler           0x8f5         Code  Wk  startup_stm32f10x_md.o [2]
-CAN1_SCE_IRQHandler           0x8f9         Code  Wk  startup_stm32f10x_md.o [2]
-CSTACK$$Base            0x2000'0018          --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'0418          --   Gb  - Linker created -
+BusFault_Handler              0xa39         Code  Wk  startup_stm32f10x_md.o [2]
+CAN1_RX1_IRQHandler           0xaa5         Code  Wk  startup_stm32f10x_md.o [2]
+CAN1_SCE_IRQHandler           0xaa9         Code  Wk  startup_stm32f10x_md.o [2]
+CSTACK$$Base            0x2000'0020          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0420          --   Gb  - Linker created -
 DMA1_Channel1_IRQHandler
-                              0x8cd         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa7d         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel2_IRQHandler
-                              0x8d1         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa81         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel3_IRQHandler
-                              0x8d5         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa85         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel4_IRQHandler
-                              0x8d9         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa89         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel5_IRQHandler
-                              0x8dd         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa8d         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel6_IRQHandler
-                              0x8e1         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa91         Code  Wk  startup_stm32f10x_md.o [2]
 DMA1_Channel7_IRQHandler
-                              0x8e5         Code  Wk  startup_stm32f10x_md.o [2]
-DebugMon_Handler              0x895         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI0_IRQHandler              0x8b9         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI15_10_IRQHandler          0x941         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI1_IRQHandler              0x8bd         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI2_IRQHandler              0x8c1         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI3_IRQHandler              0x8c5         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI4_IRQHandler              0x8c9         Code  Wk  startup_stm32f10x_md.o [2]
-EXTI9_5_IRQHandler            0x8fd         Code  Wk  startup_stm32f10x_md.o [2]
-FLASH_IRQHandler              0x8b1         Code  Wk  startup_stm32f10x_md.o [2]
+                              0xa95         Code  Wk  startup_stm32f10x_md.o [2]
+DebugMon_Handler              0xa45         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI0_IRQHandler              0xa69         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI15_10_IRQHandler          0xaf1         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI1_IRQHandler              0xa6d         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI2_IRQHandler              0xa71         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI3_IRQHandler              0xa75         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI4_IRQHandler              0xa79         Code  Wk  startup_stm32f10x_md.o [2]
+EXTI9_5_IRQHandler            0xaad         Code  Wk  startup_stm32f10x_md.o [2]
+FLASH_IRQHandler              0xa61         Code  Wk  startup_stm32f10x_md.o [2]
 GPIO_PINLow                   0x4e9   0x60  Code  Gb  GPIO.o [1]
 GPIO_SetOutPut                 0xed  0x3fc  Code  Gb  GPIO.o [1]
-HardFault_Handler             0x881         Code  Wk  startup_stm32f10x_md.o [2]
-I2C1_ER_IRQHandler            0x921         Code  Wk  startup_stm32f10x_md.o [2]
-I2C1_EV_IRQHandler            0x91d         Code  Wk  startup_stm32f10x_md.o [2]
-I2C2_ER_IRQHandler            0x929         Code  Wk  startup_stm32f10x_md.o [2]
-I2C2_EV_IRQHandler            0x925         Code  Wk  startup_stm32f10x_md.o [2]
-MemManage_Handler             0x885         Code  Wk  startup_stm32f10x_md.o [2]
-NMI_Handler                   0x87d         Code  Wk  startup_stm32f10x_md.o [2]
-PVD_IRQHandler                0x8a5         Code  Wk  startup_stm32f10x_md.o [2]
-PendSV_Handler                0x899         Code  Wk  startup_stm32f10x_md.o [2]
-RCC_IRQHandler                0x8b5         Code  Wk  startup_stm32f10x_md.o [2]
-RTCAlarm_IRQHandler           0x945         Code  Wk  startup_stm32f10x_md.o [2]
-RTC_IRQHandler                0x8ad         Code  Wk  startup_stm32f10x_md.o [2]
-Region$$Table$$Base           0x7dc          --   Gb  - Linker created -
-Region$$Table$$Limit          0x7f0          --   Gb  - Linker created -
-Reset_Handler                 0x86d         Code  Wk  startup_stm32f10x_md.o [2]
-SPI1_IRQHandler               0x92d         Code  Wk  startup_stm32f10x_md.o [2]
-SPI2_IRQHandler               0x931         Code  Wk  startup_stm32f10x_md.o [2]
-SPI_Init                      0x76d    0xc  Code  Gb  SPI.o [1]
-SPI_InitSuccess         0x2000'0014    0x1  Data  Gb  SPI.o [1]
-SVC_Handler                   0x891         Code  Wk  startup_stm32f10x_md.o [2]
+HardFault_Handler             0xa31         Code  Wk  startup_stm32f10x_md.o [2]
+I2C1_ER_IRQHandler            0xad1         Code  Wk  startup_stm32f10x_md.o [2]
+I2C1_EV_IRQHandler            0xacd         Code  Wk  startup_stm32f10x_md.o [2]
+I2C2_ER_IRQHandler            0xad9         Code  Wk  startup_stm32f10x_md.o [2]
+I2C2_EV_IRQHandler            0xad5         Code  Wk  startup_stm32f10x_md.o [2]
+MemManage_Handler             0xa35         Code  Wk  startup_stm32f10x_md.o [2]
+NMI_Handler                   0xa2d         Code  Wk  startup_stm32f10x_md.o [2]
+PVD_IRQHandler                0xa55         Code  Wk  startup_stm32f10x_md.o [2]
+PendSV_Handler                0xa49         Code  Wk  startup_stm32f10x_md.o [2]
+RCC_IRQHandler                0xa65         Code  Wk  startup_stm32f10x_md.o [2]
+RTCAlarm_IRQHandler           0xaf5         Code  Wk  startup_stm32f10x_md.o [2]
+RTC_IRQHandler                0xa5d         Code  Wk  startup_stm32f10x_md.o [2]
+Region$$Table$$Base           0x9a8          --   Gb  - Linker created -
+Region$$Table$$Limit          0x9b8          --   Gb  - Linker created -
+Reset_Handler                 0xa1d         Code  Wk  startup_stm32f10x_md.o [2]
+SPI1_IRQHandler               0xadd         Code  Wk  startup_stm32f10x_md.o [2]
+SPI2_IRQHandler               0xae1         Code  Wk  startup_stm32f10x_md.o [2]
+SPI_Init                      0x929    0xc  Code  Gb  SPI.o [1]
+SPI_InitSuccess         0x2000'001c    0x1  Data  Gb  SPI.o [1]
+SVC_Handler                   0xa41         Code  Wk  startup_stm32f10x_md.o [2]
 SetSysClock                   0x633    0x8  Code  Lc  system_stm32f10x.o [2]
 SetSysClockTo72               0x63b   0xae  Code  Lc  system_stm32f10x.o [2]
-SysTick_Handler               0x89d         Code  Wk  startup_stm32f10x_md.o [2]
+SysTick_Handler               0xa4d         Code  Wk  startup_stm32f10x_md.o [2]
 SystemCoreClock         0x2000'0000    0x4  Data  Gb  system_stm32f10x.o [2]
 SystemCoreClockUpdate         0x5b5   0x7e  Code  Gb  system_stm32f10x.o [2]
 SystemInit                    0x571   0x44  Code  Gb  system_stm32f10x.o [2]
-TAMPER_IRQHandler             0x8a9         Code  Wk  startup_stm32f10x_md.o [2]
-TIM1_BRK_IRQHandler           0x901         Code  Wk  startup_stm32f10x_md.o [2]
-TIM1_CC_IRQHandler            0x90d         Code  Wk  startup_stm32f10x_md.o [2]
+TAMPER_IRQHandler             0xa59         Code  Wk  startup_stm32f10x_md.o [2]
+TIM1_BRK_IRQHandler           0xab1         Code  Wk  startup_stm32f10x_md.o [2]
+TIM1_CC_IRQHandler            0xabd         Code  Wk  startup_stm32f10x_md.o [2]
 TIM1_TRG_COM_IRQHandler
-                              0x909         Code  Wk  startup_stm32f10x_md.o [2]
-TIM1_UP_IRQHandler            0x905         Code  Wk  startup_stm32f10x_md.o [2]
-TIM2_IRQHandler               0x911         Code  Wk  startup_stm32f10x_md.o [2]
-TIM3_IRQHandler               0x915         Code  Wk  startup_stm32f10x_md.o [2]
-TIM4_IRQHandler               0x919         Code  Wk  startup_stm32f10x_md.o [2]
-USART1_IRQHandler             0x935         Code  Wk  startup_stm32f10x_md.o [2]
-USART2_IRQHandler             0x939         Code  Wk  startup_stm32f10x_md.o [2]
-USART3_IRQHandler             0x93d         Code  Wk  startup_stm32f10x_md.o [2]
-USBWakeUp_IRQHandler          0x949         Code  Wk  startup_stm32f10x_md.o [2]
-USB_EnableInterrupt           0x785    0x2  Code  Gb  USB.o [1]
+                              0xab9         Code  Wk  startup_stm32f10x_md.o [2]
+TIM1_UP_IRQHandler            0xab5         Code  Wk  startup_stm32f10x_md.o [2]
+TIM2_IRQHandler               0xac1         Code  Wk  startup_stm32f10x_md.o [2]
+TIM3_IRQHandler               0xac5         Code  Wk  startup_stm32f10x_md.o [2]
+TIM4_IRQHandler               0xac9         Code  Wk  startup_stm32f10x_md.o [2]
+TIMER_Chaining                0x78f   0xae  Code  Gb  TIMER.o [1]
+TIMER_EnableInterrupt         0x849    0x2  Code  Gb  TIMER.o [1]
+TIMER_Init                    0x715   0x7a  Code  Gb  TIMER.o [1]
+TIMER_SetCLockSourceMicros
+                              0x843    0x6  Code  Gb  TIMER.o [1]
+TIMER_SetCLockSourceMillis
+                              0x83d    0x6  Code  Gb  TIMER.o [1]
+TIMER_SourceMicros      0x2000'0018    0x4  Data  Lc  TIMER.o [1]
+TIMER_SourceMillis      0x2000'0014    0x4  Data  Lc  TIMER.o [1]
+USART1_IRQHandler             0xae5         Code  Wk  startup_stm32f10x_md.o [2]
+USART2_IRQHandler             0xae9         Code  Wk  startup_stm32f10x_md.o [2]
+USART3_IRQHandler             0xaed         Code  Wk  startup_stm32f10x_md.o [2]
+USBWakeUp_IRQHandler          0xaf9         Code  Wk  startup_stm32f10x_md.o [2]
+USB_EnableInterrupt           0x941    0x2  Code  Gb  USB.o [1]
 USB_HP_CAN1_TX_IRQHandler
-                              0x8ed         Code  Wk  startup_stm32f10x_md.o [2]
-USB_Init                      0x779    0x8  Code  Gb  USB.o [1]
-USB_InitSuccess         0x2000'0015    0x1  Data  Gb  USB.o [1]
+                              0xa9d         Code  Wk  startup_stm32f10x_md.o [2]
+USB_Init                      0x935    0x8  Code  Gb  USB.o [1]
+USB_InitSuccess         0x2000'001d    0x1  Data  Gb  USB.o [1]
 USB_LP_CAN1_RX0_IRQHandler
-                              0x8f1         Code  Wk  startup_stm32f10x_md.o [2]
-UsageFault_Handler            0x88d         Code  Wk  startup_stm32f10x_md.o [2]
-WWDG_IRQHandler               0x8a1         Code  Wk  startup_stm32f10x_md.o [2]
-__cmain                       0x7f1         Code  Gb  cmain.o [4]
-__exit                        0x825   0x14  Code  Gb  exit.o [5]
-__iar_copy_init3              0x789   0x2a  Code  Gb  copy_init3.o [4]
-__iar_data_init3              0x7b5   0x28  Code  Gb  data_init.o [4]
-__iar_program_start           0x839         Code  Gb  cstartup_M.o [4]
-__low_level_init              0x80f    0x4  Code  Gb  low_level_init.o [3]
+                              0xaa1         Code  Wk  startup_stm32f10x_md.o [2]
+UsageFault_Handler            0xa3d         Code  Wk  startup_stm32f10x_md.o [2]
+WWDG_IRQHandler               0xa51         Code  Wk  startup_stm32f10x_md.o [2]
+__NVIC_EnableIRQ              0x871   0x1c  Code  Lc  main.o [1]
+__cmain                       0x9b9         Code  Gb  cmain.o [4]
+__exit                        0x9ed   0x14  Code  Gb  exit.o [5]
+__iar_data_init3              0x981   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                              0x945   0x3a  Code  Gb  packbits_init_single.o [4]
+__iar_program_start           0xa01         Code  Gb  cstartup_M.o [4]
+__low_level_init              0x9d7    0x4  Code  Gb  low_level_init.o [3]
 __vector_table                  0x0         Data  Gb  startup_stm32f10x_md.o [2]
-_call_main                    0x7fd         Code  Gb  cmain.o [4]
-_exit                         0x819         Code  Gb  cexit.o [4]
-delay                         0x715    0xe  Code  Lc  main.o [1]
-exit                          0x813    0x4  Code  Gb  exit.o [3]
-main                          0x723   0x42  Code  Gb  main.o [1]
-nRF24L01_Init                 0x787    0x2  Code  Gb  nRF24L01.o [1]
+_call_main                    0x9c5         Code  Gb  cmain.o [4]
+_exit                         0x9e1         Code  Gb  cexit.o [4]
+delay                         0x88d    0xe  Code  Lc  main.o [1]
+exit                          0x9db    0x4  Code  Gb  exit.o [3]
+main                          0x89b   0x7e  Code  Gb  main.o [1]
+nRF24L01_Init                 0x943    0x2  Code  Gb  nRF24L01.o [1]
 
 
 [1] = F:\USB_RF\project\Debug\Obj\source
@@ -332,9 +348,9 @@ nRF24L01_Init                 0x787    0x2  Code  Gb  nRF24L01.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-  2'336 bytes of readonly  code memory
-     44 bytes of readonly  data memory
-  1'046 bytes of readwrite data memory
+  2'796 bytes of readonly  code memory
+     34 bytes of readonly  data memory
+  1'054 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

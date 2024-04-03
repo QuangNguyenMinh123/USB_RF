@@ -8,7 +8,10 @@
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
-
+typedef enum{
+	COUNTER_UP,
+	COUNTER_DOWN
+} TIMER_CounterMode;
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
@@ -16,8 +19,11 @@
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
-void TIMER_Init(TIM_TypeDef* TIM);
-void TIMER_Chaining(TIM_TypeDef* SourceTimer, TIM_TypeDef* DestinationTimer);
+void TIMER_Init(TIM_TypeDef* TIM, TIMER_CounterMode Mode, uint32_t Counter);
+void TIMER_Chaining(void);
+void TIMER_SetCLockSourceMillis(TIM_TypeDef* Timer);
+void TIMER_SetCLockSourceMicros(TIM_TypeDef* Timer);
+void TIMER_EnableInterrupt(TIM_TypeDef* Timer);
 uint32_t TIMER_Milis(void);
 uint32_t TIMER_Micros(void);
 #endif  /* _TIMER_H */

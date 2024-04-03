@@ -53,9 +53,28 @@
         <EnforceMemoryConfiguration>1</EnforceMemoryConfiguration>
     </ArmDriver>
     <JLinkDriver>
+        <jlinkResetStyle>12</jlinkResetStyle>
+        <jlinkResetStrategy>0</jlinkResetStrategy>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
         <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
+    <DebugChecksum>
+        <Checksum>4113385202</Checksum>
+    </DebugChecksum>
+    <PlCacheRanges>
+        <CustomRanges0>0 0 536870912 1 0</CustomRanges0>
+        <CustomRangesText0>Code</CustomRangesText0>
+        <CustomRanges1>0 536870912 33554432 0 0</CustomRanges1>
+        <CustomRangesText1>SRAM</CustomRangesText1>
+        <CustomRanges2>0 570425344 33554432 0 0</CustomRanges2>
+        <CustomRangesText2>bit-banding</CustomRangesText2>
+        <CustomRanges3>0 1073741824 33554432 2 0</CustomRanges3>
+        <CustomRangesText3>Peripheral</CustomRangesText3>
+        <CustomRanges4>0 1107296256 33554432 2 0</CustomRanges4>
+        <CustomRangesText4>bit-banding</CustomRangesText4>
+        <CustomRanges5>0 3758096384 536870912 2 0</CustomRanges5>
+        <CustomRangesText5>Private peripheral</CustomRangesText5>
+    </PlCacheRanges>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>

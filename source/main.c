@@ -29,6 +29,14 @@ void main()
 {
 	SystemInit();
 	SystemCoreClockUpdate();
+	/* Timer initialization */
+	TIMER_Init(TIM1, COUNTER_UP, 50000);
+	TIMER_Init(TIM2, COUNTER_UP, 50000);
+	TIMER_EnableInterrupt(TIM2);
+	NVIC_EnableIRQ(TIM2_IRQn);
+	TIMER_SetCLockSourceMicros(TIM1);
+	TIMER_SetCLockSourceMillis(TIM2);
+	TIMER_Chaining();
 	/* Peripheral initialization */
 	/* SPI initialization */
 	SPI_Init();
