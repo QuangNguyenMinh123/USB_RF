@@ -1,6 +1,7 @@
 F:\USB_RF\project\Debug\BrowseInfo\source\main.pbi: \
-  F:\USB_RF\source\TIMER.h F:\USB_RF\source\nRF24L01.h \
-  F:\USB_RF\source\FLASH.h F:\USB_RF\source\USB.h F:\USB_RF\source\SPI.h \
+  F:\USB_RF\source\CLOCK.h F:\USB_RF\source\TIMER.h \
+  F:\USB_RF\source\nRF24L01.h F:\USB_RF\source\FLASH.h \
+  F:\USB_RF\source\USB.h F:\USB_RF\source\SPI.h \
   F:\USB_RF\startup\system_stm32f10x.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\iccarm_builtin.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\cmsis_iccarm.h \

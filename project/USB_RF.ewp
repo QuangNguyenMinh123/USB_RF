@@ -362,7 +362,7 @@
                 </option>
                 <option>
                     <name>CCOptLevel</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCOptStrategy</name>
@@ -371,7 +371,7 @@
                 </option>
                 <option>
                     <name>CCOptLevelSlave</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCPosIndRopi</name>
@@ -666,7 +666,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>1</hasPrio>
+                <hasPrio>64</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -759,7 +759,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\generic_cortex.icf</state>
+                    <state>$TOOLKIT_DIR$/config/linker/ST/stm32f103x8.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2146,6 +2146,12 @@
     </configuration>
     <group>
         <name>source</name>
+        <file>
+            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\CLOCK.h</name>
+        </file>
         <file>
             <name>$PROJ_DIR$\..\source\FLASH.c</name>
         </file>

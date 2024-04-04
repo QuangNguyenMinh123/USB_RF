@@ -2848,6 +2848,12 @@
     <group>
         <name>source</name>
         <file>
+            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\CLOCK.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\source\FLASH.c</name>
         </file>
         <file>

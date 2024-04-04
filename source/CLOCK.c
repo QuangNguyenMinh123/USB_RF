@@ -1,24 +1,12 @@
-#include "GPIO.h"
-#include "SPI.h"
-#include "USB.h"
-#include "FLASH.h"
-#include "system_stm32f10x.h"
-#include "nRF24L01.h"
-#include "TIMER.h"
 #include "CLOCK.h"
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
-#define MS              3120U
-#define SEC             3129597U
+
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
-static void delay(uint32_t delayTime) {
-	uint32_t ui32Cnt = 0U;
-	for (; ui32Cnt< delayTime; ui32Cnt++) {
-		__asm("nop");                                                                                                                               	}
-}
+
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
@@ -26,43 +14,40 @@ static void delay(uint32_t delayTime) {
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
-void main()
+void CLOCK_Init(int crystalFreq)
 {
-	/* Clock initialization */
-	CLOCK_Init(16);
-	/* Timer initialization */
-	TIMER_Init(TIM1, COUNTER_UP, 50000);
-	TIMER_Init(TIM2, COUNTER_UP, 50000);
-	TIMER_EnableInterrupt(TIM2);
-	NVIC_EnableIRQ(TIM2_IRQn);
-	TIMER_SetCLockSourceMicros(TIM1);
-	TIMER_SetCLockSourceMillis(TIM2);
-	TIMER_Chaining();
-	/* Peripheral initialization */
-	/* SPI initialization */
-	SPI_Init();
-	/* USB initialization */
-	USB_Init();
- 	USB_EnableInterrupt();
-	/* Led initialization */
-	GPIO_SetOutPut(PB10, General_Push_Pull);
-	GPIO_PINLow(PB10);
-	/* nRF24L01 initialization */
-	while (SPI_InitSuccess == FALSE);
-	nRF24L01_Init();
-	while (USB_InitSuccess == FALSE);
-	while (1)
+	/* HSI selected as system clock */
+	RCC->CFGR &= ~RCC_CFGR_SW;										/* RCC_CR->SW */
+	while ((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_HSI);		/* Wait until HW is switch to HSI */
+	/* Disble PLL  */
+	RCC->CR &= ~RCC_CR_PLLON;
+	while ( (RCC->CR & RCC_CR_PLLRDY) != 0);
+	/* OSC IN divide by 2 */
+	if (crystalFreq == 16)
 	{
-		if (USB_DataDirection == SEND)
-		{
-
-		}
-		else
-		{
-
-		}
+		RCC->CFGR &= ~RCC_CFGR_PLLXTPRE;
+		RCC->CFGR |= RCC_CFGR_PLLXTPRE_HSE_Div2;
 	}
+	else if (crystalFreq == 8)
+	{
+		RCC->CFGR &= ~RCC_CFGR_PLLXTPRE;
+	}
+	/* ADC prescaler div 6 */
+	RCC->CFGR |= RCC_CFGR_ADCPRE_DIV8;
+	/* APB2 Prescaler = 1 -> 72 Mhz */
+	RCC->CFGR |= RCC_CFGR_PPRE2_DIV1;
+	/* APB1 Prescaler = 2 -> 36 Mhz*/
+	RCC->CFGR |= RCC_CFGR_PPRE1_DIV2;
+	/* Choose PLL entry clock source as HSE */
+	RCC->CFGR |= RCC_CFGR_PLLSRC_HSE;
+	/* Enable PLL */
+	RCC->CR |= RCC_CR_PLLON;
+	while ((RCC->CR & RCC_CR_PLLRDY) != RCC_CR_PLLRDY);
+	/* PLL selected as system clock */
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while ((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);		/* Wait until HW is switch to PLL */
 }
+
 /***********************************************************************************************************************
  * EOF
  **********************************************************************************************************************/

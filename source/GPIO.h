@@ -94,4 +94,6 @@ void GPIO_SetAnalog(ADC_PIN PIN);
 uint32_t GPIO_ReadAnalog(ADC_TypeDef *ADCx);
 /* GPIO external IRQ Module */
 void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE);
+
+void GPIO_SetPWM(IO_PIN PIN);
 #endif   /* _GPIO_H */

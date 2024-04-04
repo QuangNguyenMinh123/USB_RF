@@ -1,5 +1,5 @@
-F:\USB_RF\project\Debug\BrowseInfo\source\TIMER.pbi: \
-  F:\USB_RF\source\TIMER.c F:\USB_RF\source\TIMER.h \
+F:\USB_RF\project\Debug\BrowseInfo\source\CLOCK.pbi: \
+  F:\USB_RF\source\CLOCK.c F:\USB_RF\source\CLOCK.h \
   F:\USB_RF\startup\stm32f10x.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\core_cm3.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdint.h \

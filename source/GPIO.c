@@ -509,6 +509,32 @@ void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE ) {
 	NVIC_EnableIRQ(IRQ_Idx);
 }
 
+
+void GPIO_SetPWM(IO_PIN PIN) {
+	GPIO_SetOutPut(PIN, Alternate_Push_Pull);
+	/* Timer 2 setting */
+	RCC->APB1ENR |= BIT_2;
+	
+		TIM2->CR1 |= BIT_0 | BIT_7;
+		TIM2->CR2 = 0;
+		TIM2->SMCR = 0;
+		TIM2->DIER = 0;
+		TIM2->EGR = 0;
+		TIM2->CCMR1 = 0;
+		TIM2->CCMR2 = 0; 
+		TIM2->DCR = 0;
+	
+	
+		TIM2->CCMR2 |= (6<<4) ;	
+		TIM2->CCMR2 |=  (1<<(3)) ;
+		
+		
+		TIM2->CCER |= (1 << 4) | (1 << 8);
+		
+		TIM2->PSC = 71;
+		TIM2->ARR = 2100;
+}
+
 /*******************************************************************************
  * EOF
  ******************************************************************************/
