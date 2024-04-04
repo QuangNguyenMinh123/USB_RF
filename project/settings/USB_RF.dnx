@@ -39,16 +39,16 @@
         <EnforceMemoryConfiguration>1</EnforceMemoryConfiguration>
     </ArmDriver>
     <JLinkDriver>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
+        <CStepIntDis>_ 0</CStepIntDis>
         <jlinkResetStyle>12</jlinkResetStyle>
         <jlinkResetStrategy>0</jlinkResetStrategy>
         <TraceBufferSize>0x10000</TraceBufferSize>
         <TraceStallIfFIFOFull>0x0</TraceStallIfFIFOFull>
         <TracePortSize>0x0</TracePortSize>
-        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
-        <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>1530882620</Checksum>
+        <Checksum>1121839975</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -165,8 +165,7 @@
     <Breakpoints2>
         <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\startup\core_cm3.h}.1145.1" 0 0 1 "" 0 "" 0</Bp0>
         <Bp1>_ 0 "EMUL_CODE" "0x800'0a9c" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\source\main.c}.0.1" 0 0 1 "" 0 "" 0</Bp2>
-        <Count>3</Count>
+        <Count>2</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>

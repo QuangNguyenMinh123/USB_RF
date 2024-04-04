@@ -2,7 +2,8 @@
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
-
+#define SYSTICK_ARR_VALUE				9000000U
+#define NVIC_PRIO_BITS		          	4U
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -10,7 +11,7 @@
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-
+static uint32_t ui32micros = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
@@ -46,6 +47,32 @@ void CLOCK_Init(int crystalFreq)
 	/* PLL selected as system clock */
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
 	while ((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);		/* Wait until HW is switch to PLL */
+}
+
+void CLOCK_SystickInit(void) {
+	/* https://developer.arm.com/documentation/dui0552/a/cortex-m3-peripherals/system-timer--systick/systick-control-and-status-register */
+	ui32micros=0U;
+	/* Program the reload value */
+	/* SysTick Reload Value Register */
+	/* 8997620 */
+	SysTick->LOAD |= (SYSTICK_ARR_VALUE - 1); /* Minus 1 because counter count down to 0 */
+	SysTick->VAL   = 0UL;
+
+	NVIC_SetPriority (SysTick_IRQ, (1UL << NVIC_PRIO_BITS) - 1UL);
+
+	/* SysTick Control and Status Register */
+	/* bit 0: enable; bit 1: IRQ enable, systick clock = 72M / 8 = 9M */
+	SysTick->CTRL = 0;
+	SysTick->CTRL |= BIT_0 | BIT_1;
+}
+
+uint32_t micros(void) {
+	return ( ui32micros + ((SYSTICK_ARR_VALUE - SysTick->VAL) / 9) );
+}
+
+/**************************SYSTICK HANDLER*************************************/
+void SysTick_Handler(void) {
+	ui32micros += (SYSTICK_ARR_VALUE / 9) + 1;
 }
 
 /***********************************************************************************************************************

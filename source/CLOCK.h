@@ -17,4 +17,6 @@
  * API
  **********************************************************************************************************************/
 void CLOCK_Init(int crystalFreq);
+void CLOCK_SystickInit(void);
+uint32_t micros(void);
 #endif  /* _CLOCK_H */
