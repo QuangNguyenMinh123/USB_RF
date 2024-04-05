@@ -58,7 +58,7 @@ void CLOCK_SystickInit(void) {
 	SysTick->LOAD |= (SYSTICK_ARR_VALUE - 1); /* Minus 1 because counter count down to 0 */
 	SysTick->VAL   = 0UL;
 
-	NVIC_SetPriority (SysTick_IRQ, (1UL << NVIC_PRIO_BITS) - 1UL);
+	NVIC_SetPriority ((IRQn_Type)SysTick_IRQ, (1UL << NVIC_PRIO_BITS) - 1UL);
 
 	/* SysTick Control and Status Register */
 	/* bit 0: enable; bit 1: IRQ enable, systick clock = 72M / 8 = 9M */

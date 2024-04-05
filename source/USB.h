@@ -12,16 +12,24 @@ typedef enum
 {
 	SEND,
 	RECEIVE
-} DataDirectionType;
+} USB_DataDirectionType;
+
+typedef enum
+{
+	LOW_SPEED,
+	HIGH_SPEED
+} USB_Speed;
 
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
-extern DataDirectionType USB_DataDirection;
+extern USB_DataDirectionType USB_DataDirection;
 extern bool USB_InitSuccess;
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
 void USB_Init(void);
 void USB_EnableInterrupt(void);
+bool USB_CheckData(void);
+void USB_Send2Host(void);
 #endif  /* _USB_H */

@@ -12,18 +12,43 @@
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-DataDirectionType USB_DataDirection;
+USB_DataDirectionType USB_DataDirection;
 bool USB_InitSuccess = FALSE;
-
+static unsigned char USB_DeviceAddress = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
+static bool USB_IsIdle(void)
+{
+
+}
+
+static bool USB_IsJState(void)
+{
+
+}
+
+static bool USB_IsKState(void)
+{
+
+}
+
 void USB_Init(void)
 {
 	USB_InitSuccess = TRUE;
 }
 
 void USB_EnableInterrupt(void)
+{
+
+}
+
+bool USB_CheckData(void)
+{
+	return TRUE;
+}
+
+void USB_Send2Host(void)
 {
 
 }

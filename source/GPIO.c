@@ -506,7 +506,7 @@ void GPIO_SetInterrupt(IO_PIN PIN,EDGE EDGE_STATE ) {
 		EXTI->FTSR |= (1<<(PIN % 16));
 	}
 	/* IRQ handler */
-	NVIC_EnableIRQ(IRQ_Idx);
+	NVIC_EnableIRQ((IRQn_Type)IRQ_Idx);
 }
 
 /*******************************************************************************
