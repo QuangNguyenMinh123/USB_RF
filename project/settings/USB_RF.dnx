@@ -11,25 +11,10 @@
         <LimitSize>0</LimitSize>
         <ByteLimit>50</ByteLimit>
     </Stack>
-    <Interrupts>
-        <Enabled>1</Enabled>
-    </Interrupts>
-    <MemConfig>
-        <Base>1</Base>
-        <Manual>0</Manual>
-        <Ddf>1</Ddf>
-        <TypeViol>0</TypeViol>
-        <Stop>1</Stop>
-    </MemConfig>
     <Trace1>
         <Enabled>0</Enabled>
         <ShowSource>1</ShowSource>
     </Trace1>
-    <Simulator>
-        <Freq>10000000</Freq>
-        <FreqHi>0</FreqHi>
-        <MultiCoreRunAll>1</MultiCoreRunAll>
-    </Simulator>
     <PlDriver>
         <FirstRun>0</FirstRun>
         <MemConfigValue>C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32F103C8.ddf</MemConfigValue>
@@ -39,16 +24,16 @@
         <EnableCache>0</EnableCache>
     </ArmDriver>
     <JLinkDriver>
-        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
-        <CStepIntDis>_ 0</CStepIntDis>
         <jlinkResetStyle>12</jlinkResetStyle>
         <jlinkResetStrategy>0</jlinkResetStrategy>
         <TraceBufferSize>0x10000</TraceBufferSize>
         <TraceStallIfFIFOFull>0x0</TraceStallIfFIFOFull>
         <TracePortSize>0x0</TracePortSize>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
+        <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>1121839975</Checksum>
+        <Checksum>863320865</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -64,7 +49,7 @@
     <SWOTraceHWSettings>
         <OverrideDefaultClocks>0</OverrideDefaultClocks>
         <CpuClock>72000000</CpuClock>
-        <ClockAutoDetect>0</ClockAutoDetect>
+        <ClockAutoDetect>1</ClockAutoDetect>
         <ClockWanted>2000000</ClockWanted>
         <JtagSpeed>2000000</JtagSpeed>
         <Prescaler>36</Prescaler>
@@ -79,6 +64,34 @@
         <ITMportsLogFile>0</ITMportsLogFile>
         <ITMlogFile>$PROJ_DIR$\ITM.log</ITMlogFile>
     </SWOTraceHWSettings>
+    <PowerLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <Title_0>I0</Title_0>
+        <Symbol_0>0 4 0</Symbol_0>
+        <LiveEnabled>0</LiveEnabled>
+        <LiveFile />
+    </PowerLog>
+    <CallStackLog>
+        <Enabled>0</Enabled>
+    </CallStackLog>
+    <CallStackStripe>
+        <ShowTiming>1</ShowTiming>
+    </CallStackStripe>
+    <PowerProbe>
+        <Frequency>10000</Frequency>
+        <Probe0>I0</Probe0>
+        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
+    </PowerProbe>
+    <StLinkDriver>
+        <stlinkserialNo>@</stlinkserialNo>
+        <stlinkfoundProbes />
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
+        <CStepIntDis>_ 0</CStepIntDis>
+        <stlinkResetStyle>0</stlinkResetStyle>
+        <stlinkResetStrategy>0</stlinkResetStrategy>
+    </StLinkDriver>
     <Trace2>
         <Enabled>0</Enabled>
         <ShowSource>0</ShowSource>
@@ -93,30 +106,6 @@
         <EventLSU>0</EventLSU>
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
-    <PowerLog>
-        <GraphEnabled>0</GraphEnabled>
-        <LogEnabled>0</LogEnabled>
-        <ShowTimeLog>1</ShowTimeLog>
-        <Title_0>I0</Title_0>
-        <Symbol_0>0 4 0</Symbol_0>
-        <LiveEnabled>0</LiveEnabled>
-        <LiveFile />
-    </PowerLog>
-    <DataLog>
-        <GraphEnabled>0</GraphEnabled>
-        <LogEnabled>0</LogEnabled>
-        <ShowTimeLog>1</ShowTimeLog>
-        <SumEnabled>0</SumEnabled>
-        <ShowTimeSum>1</ShowTimeSum>
-    </DataLog>
-    <InterruptLog>
-        <GraphEnabled>0</GraphEnabled>
-        <LogEnabled>0</LogEnabled>
-        <ShowTimeLog>1</ShowTimeLog>
-        <SumEnabled>0</SumEnabled>
-        <ShowTimeSum>1</ShowTimeSum>
-        <SumSortOrder>0</SumSortOrder>
-    </InterruptLog>
     <EventLog>
         <GraphEnabled>0</GraphEnabled>
         <LogEnabled>0</LogEnabled>
@@ -133,27 +122,46 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
-    <TermIOLog>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-    </TermIOLog>
     <DriverProfiling>
         <Enabled>0</Enabled>
         <Mode>1</Mode>
         <Graph>0</Graph>
         <Symbiont>0</Symbiont>
     </DriverProfiling>
-    <CallStackLog>
-        <Enabled>0</Enabled>
-    </CallStackLog>
-    <CallStackStripe>
-        <ShowTiming>1</ShowTiming>
-    </CallStackStripe>
-    <PowerProbe>
-        <Frequency>10000</Frequency>
-        <Probe0>I0</Probe0>
-        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
-    </PowerProbe>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <InterruptLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <SumEnabled>0</SumEnabled>
+        <ShowTimeSum>1</ShowTimeSum>
+        <SumSortOrder>0</SumSortOrder>
+    </InterruptLog>
+    <DataLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <SumEnabled>0</SumEnabled>
+        <ShowTimeSum>1</ShowTimeSum>
+    </DataLog>
+    <Interrupts>
+        <Enabled>1</Enabled>
+    </Interrupts>
+    <MemConfig>
+        <Base>1</Base>
+        <Manual>0</Manual>
+        <Ddf>1</Ddf>
+        <TypeViol>0</TypeViol>
+        <Stop>1</Stop>
+    </MemConfig>
+    <Simulator>
+        <Freq>10000000</Freq>
+        <FreqHi>0</FreqHi>
+        <MultiCoreRunAll>1</MultiCoreRunAll>
+    </Simulator>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
@@ -163,9 +171,8 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\startup\core_cm3.h}.1145.1" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "EMUL_CODE" "0x800'0a9c" 0 0 1 "" 0 "" 0</Bp1>
-        <Count>2</Count>
+        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\main.c}.28.2" 0 0 1 "" 0 "" 0</Bp0>
+        <Count>1</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>

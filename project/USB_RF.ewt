@@ -2892,6 +2892,9 @@
         <file>
             <name>$PROJ_DIR$\..\source\USB.h</name>
         </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_HW.h</name>
+        </file>
     </group>
     <group>
         <name>startup</name>
