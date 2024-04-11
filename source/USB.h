@@ -4,6 +4,14 @@
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
+/* Register Address */
+#define USB_BASE             	(APB1PERIPH_BASE + 0x5c00)
+#define USB_MEM_BASE	     	(APB1PERIPH_BASE + 0x6000)
+#define USB_MEM_SIZE	     	(512)
+#define USB 					((volatile USB_TypeDef *) USB_BASE)
+#define USB_MEM					((volatile USB_HW_Buffer *) USB_MEM_BASE)
+#define USB_BUFFER_SIZE			(64)
+
 #define OUT_TOKEN		0b0001
 #define	IN_TOKEN		0b1001
 #define	SOF_TOKEN		0b0101
@@ -20,9 +28,29 @@
 #define	ERR				0b1100
 #define	SPLIT			0b1000
 #define	PING			0b0100
+
+
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
+typedef struct
+{
+  __IO uint32_t EPR[8];
+  uint32_t  RESERVED[8];
+  __IO uint32_t CNTR;
+  __IO uint32_t ISTR;
+  __IO uint32_t FNR;
+  __IO uint32_t DADDR;
+  __IO uint32_t BTABLE;
+} USB_TypeDef;
+
+typedef struct {
+  __IO uint32_t ADDR_TX;
+  __IO uint32_t COUNT_TX;
+  __IO uint32_t ADDR_RX;
+  __IO uint32_t COUNT_RX;
+} USB_HW_Buffer;
+
 typedef enum
 {
 	IN,

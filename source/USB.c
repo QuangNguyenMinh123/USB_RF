@@ -35,7 +35,18 @@ static bool USB_IsKState(void)
 
 void USB_Init(void)
 {
+	/* Disable USB */
+	RCC->APB1ENR &= ~RCC_APB1ENR_USBEN;
+	/* Reset USB peripheral */
+	RCC->APB1RSTR |= RCC_APB1RSTR_USBRST;
+	RCC->APB1RSTR &= ~RCC_APB1RSTR_USBRST;
+	/* PLL clock is divided by 1.5 -> 72/1.5 = 48MHz */
+	RCC->CFGR &= ~RCC_CFGR_USBPRE;
+	/* Enable USB clock */
+	RCC->APB1ENR |= RCC_APB1ENR_USBEN;
+	/*  */
 	USB_InitSuccess = TRUE;
+	
 }
 
 void USB_EnableInterrupt(void)

@@ -48,6 +48,7 @@ void main()
 	while (SPI_InitSuccess == FALSE);
 	nRF24L01_Init();
 	while (USB_InitSuccess == FALSE);
+	timer = micros();
 	while (1)
 	{
 		timer = micros();

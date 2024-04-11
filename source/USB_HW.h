@@ -16,5 +16,24 @@
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
+/* CTRM */
+__inline void USB_HW_EnableInterrupt_CTRM(void)
+{
+	USB->CNTR |= USB_CNTR_CTRM;
+}
 
+__inline void USB_HW_DisableInterrupt_CTRM(void)
+{
+	USB->CNTR &= ~USB_CNTR_CTRM;
+}
+/* PMAOVRM */
+__inline void USB_HW_EnableInterrupt_PMAOVRM(void)
+{
+	USB->CNTR |= USB_CNTR_PMAOVRM;
+}
+
+__inline void USB_HW_DisableInterrupt_PMAOVRM(void)
+{
+	USB->CNTR &= ~USB_CNTR_PMAOVRM;
+}
 #endif  /* _USB_H */
