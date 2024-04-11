@@ -33,7 +33,7 @@
         <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>1989614764</Checksum>
+        <Checksum>383279666</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>

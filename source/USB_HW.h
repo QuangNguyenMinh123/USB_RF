@@ -36,4 +36,4 @@ __inline void USB_HW_DisableInterrupt_PMAOVRM(void)
 {
 	USB->CNTR &= ~USB_CNTR_PMAOVRM;
 }
-#endif  /* _USB_H */
+#endif  /* _USB_HW_H */
