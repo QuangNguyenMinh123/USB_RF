@@ -79,7 +79,7 @@ typedef enum
 	XYZ,
 	ABC
 } USB_RequestType;
-
+/*---------------------- Device Descriptor ----------------------*/
 typedef struct
 {
 	int bLength;
@@ -97,7 +97,7 @@ typedef struct
 	int iSerialNumber;
 	int bNumConfigurations;
 } USB_DeviceDescriptor;
-
+/*---------------------- Configuration Descriptor ----------------------*/
 typedef struct
 {
 	int bLength;
@@ -106,9 +106,10 @@ typedef struct
 	int bNumInterfaces;
 	int bConfigurationValue;
 	int iConfiguration;
+	int bmAttributes;
 	int bMaxPower;
 } USB_ConfigurationDescriptor;
-
+/*---------------------- Interface Descriptor ----------------------*/
 typedef struct
 {
 	int bLength;
@@ -117,18 +118,31 @@ typedef struct
 	int bAlternateSetting;
 	int bNumEndpoints;
 	int bInterfaceClass;
+	int bInterfaceSubClass;
 	int bInterfaceProtocol;
 	int iInterface;
 } USB_InterfaceDescriptor;
-
+/*---------------------- Endpoint Descriptor ----------------------*/
 typedef struct
 {
 	int bLength;
 	int bDescriptorType;
 	int bEndpointAddress;
+	int bmAttributes;
 	int wMaxPacketSize;
 	int bInterval;
 } USB_EndpointDescriptor;
+/*---------------------- HID Descriptor ----------------------*/
+typedef struct
+{
+	int bLength;
+	int bDescriptorType;
+	int bcdHID;
+	int bCountryCode;
+	int bNumDescriptors;
+	int bDescriptorType;
+	int wDescriptorLength;
+} USB_HIDDescriptor;
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
