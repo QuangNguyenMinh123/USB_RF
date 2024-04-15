@@ -76,9 +76,27 @@ typedef enum
 
 typedef enum
 {
-	XYZ,
-	ABC
-} USB_RequestType;
+	/* Token */
+	OUT 	= 0b0001,
+	IN 		= 0b1001,
+	SOF 	= 0b0101,
+	SETUP 	= 0b1101,
+	/* Data */
+	DATA0 	= 0b0011,
+	DATA1 	= 0b1011,
+	DATA2 	= 0b0111,
+	MDATA 	= 0b1111,
+	/* Handshake */
+	ACK 	= 0b0010,
+	NACK 	= 0b1010,
+	STALL 	= 0b1110,
+	NYET 	= 0b0110,
+	/* Special */
+	PRE 	= 0b1100,
+	ERR 	= 0b1100,
+	SPLIT 	= 0b1000,
+	PING 	= 0b0100
+} USB_PIDType;
 /*---------------------- Device Descriptor ----------------------*/
 typedef struct
 {
