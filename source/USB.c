@@ -20,13 +20,13 @@
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-
+volatile int a = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
 static void USB_EndpointInit(int EndpointIdx)
 {
-	
+	USB->EPR[EndpointIdx] |= EndpointIdx;
 }
 
 static void USB_EnableInterrupt(void)
@@ -35,10 +35,17 @@ static void USB_EnableInterrupt(void)
 	USB->CNTR |= USB_CNTR_PMAOVRM;
 	USB->CNTR |= USB_CNTR_ERRM;
 	USB->CNTR |= USB_CNTR_WKUPM;
-	USB->CNTR |= USB_CNTR_SUSPM;
-	USB->CNTR |= USB_CNTR_RESETM;
 	USB->CNTR |= USB_CNTR_SOFM;
-	USB->CNTR |= USB_CNTR_ESOFM;
+	if (USB->ISTR & USB_ISTR_SUSP)
+		USB->ISTR &= ~USB_ISTR_SUSP;
+	if (USB->ISTR & USB_ISTR_RESET)
+		USB->ISTR &= ~USB_ISTR_RESET;
+	if (USB->ISTR & USB_ISTR_ESOF)
+		USB->ISTR &= ~USB_ISTR_ESOF;
+	NVIC_SetPriority ((IRQn_Type)USB_HP_CAN1_TX_IRQn, (1UL << 10) - 1UL);
+	NVIC_SetPriority ((IRQn_Type)USB_LP_CAN1_RX0_IRQn, (1UL << 11) - 1UL);
+	NVIC_SetPriority ((IRQn_Type)USBWakeUp_IRQn, (1UL << 12) - 1UL);
+
 }
 
 void USB_Init(void)
@@ -52,7 +59,7 @@ void USB_Init(void)
 	/* PLL clock is divided by 1.5 -> 72/1.5 = 48MHz */
 	RCC->CFGR &= ~RCC_CFGR_USBPRE;
 	/* Enable USB clock */
-	RCC->APB1ENR |= RCC_APB1ENR_USBEN;	
+	RCC->APB1ENR |= RCC_APB1ENR_USBEN;
 	/* Reset USB peripheral */
 	USB->CNTR |= USB_CNTR_PDWN;
 	timer = micros();
@@ -60,6 +67,7 @@ void USB_Init(void)
 	USB->CNTR &= ~USB_CNTR_PDWN;
 	timer = micros();
 	while (micros() - timer < 1);
+	USB->CNTR &= ~USB_CNTR_FRES;
 	/* Enable USB device */
 	USB->DADDR |= USB_DADDR_EF;
 	/* Endpoint Initialization */
@@ -82,17 +90,17 @@ void USB_Send2Host(void)
 
 void USBWakeUp_IRQHandler(void)
 {
-
+	a = 1;
 }
 
 void USB_HP_CAN1_TX_IRQHandler(void)
 {
-
+	a = 2;
 }
 
 void USB_LP_CAN1_RX0_IRQHandler(void)
 {
-
+	a = 3;
 }
 /***********************************************************************************************************************
  * EOF
