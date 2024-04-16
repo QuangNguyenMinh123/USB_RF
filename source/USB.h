@@ -10,7 +10,6 @@
 #define USB_MEM_SIZE	     	(512)
 #define USB 					((volatile USB_TypeDef *) USB_BASE)
 #define USB_MEM					((volatile USB_HW_Buffer *) USB_MEM_BASE)
-#define USB_BUFFER_SIZE			(64)
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -28,14 +27,10 @@ typedef struct
 } USB_TypeDef;
 /*---------------------- USB buffer register ----------------------*/
 typedef struct {
-  __IO uint16_t ADDR_TX;
-  uint16_t RESERVED0;
-  __IO uint16_t COUNT_TX;
-  uint16_t RESERVED1;
-  __IO uint16_t ADDR_RX;
-  uint16_t RESERVED2;
-  __IO uint16_t COUNT_RX;
-  uint16_t RESERVED3;
+  __IO uint32_t ADDR_TX;
+  __IO uint32_t COUNT_TX;
+  __IO uint32_t ADDR_RX;
+  __IO uint32_t COUNT_RX;
 } USB_HW_Buffer;
 /*---------------------- Endpoint type encoding ----------------------*/
 typedef enum
