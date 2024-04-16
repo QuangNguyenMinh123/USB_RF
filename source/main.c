@@ -40,14 +40,11 @@ void main()
 	SPI_Init();
 	/* USB initialization */
 	USB_Init();
- 	USB_EnableInterrupt();
 	/* Led initialization */
 	GPIO_SetOutPut(PB10, General_Push_Pull);
 	GPIO_PINLow(PB10);
 	/* nRF24L01 initialization */
-	while (SPI_InitSuccess == FALSE);
 	nRF24L01_Init();
-	while (USB_InitSuccess == FALSE);
 	timer = micros();
 	while (1)
 	{

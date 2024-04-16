@@ -11,26 +11,11 @@
 #define USB 					((volatile USB_TypeDef *) USB_BASE)
 #define USB_MEM					((volatile USB_HW_Buffer *) USB_MEM_BASE)
 #define USB_BUFFER_SIZE			(64)
-
-#define OUT_TOKEN		0b0001
-#define	IN_TOKEN		0b1001
-#define	SOF_TOKEN		0b0101
-#define	SETUP_TOKEN		0b1101
-#define	DATA0			0b0011
-#define	DATA1			0b1011
-#define	DATA2			0b0111
-#define	MDATA			0b1111
-#define	ACK				0b0010
-#define	NACK			0b1010
-#define	STALL			0b1110
-#define	NYET			0b0110
-#define	PREAMBLE		0b1100
-#define	ERR				0b1100
-#define	SPLIT			0b1000
-#define	PING			0b0100
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
+/*---------------------- Register definition ----------------------*/
+/*---------------------- USB common register ----------------------*/
 typedef struct
 {
   __IO uint32_t EPR[8];
@@ -41,61 +26,56 @@ typedef struct
   __IO uint32_t DADDR;
   __IO uint32_t BTABLE;
 } USB_TypeDef;
-
+/*---------------------- USB buffer register ----------------------*/
 typedef struct {
-  __IO uint32_t ADDR_TX;
-  __IO uint32_t COUNT_TX;
-  __IO uint32_t ADDR_RX;
-  __IO uint32_t COUNT_RX;
+  __IO uint16_t ADDR_TX;
+  uint16_t RESERVED0;
+  __IO uint16_t COUNT_TX;
+  uint16_t RESERVED1;
+  __IO uint16_t ADDR_RX;
+  uint16_t RESERVED2;
+  __IO uint16_t COUNT_RX;
+  uint16_t RESERVED3;
 } USB_HW_Buffer;
-
+/*---------------------- Endpoint type encoding ----------------------*/
 typedef enum
 {
-	IN,
-	OUT
-} USB_DataDirectionType;
-
+	BULK		= 0b00,
+	CONTROL		= 0b01,
+	ISOCHRONOUS	= 0b10,
+	INTERRUPT	= 0b11
+} USB_EndpointEncodingType;
+/*---------------------- Transmission/ Reception status encoding ----------------------*/
 typedef enum
 {
-	LOW_SPEED,
-	HIGH_SPEED
-} USB_Speed;
-
-typedef enum
-{
-	abc
-} USB_DeviceClasses;
-
-typedef enum
-{
-	CONTROL,
-	ISOCHRONOUS,
-	BULK,
-	INTERRUPT
-} USB_TransferType;
-
+	DISABLED	= 0b00,
+	STALL		= 0b01,
+	NACK		= 0b10,
+	VALID		= 0b11
+} USB_TX_RX_StatusType;
+/*---------------------- Packet ID encoding ----------------------*/
 typedef enum
 {
 	/* Token */
-	OUT 	= 0b0001,
-	IN 		= 0b1001,
-	SOF 	= 0b0101,
-	SETUP 	= 0b1101,
+	PID_OUT 		= 0b0001,
+	PID_IN 			= 0b1001,
+	PID_PID_SOF 	= 0b0101,
+	PID_SETUP 		= 0b1101,
 	/* Data */
-	DATA0 	= 0b0011,
-	DATA1 	= 0b1011,
-	DATA2 	= 0b0111,
-	MDATA 	= 0b1111,
+	PID_DATA0 		= 0b0011,
+	PID_DATA1 		= 0b1011,
+	PID_DATA2 		= 0b0111,
+	PID_PID_MDATA 	= 0b1111,
 	/* Handshake */
-	ACK 	= 0b0010,
-	NACK 	= 0b1010,
-	STALL 	= 0b1110,
-	NYET 	= 0b0110,
+	PID_ACK 		= 0b0010,
+	PID_NACK 		= 0b1010,
+	PID_STALL 		= 0b1110,
+	PID_PID_NYET	= 0b0110,
 	/* Special */
-	PRE 	= 0b1100,
-	ERR 	= 0b1100,
-	SPLIT 	= 0b1000,
-	PING 	= 0b0100
+	PID_PRE 		= 0b1100,
+	PID_ERR 		= 0b1100,
+	PID_SPLIT 		= 0b1000,
+	PID_PING 		= 0b0100
 } USB_PIDType;
 /*---------------------- Device Descriptor ----------------------*/
 typedef struct
@@ -158,19 +138,15 @@ typedef struct
 	int bcdHID;
 	int bCountryCode;
 	int bNumDescriptors;
-	int bDescriptorType;
 	int wDescriptorLength;
 } USB_HIDDescriptor;
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
-extern USB_DataDirectionType USB_DataDirection;
-extern bool USB_InitSuccess;
+
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
 void USB_Init(void);
-void USB_EnableInterrupt(void);
-bool USB_CheckData(void);
 void USB_Send2Host(void);
 #endif  /* _USB_H */
