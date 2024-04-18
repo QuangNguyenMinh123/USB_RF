@@ -81,6 +81,8 @@ void USB_Init(void)
 	USB_EndpointInit(END_POINT_7);
 	/* Enable IRQ */
 	USB_EnableInterrupt();
+	USB->EPR[0] |= 0b01 << USB_EP0R_EP_TYPE; 			/* Control endpoint type*/
+	
 }
 
 void USB_Send2Host(void)

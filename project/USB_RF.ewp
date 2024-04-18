@@ -2195,7 +2195,13 @@
             <name>$PROJ_DIR$\..\source\USB_HID.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\source\USB_HW.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\source\USB_HW.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_Types.h</name>
         </file>
     </group>
     <group>

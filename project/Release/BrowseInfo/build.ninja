@@ -1,0 +1,143 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\CLOCK.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\CLOCK.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\FLASH.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\FLASH.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\GPIO.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\GPIO.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\main.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\main.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\main.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\main.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\main.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\nRF24L01.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\nRF24L01.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\SPI.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\SPI.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\SPI.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\SPI.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\SPI.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\SPI.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\SPI.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\TIMER.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\TIMER.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\USB.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\USB.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\USB.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\USB.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\USB.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\USB.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\USB.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\source\USB_HW.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\source\USB_HW.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\source --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.xcl : COMPILER_XCL 
+  xclcommand = -source_file F$:\USB_RF\startup\system_stm32f10x.c -xcl_file F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.xcl -macro_file F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = F$:\USB_RF\startup\system_stm32f10x.c -D NDEBUG -o F$:\USB_RF\project\Release\Obj\startup --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -Oh --predef_macros F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.tmp
+  rspfile_name = F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.xcl.rsp
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.xcl |  $
+F$:\USB_RF\source\CLOCK.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.xcl |  $
+F$:\USB_RF\source\FLASH.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.xcl |  $
+F$:\USB_RF\source\GPIO.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\main.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\main.xcl |  $
+F$:\USB_RF\source\main.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\main.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\main.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.xcl |  $
+F$:\USB_RF\source\nRF24L01.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\SPI.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\SPI.xcl |  $
+F$:\USB_RF\source\SPI.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\SPI.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\SPI.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.xcl |  $
+F$:\USB_RF\source\TIMER.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\USB.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\USB.xcl |  $
+F$:\USB_RF\source\USB.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\USB.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\USB.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.xcl |  $
+F$:\USB_RF\source\USB_HW.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.pbi -f F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.pbi : INDEXER F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.xcl |  $
+F$:\USB_RF\startup\system_stm32f10x.c
+  flags = -out=F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.pbi -f F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.xcl
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbw : MAKEBROWSE F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbd
+  flags = F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbd -output F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbw
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part0.pbi : PDBLINK F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.pbi |  $
+F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.pbi $
+F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.pbi
+  flags = -M F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part0.pbi F$:\USB_RF\project\Release\BrowseInfo\source\CLOCK.pbi F$:\USB_RF\project\Release\BrowseInfo\source\FLASH.pbi F$:\USB_RF\project\Release\BrowseInfo\source\GPIO.pbi
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part1.pbi : PDBLINK F$:\USB_RF\project\Release\BrowseInfo\source\main.pbi |  $
+F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.pbi $
+F$:\USB_RF\project\Release\BrowseInfo\source\SPI.pbi
+  flags = -M F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part1.pbi F$:\USB_RF\project\Release\BrowseInfo\source\main.pbi F$:\USB_RF\project\Release\BrowseInfo\source\nRF24L01.pbi F$:\USB_RF\project\Release\BrowseInfo\source\SPI.pbi
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part2.pbi : PDBLINK F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.pbi |  $
+F$:\USB_RF\project\Release\BrowseInfo\source\USB.pbi $
+F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.pbi
+  flags = -M F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part2.pbi F$:\USB_RF\project\Release\BrowseInfo\source\TIMER.pbi F$:\USB_RF\project\Release\BrowseInfo\source\USB.pbi F$:\USB_RF\project\Release\BrowseInfo\source\USB_HW.pbi
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part3.pbi : PDBLINK F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.pbi
+  flags = -M F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part3.pbi F$:\USB_RF\project\Release\BrowseInfo\startup\system_stm32f10x.pbi
+
+build F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbd : PDBLINK F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part0.pbi |  $
+F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part1.pbi $
+F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part2.pbi $
+F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part3.pbi
+  flags = -M F$:\USB_RF\project\Release\BrowseInfo\USB_RF.pbd F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part0.pbi F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part1.pbi F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part2.pbi F$:\USB_RF\project\Release\BrowseInfo\USB_RF_part3.pbi
+
