@@ -139,11 +139,57 @@ typedef struct
 	int bNumDescriptors;
 	int wDescriptorLength;
 } USB_HIDDescriptor;
+/*---------------------- Host Request ----------------------*/
+typedef enum
+{
+  GET_STATUS = 0,
+  CLEAR_FEATURE,
+  RESERVED1,
+  SET_FEATURE,
+  RESERVED2,
+  SET_ADDRESS,
+  GET_DESCRIPTOR,
+  SET_DESCRIPTOR,
+  GET_CONFIGURATION,
+  SET_CONFIGURATION,
+  GET_INTERFACE,
+  SET_INTERFACE,
+  TOTAL_sREQUEST,  /* Total number of Standard request */
+  SYNCH_FRAME = 12
+} USB_Request;
+/* */
+typedef struct _ENDPOINT_INFO
+{
+  uint16_t  Usb_wLength;
+  uint16_t  Usb_wOffset;
+  uint16_t  PacketSize;
+  uint8_t   *(*CopyData)(uint16_t Length);
+} ENDPOINT_INFO;
+/*---------------------- Host Request ----------------------*/
+typedef struct _DEVICE_INFO
+{
+  uint8_t USBbmRequestType;       	/* bmRequestType */
+  uint8_t USBbRequest;            	/* bRequest */
+  uint16_t USBwValues;         		/* wValue */
+  uint16_t USBwIndexs;         		/* wIndex */
+  uint16_t USBwLengths;        		/* wLength */
+  uint8_t ControlState;           	/* of type CONTROL_STATE */
+  uint8_t Current_Feature;
+  uint8_t Current_Configuration;   	/* Selected configuration */
+  uint8_t Current_Interface;       	/* Selected interface of current configuration */
+  uint8_t Current_AlternateSetting;	/* Selected Alternate Setting of current
+                                     interface*/
+  ENDPOINT_INFO Ctrl_Info;
+}DEVICE_INFO;
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
  * API
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+ * EOF
  **********************************************************************************************************************/
 #endif  /* _USB_TYPES_H */

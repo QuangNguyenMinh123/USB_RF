@@ -1,10 +1,10 @@
 /**
  * USB HID Keyboard scan codes as per USB spec 1.11
  * plus some additional codes
- * 
+ *
  * Created by MightyPork, 2016
  * Public domain
- * 
+ *
  * Adapted from:
  * https:/*source.android.com/devices/input/keyboard-devices.html
  */
@@ -28,15 +28,15 @@
 /**
  * Scan codes - last N slots in the HID report (usually 6).
  * 0x00 if no key pressed.
- * 
- * If more than N keys are pressed, the HID reports 
+ *
+ * If more than N keys are pressed, the HID reports
  * KEY_ERR_OVF in all slots to indicate this condition.
  */
 #define KEY_NONE 						0x00 			/* No key pressed */
-#define KEY_ERR_OVF 					0x01 			/* Keyboard Error Roll Over - used for all slots if 
+#define KEY_ERR_OVF 					0x01 			/* Keyboard Error Roll Over - used for all slots if
 														too many keys are pressed ("Phantom key") */
 														/* 0x02   Keyboard POST Fail */
-										   				/* 0x03   Keyboard Error Undefined */ 
+										   				/* 0x03   Keyboard Error Undefined */
 #define KEY_A 							0x04 			/* Keyboard a and A */
 #define KEY_B 							0x05 			/* Keyboard b and B */
 #define KEY_C 							0x06 			/* Keyboard c and C */
@@ -293,5 +293,9 @@
 
 /***********************************************************************************************************************
  * API
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+ * EOF
  **********************************************************************************************************************/
 #endif  /* _USB_HID_H */

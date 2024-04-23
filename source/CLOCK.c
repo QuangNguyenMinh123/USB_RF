@@ -4,6 +4,7 @@
  **********************************************************************************************************************/
 #define SYSTICK_ARR_VALUE				9000000U
 #define NVIC_PRIO_BITS		          	4U
+#define MS								3120U
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -15,14 +16,21 @@ static uint32_t ui32micros = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
+static void delay(uint32_t delayTime) {
+	uint32_t ui32Cnt = 0U;
+	for (; ui32Cnt< delayTime; ui32Cnt++) {
+		__asm("nop");                                                                                                                               	}
+}
+
 void CLOCK_Init(int crystalFreq)
 {
 	/* HSI selected as system clock */
 	RCC->CFGR &= ~RCC_CFGR_SW;										/* RCC_CR->SW */
-	while ((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_HSI);		/* Wait until HW is switch to HSI */
+	delay(5*MS);
 	/* Disble PLL  */
 	RCC->CR &= ~RCC_CR_PLLON;
 	while ( (RCC->CR & RCC_CR_PLLRDY) != 0);
+	delay(MS);
 	/* OSC IN divide by 2 */
 	if (crystalFreq == 16)
 	{
@@ -33,20 +41,27 @@ void CLOCK_Init(int crystalFreq)
 	{
 		RCC->CFGR &= ~RCC_CFGR_PLLXTPRE;
 	}
+	delay(MS);
 	/* ADC prescaler div 6 */
 	RCC->CFGR |= RCC_CFGR_ADCPRE_DIV8;
+	delay(MS);
 	/* APB2 Prescaler = 1 -> 72 Mhz */
 	RCC->CFGR |= RCC_CFGR_PPRE2_DIV1;
+	delay(MS);
 	/* APB1 Prescaler = 2 -> 36 Mhz*/
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV2;
+	delay(MS);
 	/* Choose PLL entry clock source as HSE */
 	RCC->CFGR |= RCC_CFGR_PLLSRC_HSE;
+	delay(MS);
 	/* Enable PLL */
 	RCC->CR |= RCC_CR_PLLON;
 	while ((RCC->CR & RCC_CR_PLLRDY) != RCC_CR_PLLRDY);
+	delay(MS);
 	/* PLL selected as system clock */
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
 	while ((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);		/* Wait until HW is switch to PLL */
+	delay(MS);
 }
 
 void CLOCK_SystickInit(void) {

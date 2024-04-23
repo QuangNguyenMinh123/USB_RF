@@ -20,6 +20,7 @@
 uint32_t timer = 0;
 int i =0;
 USB_BufferType *CHeck_ptr = (USB_BufferType*)USB_MEM_BASE;
+uint32_t Data[100];
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
@@ -41,6 +42,7 @@ void main()
 	/* SPI initialization */
 	SPI_Init();
 	/* USB initialization */
+	USB_PrepareBuffer(Data);
 	USB_Init();
 	/* Led initialization */
 	GPIO_SetOutPut(PB10, General_Push_Pull);
@@ -50,11 +52,7 @@ void main()
 	timer = micros();
 	while (1)
 	{
-		i++;
-		timer = micros();
-		GPIO_PINToggle(PB10);
-		while (micros() - timer <= 1000000);
-		if (i==4)
+		if (USB->EPR[0] & USB_EP0R_STAT_RX == (0b10 << 12))
 			timer = 0;
 	}
 }
