@@ -44,6 +44,27 @@ typedef enum
 	ISOCHRONOUS	= 0b10,
 	INTERRUPT	= 0b11
 } USB_EndpointEncodingType;
+/*---------------------- DIRECTION ----------------------*/
+typedef enum
+{
+	DIR_OUT 	= 0,
+	DIR_IN 		= 1
+} USB_DirectionType;
+/*---------------------- REQUEST TYPE ----------------------*/
+typedef enum
+{
+	STANDARD 	= 0,
+	CLASS 		= 1,
+	VENDOR
+} USB_RequestSpecificType;
+/*---------------------- REQUEST TYPE ----------------------*/
+typedef enum
+{
+	DEVICE		= 0,
+	INTERFACE	= 1,
+	ENDPOINT	= 2,
+	OTHER		= 3
+} USB_RecipientType;
 /*---------------------- Transmission/ Reception status encoding ----------------------*/
 typedef enum
 {
@@ -58,7 +79,7 @@ typedef enum
 	/* Token */
 	PID_OUT 		= 0b0001,
 	PID_IN 			= 0b1001,
-	PID_PID_SOF 	= 0b0101,
+	PID_SOF 	= 0b0101,
 	PID_SETUP 		= 0b1101,
 	/* Data */
 	PID_DATA0 		= 0b0011,
@@ -76,70 +97,7 @@ typedef enum
 	PID_SPLIT 		= 0b1000,
 	PID_PING 		= 0b0100
 } USB_PIDType;
-/*---------------------- Device Descriptor ----------------------*/
-typedef struct
-{
-	int bLength;
-	int bDescriptorType;
-	int bcdUSB;
-	int bDeviceClass;
-	int bDeviceSubClass;
-	int bDeviceProtocol;
-	int bMaxPacketSize0;
-	int idVendor;
-	int idProduct;
-	int bcdDevice;
-	int iManufacturer;
-	int iProduct;
-	int iSerialNumber;
-	int bNumConfigurations;
-} USB_DeviceDescriptor;
-/*---------------------- Configuration Descriptor ----------------------*/
-typedef struct
-{
-	int bLength;
-	int bDescriptorType;
-	int wTotalLength;
-	int bNumInterfaces;
-	int bConfigurationValue;
-	int iConfiguration;
-	int bmAttributes;
-	int bMaxPower;
-} USB_ConfigurationDescriptor;
-/*---------------------- Interface Descriptor ----------------------*/
-typedef struct
-{
-	int bLength;
-	int bDescriptorType;
-	int bInterfaceNumber;
-	int bAlternateSetting;
-	int bNumEndpoints;
-	int bInterfaceClass;
-	int bInterfaceSubClass;
-	int bInterfaceProtocol;
-	int iInterface;
-} USB_InterfaceDescriptor;
-/*---------------------- Endpoint Descriptor ----------------------*/
-typedef struct
-{
-	int bLength;
-	int bDescriptorType;
-	int bEndpointAddress;
-	int bmAttributes;
-	int wMaxPacketSize;
-	int bInterval;
-} USB_EndpointDescriptor;
-/*---------------------- HID Descriptor ----------------------*/
-typedef struct
-{
-	int bLength;
-	int bDescriptorType;
-	int bcdHID;
-	int bCountryCode;
-	int bNumDescriptors;
-	int wDescriptorLength;
-} USB_HIDDescriptor;
-/*---------------------- Host Request ----------------------*/
+/*---------------------- Standard Request ----------------------*/
 typedef enum
 {
   GET_STATUS = 0,
@@ -157,7 +115,75 @@ typedef enum
   TOTAL_sREQUEST,  /* Total number of Standard request */
   SYNCH_FRAME = 12
 } USB_Request;
-/* */
+/*---------------------- Transfer status ----------------------*/
+typedef enum
+{
+	IN,
+	RECEIVING,
+	OUT,
+	SENDING,
+	HALTED
+} USB_StatusType;
+/*---------------------- Device Descriptor ----------------------*/
+typedef struct
+{
+	uint8_t bLength;
+	uint8_t bDescriptorType;
+	uint16_t bcdUSB;
+	uint8_t bDeviceClass;
+	uint8_t bDeviceSubClass;
+	uint8_t bDeviceProtocol;
+	uint8_t bMaxPacketSize0;
+	uint16_t idVendor;
+	uint16_t idProduct;
+	uint16_t bcdDevice;
+	uint8_t iManufacturer;
+	uint8_t iProduct;
+	uint8_t iSerialNumber;
+	uint8_t bNumConfigurations;
+} USB_DeviceDescriptorType;
+/*---------------------- Configuration Descriptor ----------------------*/
+typedef struct
+{
+	uint8_t bLength;
+	uint8_t bDescriptorType;
+	uint16_t wTotalLength;
+	uint8_t bNumInterfaces;
+	uint8_t bConfigurationValue;
+	uint8_t iConfiguration;
+	uint8_t bmAttributes;
+	uint8_t MaxPower;
+} USB_ConfigurationDescriptorType;
+/*---------------------- Interface Descriptor ----------------------*/
+typedef struct
+{
+	uint8_t bLength;
+	uint8_t bDescriptorType;
+	uint8_t bInterfaceNumber;
+	uint8_t bAlternateSetting;
+	uint8_t bNumEndpoints;
+	uint8_t bInterfaceClass;
+	uint8_t bInterfaceSubClass;
+	uint8_t bInterfaceProtocol;
+	uint8_t iInterface;
+} USB_InterfaceDescriptorType;
+/*---------------------- Endpoint Descriptor ----------------------*/
+typedef struct
+{
+	uint8_t bLength;
+	uint8_t bDescriptorType;
+	uint8_t bEndpointAddress;
+	uint8_t bmAttributes;
+	uint16_t wMaxPacketSize;
+	uint8_t bInterval;
+} USB_EndpointDescriptorType;
+/*----------------------  Packet Information ----------------------*/
+typedef struct
+{
+  uint16_t Size;
+  uint16_t RemainSize;
+} USB_PacketInforType;
+/*---------------------- Host Request ----------------------*/
 typedef struct _ENDPOINT_INFO
 {
   uint16_t  Usb_wLength;
@@ -165,7 +191,24 @@ typedef struct _ENDPOINT_INFO
   uint16_t  PacketSize;
   uint8_t   *(*CopyData)(uint16_t Length);
 } ENDPOINT_INFO;
-/*---------------------- Host Request ----------------------*/
+/*---------------------- Request Type ----------------------*/
+typedef struct
+{
+  	uint16_t bmRequestType;
+  	uint16_t bRequest;
+  	uint16_t wValue;
+	uint16_t wIndex;
+	uint16_t wLength;
+} USB_RequestType;
+/*---------------------- Request specific Type ----------------------*/
+typedef struct
+{
+  	USB_DirectionType Dir;
+  	USB_RequestSpecificType RequestClass;
+	USB_RecipientType Receiver;
+	uint8_t EndpointTarget;
+} USB_SpecificRequestType;
+
 typedef struct _DEVICE_INFO
 {
   uint8_t USBbmRequestType;       	/* bmRequestType */
@@ -184,7 +227,7 @@ typedef struct _DEVICE_INFO
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
-
+extern const uint8_t Virtual_Com_Port_DeviceDescriptor[];
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/

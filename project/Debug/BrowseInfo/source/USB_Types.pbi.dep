@@ -1,9 +1,5 @@
-F:\USB_RF\project\Debug\BrowseInfo\source\main.pbi: \
-  F:\USB_RF\source\USB_IRQ.h F:\USB_RF\source\USB_HW.h \
-  F:\USB_RF\source\CLOCK.h F:\USB_RF\source\TIMER.h \
-  F:\USB_RF\source\nRF24L01.h F:\USB_RF\source\FLASH.h \
-  F:\USB_RF\source\USB_Types.h F:\USB_RF\source\USB.h \
-  F:\USB_RF\source\SPI.h F:\USB_RF\startup\system_stm32f10x.h \
+F:\USB_RF\project\Debug\BrowseInfo\source\USB_Types.pbi: \
+  F:\USB_RF\startup\system_stm32f10x.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\iccarm_builtin.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\cmsis_iccarm.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\cmsis_compiler.h \
@@ -15,5 +11,5 @@ F:\USB_RF\project\Debug\BrowseInfo\source\main.pbi: \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ycheck.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdint.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\core_cm3.h \
-  F:\USB_RF\startup\stm32f10x.h F:\USB_RF\source\GPIO.h \
-  F:\USB_RF\source\main.c
+  F:\USB_RF\startup\stm32f10x.h F:\USB_RF\source\USB_Types.h \
+  F:\USB_RF\source\USB_Types.c

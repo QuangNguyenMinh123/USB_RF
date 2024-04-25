@@ -89,13 +89,15 @@ __inline void USB_HW_SetDeviceAddr(int Address)
 __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size)
 {
 	int i = 0;
-	uint16_t *ptr_Adr = (uint16_t *) (USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX + USB_MEM_BASE);
+	uint16_t *ptr_Adr = (uint16_t *) (USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX * 2 + USB_MEM_BASE);
 	uint8_t * ptr_Data = SourceData;
-	for (i = 0; i < Size; i++)
+	uint16_t Temp;
+	for (i = 0; i  < (Size + 1) / 2; i++)
 	{
-		*ptr_Adr = *ptr_Data;
-		ptr_Data++;
-		ptr_Adr+=2;
+		*ptr_Adr = (*(ptr_Data + 1) << 8 ) | *(ptr_Data);
+
+		ptr_Data+= 2;
+		ptr_Adr	+= 2;
 	}
 	USB_MEM->EP_BUFFER[EnpointIdx].COUNT_TX = Size;
 }
@@ -141,6 +143,31 @@ __inline bool USB_HW_IsSetupPacket(uint8_t EnpointIdx)
 	uint16_t Msk = USB->EPR[EnpointIdx] & USB_EPR_SETUP_MSK;
 	bool Ret = (Msk == USB_EPR_SETUP_MSK);
 	return Ret;
+}
+
+__inline void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint8_t Value)
+{
+	USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX = Value;
+}
+
+__inline void HW_SetEPRxCount(uint8_t EnpointIdx, uint8_t Value)
+{
+	uint16_t NBlocks;
+
+	if (Value > 62)			/* Block 32 */
+	{
+		NBlocks = Value >> 5;
+		if ((Value & 0x1f) == 0)
+			NBlocks --;
+		USB_MEM->EP_BUFFER[EnpointIdx].COUNT_RX = (NBlocks << 10) | 0x8000;
+	}
+	else					/* Block 2 */
+	{
+		NBlocks = Value >> 1;
+		if((Value & 0x1) != 0)
+      		NBlocks++;
+		USB_MEM->EP_BUFFER[EnpointIdx].COUNT_RX = NBlocks << 10;
+	}
 }
 /***********************************************************************************************************************
  * EOF

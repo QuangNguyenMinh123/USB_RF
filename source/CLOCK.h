@@ -19,4 +19,5 @@
 void CLOCK_Init(int crystalFreq);
 void CLOCK_SystickInit(void);
 uint32_t micros(void);
+void delay(uint32_t delayTime);
 #endif  /* _CLOCK_H */

@@ -16,7 +16,7 @@ static uint32_t ui32micros = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
-static void delay(uint32_t delayTime) {
+void delay(uint32_t delayTime) {
 	uint32_t ui32Cnt = 0U;
 	for (; ui32Cnt< delayTime; ui32Cnt++) {
 		__asm("nop");                                                                                                                               	}
@@ -25,7 +25,7 @@ static void delay(uint32_t delayTime) {
 void CLOCK_Init(int crystalFreq)
 {
 	/* HSI selected as system clock */
-	RCC->CFGR &= ~RCC_CFGR_SW;										/* RCC_CR->SW */
+	RCC->CFGR &= ~RCC_CFGR_SW;					/* RCC_CR->SW */
 	delay(5*MS);
 	/* Disble PLL  */
 	RCC->CR &= ~RCC_CR_PLLON;

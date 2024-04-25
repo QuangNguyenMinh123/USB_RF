@@ -2201,6 +2201,15 @@
             <name>$PROJ_DIR$\..\source\USB_HW.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\source\USB_IRQ.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_IRQ.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_Types.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\source\USB_Types.h</name>
         </file>
     </group>

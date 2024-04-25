@@ -24127,9 +24127,649 @@
           <fields>
             <field>
               <name>BTABLE</name>
-              <description>Buffer table</description>
+              <description>Transmission buffer address</description>
               <bitOffset>3</bitOffset>
               <bitWidth>13</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address</description>
+          <addressOffset>0x400</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT0_TX</name>
+          <displayName>COUNT0_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x404</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT0_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_RX</name>
+          <displayName>ADDR0_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x408</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT0_RX</name>
+          <displayName>COUNT0_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x40C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR1_TX</name>
+          <displayName>ADDR1_TX</displayName>
+          <description>Buffer Transmission address EP1</description>
+          <addressOffset>0x410</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR1_TX</name>
+              <description>Buffer Transmission address  EP1</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT1_TX</name>
+          <displayName>COUNT1_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x414</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT1_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR1_RX</name>
+          <displayName>ADDR1_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x418</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR1_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT1_RX</name>
+          <displayName>COUNT1_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x41C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address  EP2</description>
+          <addressOffset>0x420</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address  EP2</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT2_TX</name>
+          <displayName>COUNT2_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x424</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT2_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR2_RX</name>
+          <displayName>ADDR2_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x428</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR2_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT2_RX</name>
+          <displayName>COUNT2_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x42C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address  EP3</description>
+          <addressOffset>0x430</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address EP3</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT3_TX</name>
+          <displayName>COUNT3_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x434</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT3_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR3_RX</name>
+          <displayName>ADDR3_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x438</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR3_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT3_RX</name>
+          <displayName>COUNT3_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x43C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address EP4</description>
+          <addressOffset>0x440</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address EP4</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT4_TX</name>
+          <displayName>COUNT4_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x444</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT4_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR4_RX</name>
+          <displayName>ADDR4_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x448</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR4_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT4_RX</name>
+          <displayName>COUNT4_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x44C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address EP5</description>
+          <addressOffset>0x450</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address EP5</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT5_TX</name>
+          <displayName>COUNT5_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x454</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT5_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR5_RX</name>
+          <displayName>ADDR5_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x458</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR5_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT5_RX</name>
+          <displayName>COUNT5_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x45C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address EP6</description>
+          <addressOffset>0x460</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address EP6</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT6_TX</name>
+          <displayName>COUNT6_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x464</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT6_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR6_RX</name>
+          <displayName>ADDR6_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x468</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR6_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT6_RX</name>
+          <displayName>COUNT6_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x46C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR0_TX</name>
+          <displayName>ADDR0_TX</displayName>
+          <description>Buffer Transmission address EP7</description>
+          <addressOffset>0x470</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR0_TX</name>
+              <description>Buffer Transmission address EP7</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT7_TX</name>
+          <displayName>COUNT7_TX</displayName>
+          <description>Transmission byte count</description>
+          <addressOffset>0x474</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT7_TX</name>
+              <description>Transmission byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ADDR7_RX</name>
+          <displayName>ADDR7_RX</displayName>
+          <description>Reception buffer address</description>
+          <addressOffset>0x478</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR7_RX</name>
+              <description>BRA</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COUNT7_RX</name>
+          <displayName>COUNT7_RX</displayName>
+          <description>Reception byte count </description>
+          <addressOffset>0x47C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>COUNT_RX</name>
+              <description>Reception byte count</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+            </field>
+            <field>
+              <name>NUM_BLOCK</name>
+              <description>Number of blocks</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>BL_SIZE</name>
+              <description>BLock size</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
             </field>
           </fields>
         </register>

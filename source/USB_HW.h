@@ -15,13 +15,13 @@
 /* rx/tx buffer base address */
 /* EP0  */
 #define ENDP0_RXADDR        (0x40)
-#define ENDP0_TXADDR        (0x200)
+#define ENDP0_TXADDR        (0xC0)
 /* EP1  */
-#define ENDP1_TXADDR        (0x118)
-#define ENDP1_RXADDR        (0x11C)
+#define ENDP1_RXADDR        (0x140)
+#define ENDP1_TXADDR        (0x1C0)
 /* EP2  */
-#define ENDP2_RXADDR        (0xD8)
-#define ENDP2_TXADDR        (0x98)
+#define ENDP2_RXADDR        (0x140)
+#define ENDP2_TXADDR        (0xC0)
 
 #define USB_EPR_DTOG_RX_POS             (14)
 #define USB_EPR_DTOG_RX_MSK             (0b1<<USB_EPR_DTOG_RX_POS)
@@ -97,6 +97,7 @@
       _wRegVal ^= EPTX_DTOG2;        \
     _SetENDPOINT(bEpNum, (_wRegVal | EP_CTR_RX|EP_CTR_TX));    \
   } /* _SetEPTxStatus */
+
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -145,6 +146,10 @@ void USB_HW_SetEPKind(uint8_t EnpointIdx, uint8_t Kind);
 void USB_HW_SetEPEnpointAddress(uint8_t EnpointIdx, uint8_t Address);
 
 bool USB_HW_IsSetupPacket(uint8_t EnpointIdx);
+
+void USB_HW_SetEPRxCount(uint8_t EnpointIdx, uint8_t Value);
+
+void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint8_t Value);
 /***********************************************************************************************************************
  * EOF
  **********************************************************************************************************************/

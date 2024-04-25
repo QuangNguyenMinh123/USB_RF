@@ -6,6 +6,8 @@
 #include "nRF24L01.h"
 #include "TIMER.h"
 #include "CLOCK.h"
+#include "USB_HW.h"
+#include "USB_IRQ.h"
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
@@ -28,6 +30,7 @@ void main()
 {
 	/* Clock initialization */
 	CLOCK_Init(16);
+	USB_IRQ_PrepareBuffer(Data);
 	CLOCK_SystickInit();
 	SystemCoreClockUpdate();
 	/* Timer initialization */
@@ -42,7 +45,6 @@ void main()
 	/* SPI initialization */
 	SPI_Init();
 	/* USB initialization */
-	USB_PrepareBuffer(Data);
 	USB_Init();
 	/* Led initialization */
 	GPIO_SetOutPut(PB10, General_Push_Pull);
