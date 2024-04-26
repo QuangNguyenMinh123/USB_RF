@@ -205,6 +205,7 @@ typedef struct
 {
   	USB_DirectionType Dir;
   	USB_RequestSpecificType RequestClass;
+	USB_Request Request;
 	USB_RecipientType Receiver;
 	uint8_t EndpointTarget;
 } USB_SpecificRequestType;

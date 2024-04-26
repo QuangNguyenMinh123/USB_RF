@@ -83,7 +83,7 @@ void USB_HW_SetPacketSize(uint8_t EndpointIdx, int Size)
 
 __inline void USB_HW_SetDeviceAddr(int Address)
 {
-	USB->DADDR |= Address;
+	USB->DADDR = BIT_7 | Address;
 }
 
 __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size)
@@ -91,11 +91,9 @@ __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size
 	int i = 0;
 	uint16_t *ptr_Adr = (uint16_t *) (USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX * 2 + USB_MEM_BASE);
 	uint8_t * ptr_Data = SourceData;
-	uint16_t Temp;
 	for (i = 0; i  < (Size + 1) / 2; i++)
 	{
 		*ptr_Adr = (*(ptr_Data + 1) << 8 ) | *(ptr_Data);
-
 		ptr_Data+= 2;
 		ptr_Adr	+= 2;
 	}
@@ -123,7 +121,14 @@ __inline void USB_HW_SetEPType(uint8_t EnpointIdx, USB_EndpointEncodingType Type
 
 __inline void USB_HW_ClearEP_CTR_RX(uint8_t EnpointIdx)
 {
-	USB->EPR[EnpointIdx] = 0b0000;
+	uint16_t Save = USB->EPR[EnpointIdx];
+	USB->EPR[EnpointIdx] = Save & 0x7FFF & EPREG_MASK;
+}
+
+__inline void USB_HW_ClearEP_CTR_TX(uint8_t EnpointIdx)
+{
+	uint16_t Save = USB->EPR[EnpointIdx];
+	USB->EPR[EnpointIdx] = Save & 0xFF7F & EPREG_MASK;
 }
 
 __inline void USB_HW_SetEPKind(uint8_t EnpointIdx, uint8_t Kind)
@@ -134,7 +139,8 @@ __inline void USB_HW_SetEPKind(uint8_t EnpointIdx, uint8_t Kind)
 
 __inline void USB_HW_SetEPEnpointAddress(uint8_t EnpointIdx, uint8_t Address)
 {
-	uint16_t Msk = USB->EPR[EnpointIdx] & USB_EPR_TX_MSK;
+	Address = Address & 0xf;
+	uint16_t Msk = USB->EPR[EnpointIdx] & 0b1000111110000000;
 	USB->EPR[EnpointIdx] =  Msk | (Address);
 }
 
@@ -145,12 +151,12 @@ __inline bool USB_HW_IsSetupPacket(uint8_t EnpointIdx)
 	return Ret;
 }
 
-__inline void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint8_t Value)
+__inline void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint16_t Value)
 {
 	USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX = Value;
 }
 
-__inline void HW_SetEPRxCount(uint8_t EnpointIdx, uint8_t Value)
+__inline void USB_HW_SetEPRxCount(uint8_t EnpointIdx, uint16_t Value)
 {
 	uint16_t NBlocks;
 

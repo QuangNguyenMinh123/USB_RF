@@ -14,11 +14,11 @@
 
 /* rx/tx buffer base address */
 /* EP0  */
-#define ENDP0_RXADDR        (0x40)
-#define ENDP0_TXADDR        (0xC0)
+#define ENDP0_RXADDR        (0x40)			/* actual address: 0x80 */
+#define ENDP0_TXADDR        (0xC0)			/* actual address: 0x180 */
 /* EP1  */
-#define ENDP1_RXADDR        (0x140)
-#define ENDP1_TXADDR        (0x1C0)
+#define ENDP1_RXADDR        (0x140)			/* actual address: 0x280 */
+#define ENDP1_TXADDR        (0x1C0)			/* actual address: 0x380 */
 /* EP2  */
 #define ENDP2_RXADDR        (0x140)
 #define ENDP2_TXADDR        (0xC0)
@@ -57,11 +57,20 @@
 #define USB_EPR_SETUP_POS				(11)
 #define USB_EPR_SETUP_MSK				(0b1 << USB_EPR_SETUP_POS)
 
+#define USB_EPR_CTR_RX_POS				(15)
+#define USB_EPR_CTR_RX_MSK				(0b1 << USB_EPR_CTR_RX_POS)
+
+#define USB_EPR_CTR_TX_POS				(7)
+#define USB_EPR_CTR_TX_MSK				(0b1 << USB_EPR_CTR_TX_POS)
+
 #define USB_EPR_EP_KIND_POS				(8)
 #define USB_EPR_EP_KIND_MSK				(0b1 << USB_EPR_EP_KIND_POS)
 
 #define DBL_BUF							0
 #define STATUS_OUT						1
+
+/* EndPoint REGister MASK (no toggle fields) */
+#define EPREG_MASK     (EP_CTR_RX|EP_SETUP|EP_T_FIELD|EP_KIND|EP_CTR_TX|EPADDR_FIELD)
 
 #define EP_CTR_RX      (0x8000) /* EndPoint Correct TRansfer RX */
 #define EP_DTOG_RX     (0x4000) /* EndPoint Data TOGGLE RX */
@@ -141,15 +150,17 @@ void USB_HW_SetEPType(uint8_t EnpointIdx, USB_EndpointEncodingType Type);
 
 void USB_HW_ClearEP_CTR_RX(uint8_t EnpointIdx);
 
+void USB_HW_ClearEP_CTR_TX(uint8_t EnpointIdx);
+
 void USB_HW_SetEPKind(uint8_t EnpointIdx, uint8_t Kind);
 
 void USB_HW_SetEPEnpointAddress(uint8_t EnpointIdx, uint8_t Address);
 
 bool USB_HW_IsSetupPacket(uint8_t EnpointIdx);
 
-void USB_HW_SetEPRxCount(uint8_t EnpointIdx, uint8_t Value);
+void USB_HW_SetEPRxCount(uint8_t EnpointIdx, uint16_t Value);
 
-void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint8_t Value);
+void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint16_t Value);
 /***********************************************************************************************************************
  * EOF
  **********************************************************************************************************************/
