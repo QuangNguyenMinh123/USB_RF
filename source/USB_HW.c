@@ -153,7 +153,7 @@ __inline bool USB_HW_IsSetupPacket(uint8_t EnpointIdx)
 
 __inline void USB_HW_SetEPTxCount(uint8_t EnpointIdx, uint16_t Value)
 {
-	USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX = Value;
+	USB_MEM->EP_BUFFER[EnpointIdx].COUNT_TX = Value;
 }
 
 __inline void USB_HW_SetEPRxCount(uint8_t EnpointIdx, uint16_t Value)

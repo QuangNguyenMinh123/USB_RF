@@ -59,6 +59,8 @@ uint16_t Direction = 0;
 USB_TX_RX_StatusType SaveRx;
 USB_TX_RX_StatusType SaveTx;
 
+uint16_t saveAdr = 0;
+
 int ctr = 0;
 int dum = 0;
 int reset = 0;
@@ -71,6 +73,7 @@ int get_configDes = 0;
 int get_device_des = 0;
 int data_out = 0;
 int host_in = 0;
+int setup = 0;
 
 DEVICE_INFO pInformation;
 uint32_t *ptr_Data;
@@ -145,8 +148,20 @@ void USB_IRQ_PrepareBuffer(uint32_t * ptr)
 	ptr_Data = ptr;
 }
 
-void USB_IRQ_PID_SETUP_Process(uint8_t EndpointIndex)
+void USB_IRQ_ZeroLengthPacket(void)
 {
+	USB_HW_SetEPTxCount(0,0);
+	USB_HW_SetEPTxStatus(0, VALID);
+}
+
+void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
+{
+	setup++;
+	if (set_addr % 2 == 1)
+	{
+		USB_HW_SetDeviceAddr(saveAdr);
+	}
+
 	if (Request.wLength == 0)
 	{
 		/* Request is SET_CONFIGURATION, SET_ADDRESS, SET_FEATURE, CLEAR_FEATURE */
@@ -160,10 +175,10 @@ void USB_IRQ_PID_SETUP_Process(uint8_t EndpointIndex)
     			}
 				else if (SpecificRequest.Request == SET_ADDRESS)
     			{
-					USB_HW_SetDeviceAddr(USB_ByteSwap(Request.wValue));
+					saveAdr = USB_ByteSwap(Request.wValue);
 					USB_HW_SetEPRxCount(END_POINT_0, 64);
 					USB_HW_SetEPRxStatus(END_POINT_0, VALID);
-					USB_HW_SetEPTxStatus(END_POINT_0, VALID);
+					USB_IRQ_ZeroLengthPacket();
 					set_addr ++;
     			}
 				else if (SpecificRequest.Request == SET_FEATURE)
@@ -207,6 +222,7 @@ void USB_IRQ_PID_SETUP_Process(uint8_t EndpointIndex)
 			{
 				USB_IRQ_SendDeviceDescriptor();
 				USB_HW_SetEPTxStatus(END_POINT_0, VALID);
+				USB_HW_SetEPRxStatus(END_POINT_0, VALID);
 				get_device_des++;
 			}
 		}
@@ -225,14 +241,16 @@ void USB_IRQ_PID_SETUP_Process(uint8_t EndpointIndex)
 	}
 }
 
-void USB_IRQ_PID_OUT_Process(uint8_t EndpointIndex)
+void USB_IRQ_CTR_PID_OUT_Process(uint8_t EndpointIndex)
 {
 	data_out++;
 }
 
-void USB_IRQ_PID_IN_Process(uint8_t EndpointIndex)
+void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
 {
 	host_in ++;
+
+
 }
 /***********************************************************************************************************************
  * Interrupt Handler
@@ -258,21 +276,21 @@ void USB_IRQ_CorrecTransfer(void)
 				/* If host require PID SETUP */
 				/* Clear CTR interupt flag */
 				USB_HW_ClearEP_CTR_RX(EndpointIndex);
-				USB_IRQ_PID_SETUP_Process(EndpointIndex);
+				USB_IRQ_CTR_PID_SETUP_Process(EndpointIndex);
 			}
 			else
 			{
 				/* Data is PID OUT */
 				/* Clear CTR interupt flag */
 				USB_HW_ClearEP_CTR_RX(EndpointIndex);
-				USB_IRQ_PID_OUT_Process(EndpointIndex);
+				USB_IRQ_CTR_PID_OUT_Process(EndpointIndex);
 			}
 		}
 		else	/* HOST_IN, Host gets the data */
 		{
 			/* Clear CTR interupt flag */
 			USB_HW_ClearEP_CTR_TX(EndpointIndex);
-			USB_IRQ_PID_IN_Process(EndpointIndex);
+			USB_IRQ_CTR_PID_IN_Process(EndpointIndex);
 		}
 		/* Recover RX, TX status */
 		//USB_HW_SetEPTxStatus(EndpointIndex, SaveTx);

@@ -17,24 +17,24 @@
 /*---------------------- USB common register ----------------------*/
 typedef struct
 {
-  __IO uint32_t EPR[8];
-  uint32_t  RESERVED[8];
-  __IO uint32_t CNTR;
-  __IO uint32_t ISTR;
-  __IO uint32_t FNR;
-  __IO uint32_t DADDR;
-  __IO uint32_t BTABLE;
+  	__IO uint32_t EPR[8];
+  	uint32_t  RESERVED[8];
+  	__IO uint32_t CNTR;
+  	__IO uint32_t ISTR;
+  	__IO uint32_t FNR;
+  	__IO uint32_t DADDR;
+  	__IO uint32_t BTABLE;
 } USB_TypeDef;
 /*---------------------- USB hardware buffer register ----------------------*/
 typedef struct {
-  __IO uint32_t ADDR_TX;
-  __IO uint32_t COUNT_TX;
-  __IO uint32_t ADDR_RX;
-  __IO uint32_t COUNT_RX;
+  	__IO uint32_t ADDR_TX;
+  	__IO uint32_t COUNT_TX;
+  	__IO uint32_t ADDR_RX;
+  	__IO uint32_t COUNT_RX;
 } USB_HW_Buffer;
 /*---------------------- USB buffer register ----------------------*/
 typedef struct {
-  USB_HW_Buffer EP_BUFFER[8];
+  	USB_HW_Buffer EP_BUFFER[8];
 } USB_BufferType;
 /*---------------------- Endpoint type encoding ----------------------*/
 typedef enum
@@ -100,21 +100,30 @@ typedef enum
 /*---------------------- Standard Request ----------------------*/
 typedef enum
 {
-  GET_STATUS = 0,
-  CLEAR_FEATURE,
-  RESERVED1,
-  SET_FEATURE,
-  RESERVED2,
-  SET_ADDRESS,
-  GET_DESCRIPTOR,
-  SET_DESCRIPTOR,
-  GET_CONFIGURATION,
-  SET_CONFIGURATION,
-  GET_INTERFACE,
-  SET_INTERFACE,
-  TOTAL_sREQUEST,  /* Total number of Standard request */
-  SYNCH_FRAME = 12
+  	GET_STATUS = 0,
+  	CLEAR_FEATURE,
+  	RESERVED1,
+  	SET_FEATURE,
+  	RESERVED2,
+  	SET_ADDRESS,
+  	GET_DESCRIPTOR,
+  	SET_DESCRIPTOR,
+  	GET_CONFIGURATION,
+  	SET_CONFIGURATION,
+  	GET_INTERFACE,
+  	SET_INTERFACE,
+  	TOTAL_sREQUEST,  /* Total number of Standard request */
+	SYNCH_FRAME = 12
 } USB_Request;
+/*---------------------- Enumeration state ----------------------*/
+typedef enum
+{
+	UNCONNECTED,
+	DEVICE_DESCRIPTOR,
+	ADDRESSING,
+	ADDRESSED,
+	FULL_DESCRIPTOR
+} USB_EnumerationType;
 /*---------------------- Transfer status ----------------------*/
 typedef enum
 {
