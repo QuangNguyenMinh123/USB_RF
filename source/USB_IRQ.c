@@ -54,6 +54,7 @@ static void USB_IRQ_SendConfiguration(void);
  * Variables
  **********************************************************************************************************************/
 uint16_t SaveEPRStatus = 0;
+uint16_t SaveISTR = 0;
 uint16_t EndpointIndex = 0;
 uint16_t Direction = 0;
 USB_TX_RX_StatusType SaveRx;
@@ -84,6 +85,7 @@ int k = 0;
 int getStatus = 0;
 int clearFeature = 0;
 int setFeature = 0;
+int get_interface = 0;
 
 DEVICE_INFO pInformation;
 /***********************************************************************************************************************
@@ -105,18 +107,6 @@ static void USB_EndpointReset(int EndpointIdx)
 	USB_HW_SetEPRxDataToggle(EndpointIdx, 0);
 	USB_HW_SetEPTxDataToggle(EndpointIdx, 0);
 	USB->EPR[EndpointIdx] = 0;
-}
-
-void copy()
-{
-	int j = 0;
-	uint16_t *ptr = (uint16_t *)0x40006080;
-	for (;j<8;j++)
-	{
-		check[k][j] = *ptr;
-		ptr++;
-	}
-	k++;
 }
 
 void USB_GetRequest(void) {
@@ -152,6 +142,7 @@ void USB_GetRequest(void) {
 		SpecificRequest.Receiver = OTHER;
 	SpecificRequest.EndpointTarget = Request.wIndex & 0b1111;
 	SpecificRequest.Request = Request.bRequest;
+	SpecificRequest.DescriptorType = Request.wValue;
 }
 
 static void USB_IRQ_SendDeviceDescriptor(void)
@@ -166,18 +157,6 @@ void USB_IRQ_PrepareBuffer(uint32_t * ptr)
 	ptr_Data = ptr;
 }
 
-
-void clearSetupRequest(void)
-{
-	uint32_t *ptr = (uint32_t *)0x40006080;
-	int j = 0;
-	for (;j<4;j++)
-	{
-		*ptr = 0;
-		ptr++;
-	}
-}
-
 void USB_IRQ_ZeroLengthPacket(void)
 {
 	USB_HW_SetEPTxCount(0,0);
@@ -187,18 +166,6 @@ void USB_IRQ_ZeroLengthPacket(void)
 void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 {
 	setup++;
-	copy();
-	if (EnumerationStatus == ADDRESSING)
-	{
-		while ((USB->DADDR & 0b1111111) == 0)
-		{
-			USB_HW_SetDeviceAddr(saveAdr);
-		}
-		EnumerationStatus = ADDRESSED;
-		USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
-		USB_HW_SetEPTxDataToggle(END_POINT_0, 0);
-	}
-
 	if (Request.wLength == 0)
 	{
 		/* Request is SET_CONFIGURATION, SET_ADDRESS, SET_FEATURE, CLEAR_FEATURE */
@@ -211,13 +178,12 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 
     			}
 				else if (SpecificRequest.Request == SET_ADDRESS)
-    			{
+				{
 					saveAdr = USB_ByteSwap(Request.wValue);
-					USB_HW_SetEPRxCount(END_POINT_0, 64);
-					USB_HW_SetEPRxStatus(END_POINT_0, VALID);
+					USB_HW_SetEPRxCount(EndpointIndex, 64);
+					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 					USB_IRQ_ZeroLengthPacket();
 					EnumerationStatus = ADDRESSING;
-					clearSetupRequest();
     			}
 				else if (SpecificRequest.Request == SET_FEATURE)
     			{
@@ -259,37 +225,56 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 			if (SpecificRequest.RequestClass == STANDARD
 				&& SpecificRequest.Receiver == DEVICE)
 			{
-				if (EnumerationStatus != ADDRESSED)
+				if (SpecificRequest.DescriptorType == DEVICE_DESCRIPTOR)
 				{
-					USB_IRQ_SendDeviceDescriptor();
-					USB_HW_SetEPTxStatus(END_POINT_0, VALID);
-					USB_HW_SetEPRxStatus(END_POINT_0, VALID);
-					EnumerationStatus = DEVICE_DESCRIPTOR;
-					get_device_des++;
-					clearSetupRequest();
+					if (EnumerationStatus != ADDRESSED)
+					{
+						USB_IRQ_SendDeviceDescriptor();
+						USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+						USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+						EnumerationStatus = INIT_DEVICE_DESCRIPTOR;
+					}
+					else if (EnumerationStatus == ADDRESSED)
+					{
+						EnumerationStatus = FULL_DESCRIPTOR;
+						USB_HW_SetupData(EndpointIndex, USB_DeviceDescriptor, GET_DESCIPTOR_SIZE);
+						USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+						USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+						get_ful_des++;
+					}
 				}
-				else if (EnumerationStatus == ADDRESSED)
+				else if (SpecificRequest.DescriptorType == CONFIG_DESCRIPTOR)
 				{
-					EnumerationStatus = FULL_DESCRIPTOR;
-					USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
-					USB_HW_SetEPTxDataToggle(END_POINT_0, 0);
-					USB_HW_SetEPTxCount(0, 18);
-					get_ful_des++;
+					USB_HW_SetupData(EndpointIndex, Virtual_Com_Port_ConfigDescriptor,
+									 67);
+					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 				}
+				else if (SpecificRequest.DescriptorType == STRING_DESCRIPTOR)
+				{
+					stop = 0;
+				}
+				else if (SpecificRequest.DescriptorType == INTERFACE_DESCRIPTOR)
+				{
+					stop = 0;
+				}
+				else if (SpecificRequest.DescriptorType == ENDPOINT_DESCRIPTOR)
+				{
 
+				}
 			}
 		}
 		else if (SpecificRequest.Request == GET_STATUS)
 		{
-
+			getStatus ++;
 		}
 		else if (SpecificRequest.Request == GET_CONFIGURATION)
 		{
-
+			get_configDes ++;
 		}
 		else if (SpecificRequest.Request == GET_INTERFACE)
 		{
-
+			get_interface ++;
 		}
 	}
 }
@@ -301,7 +286,14 @@ void USB_IRQ_CTR_PID_OUT_Process(uint8_t EndpointIndex)
 
 void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
 {
-	host_in ++;
+	if (EnumerationStatus == ADDRESSING)
+	{
+		while ((USB->DADDR & 0b1111111) == 0)
+		{
+			USB_HW_SetDeviceAddr(saveAdr);
+		}
+		EnumerationStatus = ADDRESSED;
+	}
 }
 /***********************************************************************************************************************
  * Interrupt Handler
@@ -310,17 +302,14 @@ void USB_IRQ_CorrecTransfer(void)
 {
 	ctr ++;
 	EndpointIndex = CURRENT_EP_ID;
-	/* Save endpoint status */
+	/* Save endpoint status, istr register status */
+	SaveISTR = USB->ISTR;
 	SaveEPRStatus = USB->EPR[EndpointIndex];
 	/* Retrieve data from bufer */
 	USB_GetRequest();
-	if (Request.wLength > 0 && Request.wLength < 20)
-		stop = 0;
 	if (EndpointIndex == END_POINT_0)
 	{
-		SaveRx = (SaveEPRStatus & USB_EPR_STAT_RX_MSK) >> USB_EPR_STAT_RX_POS;
-		SaveTx = (SaveEPRStatus & USB_EPR_STAT_TX_MSK) >> USB_EPR_STAT_TX_POS;
-		Direction = DATA_DIRECTION;
+		Direction = SaveISTR & USB_ISTR_DIR;
 		if (Direction == HOST_OUT)  /* Device gets the data */
 		{
 			/* DIR = 1 & CTR_RX  => SETUP or OUT int */
@@ -346,8 +335,6 @@ void USB_IRQ_CorrecTransfer(void)
 			USB_IRQ_CTR_PID_IN_Process(EndpointIndex);
 		}
 		/* Recover RX, TX status */
-		//USB_HW_SetEPTxStatus(EndpointIndex, SaveTx);
-		//USB_HW_SetEPRxStatus(EndpointIndex, SaveRx);
 	}
 	else		/* Normal data transaction */
 	{
@@ -386,7 +373,8 @@ void USB_IRQ_Suspend(void)
 
 void USB_IRQ_Reset(void)
 {
-	reset++;
+	saveAdr = 0;
+	EnumerationStatus = UNCONNECTED;
 	USB_EndpointReset(END_POINT_0);
 	USB_EndpointReset(END_POINT_1);
 	USB_EndpointReset(END_POINT_2);

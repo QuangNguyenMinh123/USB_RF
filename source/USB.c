@@ -153,7 +153,7 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 	if (ERROR_IRQ_OCCURED)
 	{
 		USB->ISTR &= ~USB_ISTR_ERR;
-
+		USB_IRQ_Error();
 	}
 
 	if (WKUP_IRQ_OCCURED)
@@ -161,10 +161,6 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 		USB->ISTR &= ~USB_ISTR_WKUP;
 		USB_IRQ_Wakeup();
 
-	}
-	if (SOF_IRQ_OCCURED)
-	{
-		USB_IRQ_StartOfFrame();
 	}
 }
 /***********************************************************************************************************************

@@ -119,11 +119,21 @@ typedef enum
 typedef enum
 {
 	UNCONNECTED,
-	DEVICE_DESCRIPTOR,
+	INIT_DEVICE_DESCRIPTOR,
 	ADDRESSING,
 	ADDRESSED,
 	FULL_DESCRIPTOR
 } USB_EnumerationType;
+/*---------------------- Definition of BwValue ----------------------*/
+typedef enum _DESCRIPTOR_TYPE
+{
+  DEVICE_DESCRIPTOR = 1,
+  CONFIG_DESCRIPTOR = 2,
+  STRING_DESCRIPTOR = 3,
+  INTERFACE_DESCRIPTOR = 4,
+  ENDPOINT_DESCRIPTOR = 5,
+  DEVICE_BOS_DESCRIPTOR = 0xF
+} USB_DescriptorType;
 /*---------------------- Transfer status ----------------------*/
 typedef enum
 {
@@ -216,6 +226,7 @@ typedef struct
   	USB_RequestSpecificType RequestClass;
 	USB_Request Request;
 	USB_RecipientType Receiver;
+	USB_DescriptorType DescriptorType;
 	uint8_t EndpointTarget;
 } USB_SpecificRequestType;
 
@@ -237,7 +248,9 @@ typedef struct _DEVICE_INFO
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
-extern const uint8_t Virtual_Com_Port_DeviceDescriptor[];
+extern uint8_t Virtual_Com_Port_DeviceDescriptor[];
+extern uint8_t USB_DeviceDescriptor[];
+extern uint8_t Virtual_Com_Port_ConfigDescriptor[];
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
