@@ -33,7 +33,7 @@
         <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>4135544977</Checksum>
+        <Checksum>2887642625</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -116,9 +116,11 @@
     </struct_types>
     <array_types>
         <Fmt0>int[12]	4	0</Fmt0>
-        <Fmt1>uint32_t[100]	4	0</Fmt1>
-        <Fmt2>uint32_t[12]	4	0</Fmt2>
-        <Fmt3>uint32_t[16]	4	0</Fmt3>
+        <Fmt1>int[4]	4	0</Fmt1>
+        <Fmt2>int[8]	4	0</Fmt2>
+        <Fmt3>uint32_t[100]	4	0</Fmt3>
+        <Fmt4>uint32_t[12]	4	0</Fmt4>
+        <Fmt5>uint32_t[16]	4	0</Fmt5>
     </array_types>
     <watch_formats>
         <Fmt0>{W}1:Msk	4	0</Fmt0>
@@ -175,7 +177,8 @@
     <Breakpoints2>
         <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\source\USB.c}.1.1" 0 0 1 "" 0 "" 0</Bp0>
         <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\CLOCK.c}.28.2" 0 0 1 "" 0 "" 0</Bp1>
-        <Count>2</Count>
+        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\USB_IRQ.c}.278.6" 0 0 1 "" 0 "" 0</Bp2>
+        <Count>3</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>

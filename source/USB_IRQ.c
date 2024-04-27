@@ -58,8 +58,11 @@ uint16_t EndpointIndex = 0;
 uint16_t Direction = 0;
 USB_TX_RX_StatusType SaveRx;
 USB_TX_RX_StatusType SaveTx;
-
+USB_EnumerationType EnumerationStatus = UNCONNECTED;
 uint16_t saveAdr = 0;
+USB_RequestType Request;
+USB_SpecificRequestType SpecificRequest;
+uint32_t *ptr_Data;
 
 int ctr = 0;
 int dum = 0;
@@ -71,15 +74,18 @@ int sus = 0;
 int set_addr = 0;
 int get_configDes = 0;
 int get_device_des = 0;
+int get_ful_des = 0;
 int data_out = 0;
 int host_in = 0;
 int setup = 0;
+int stop = 0;
+int check[20][8] = {0};
+int k = 0;
+int getStatus = 0;
+int clearFeature = 0;
+int setFeature = 0;
 
 DEVICE_INFO pInformation;
-uint32_t *ptr_Data;
-USB_RequestType Request;
-uint32_t CntRx[12] = {0};
-USB_SpecificRequestType SpecificRequest;
 /***********************************************************************************************************************
  * Static function
  **********************************************************************************************************************/
@@ -99,6 +105,18 @@ static void USB_EndpointReset(int EndpointIdx)
 	USB_HW_SetEPRxDataToggle(EndpointIdx, 0);
 	USB_HW_SetEPTxDataToggle(EndpointIdx, 0);
 	USB->EPR[EndpointIdx] = 0;
+}
+
+void copy()
+{
+	int j = 0;
+	uint16_t *ptr = (uint16_t *)0x40006080;
+	for (;j<8;j++)
+	{
+		check[k][j] = *ptr;
+		ptr++;
+	}
+	k++;
 }
 
 void USB_GetRequest(void) {
@@ -148,6 +166,18 @@ void USB_IRQ_PrepareBuffer(uint32_t * ptr)
 	ptr_Data = ptr;
 }
 
+
+void clearSetupRequest(void)
+{
+	uint32_t *ptr = (uint32_t *)0x40006080;
+	int j = 0;
+	for (;j<4;j++)
+	{
+		*ptr = 0;
+		ptr++;
+	}
+}
+
 void USB_IRQ_ZeroLengthPacket(void)
 {
 	USB_HW_SetEPTxCount(0,0);
@@ -157,9 +187,16 @@ void USB_IRQ_ZeroLengthPacket(void)
 void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 {
 	setup++;
-	if (set_addr % 2 == 1)
+	copy();
+	if (EnumerationStatus == ADDRESSING)
 	{
-		USB_HW_SetDeviceAddr(saveAdr);
+		while ((USB->DADDR & 0b1111111) == 0)
+		{
+			USB_HW_SetDeviceAddr(saveAdr);
+		}
+		EnumerationStatus = ADDRESSED;
+		USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
+		USB_HW_SetEPTxDataToggle(END_POINT_0, 0);
 	}
 
 	if (Request.wLength == 0)
@@ -179,7 +216,8 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					USB_HW_SetEPRxCount(END_POINT_0, 64);
 					USB_HW_SetEPRxStatus(END_POINT_0, VALID);
 					USB_IRQ_ZeroLengthPacket();
-					set_addr ++;
+					EnumerationStatus = ADDRESSING;
+					clearSetupRequest();
     			}
 				else if (SpecificRequest.Request == SET_FEATURE)
     			{
@@ -218,12 +256,27 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 	{
 		if (SpecificRequest.Request == GET_DESCRIPTOR)
 		{
-			if (SpecificRequest.RequestClass == STANDARD && SpecificRequest.Receiver == DEVICE)
+			if (SpecificRequest.RequestClass == STANDARD
+				&& SpecificRequest.Receiver == DEVICE)
 			{
-				USB_IRQ_SendDeviceDescriptor();
-				USB_HW_SetEPTxStatus(END_POINT_0, VALID);
-				USB_HW_SetEPRxStatus(END_POINT_0, VALID);
-				get_device_des++;
+				if (EnumerationStatus != ADDRESSED)
+				{
+					USB_IRQ_SendDeviceDescriptor();
+					USB_HW_SetEPTxStatus(END_POINT_0, VALID);
+					USB_HW_SetEPRxStatus(END_POINT_0, VALID);
+					EnumerationStatus = DEVICE_DESCRIPTOR;
+					get_device_des++;
+					clearSetupRequest();
+				}
+				else if (EnumerationStatus == ADDRESSED)
+				{
+					EnumerationStatus = FULL_DESCRIPTOR;
+					USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
+					USB_HW_SetEPTxDataToggle(END_POINT_0, 0);
+					USB_HW_SetEPTxCount(0, 18);
+					get_ful_des++;
+				}
+
 			}
 		}
 		else if (SpecificRequest.Request == GET_STATUS)
@@ -249,8 +302,6 @@ void USB_IRQ_CTR_PID_OUT_Process(uint8_t EndpointIndex)
 void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
 {
 	host_in ++;
-
-
 }
 /***********************************************************************************************************************
  * Interrupt Handler
@@ -263,6 +314,8 @@ void USB_IRQ_CorrecTransfer(void)
 	SaveEPRStatus = USB->EPR[EndpointIndex];
 	/* Retrieve data from bufer */
 	USB_GetRequest();
+	if (Request.wLength > 0 && Request.wLength < 20)
+		stop = 0;
 	if (EndpointIndex == END_POINT_0)
 	{
 		SaveRx = (SaveEPRStatus & USB_EPR_STAT_RX_MSK) >> USB_EPR_STAT_RX_POS;
