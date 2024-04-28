@@ -8,6 +8,7 @@
 #define USB_ENDPOINT_DESCRIPTOR_TYPE			0x05
 #define VIRTUAL_COM_PORT_INT_SIZE				8
 #define VIRTUAL_COM_PORT_DATA_SIZE				64
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -69,8 +70,8 @@ uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     0x02,   /* bNumInterfaces: 2 interface */
     0x01,   /* bConfigurationValue: Configuration value */
     0x00,   /* iConfiguration: Index of string descriptor describing the configuration */
-    0xC0,   /* bmAttributes: self powered */
-    0x32,   /* MaxPower 100 mA */
+    0x80,   /* bmAttributes: bus powered */
+    0xF9,   /* MaxPower 498 mA */
     /*Interface Descriptor*/
     0x09,   /* bLength: Interface Descriptor size */
     USB_INTERFACE_DESCRIPTOR_TYPE,  /* bDescriptorType: Interface */
@@ -112,7 +113,7 @@ uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     0x03,   /* bmAttributes: Interrupt */
     VIRTUAL_COM_PORT_INT_SIZE,      /* wMaxPacketSize: */
     0x00,
-    0xFF,   /* bInterval: */
+    0x01,   /* bInterval: */
     /*Data class interface descriptor*/
     0x09,   /* bLength: Endpoint Descriptor size */
     USB_INTERFACE_DESCRIPTOR_TYPE,  /* bDescriptorType: */
@@ -130,7 +131,7 @@ uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     0x02,   /* bmAttributes: Bulk */
     VIRTUAL_COM_PORT_DATA_SIZE,             /* wMaxPacketSize: */
     0x00,
-    0x00,   /* bInterval: ignore for Bulk transfer */
+    0x01,   /* bInterval: ignore for Bulk transfer */
     /*Endpoint 1 Descriptor*/
     0x07,   /* bLength: Endpoint Descriptor size */
     USB_ENDPOINT_DESCRIPTOR_TYPE,   /* bDescriptorType: Endpoint */
@@ -138,7 +139,7 @@ uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     0x02,   /* bmAttributes: Bulk */
     VIRTUAL_COM_PORT_DATA_SIZE,             /* wMaxPacketSize: */
     0x00,
-    0x00    /* bInterval */
+    0x01    /* bInterval */
   };
 /*******************************************************************************
  * Code

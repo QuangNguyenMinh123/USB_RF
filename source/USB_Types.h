@@ -44,6 +44,13 @@ typedef enum
 	ISOCHRONOUS	= 0b10,
 	INTERRUPT	= 0b11
 } USB_EndpointEncodingType;
+/*---------------------- Send descriptor status ----------------------*/
+typedef enum
+{
+	DESCRIPTOR_START,
+	DESCRIPTOR_SENDING,
+	DESCRIPTOR_DONE
+} USB_SendDescriptorStatusType;
 /*---------------------- DIRECTION ----------------------*/
 typedef enum
 {
@@ -122,7 +129,8 @@ typedef enum
 	INIT_DEVICE_DESCRIPTOR,
 	ADDRESSING,
 	ADDRESSED,
-	FULL_DESCRIPTOR
+	SENDING_FULL_DESCRIPTOR,
+	DONE_FULL_DESCRIPTOR
 } USB_EnumerationType;
 /*---------------------- Definition of BwValue ----------------------*/
 typedef enum _DESCRIPTOR_TYPE
@@ -199,8 +207,9 @@ typedef struct
 /*----------------------  Packet Information ----------------------*/
 typedef struct
 {
-  uint16_t Size;
-  uint16_t RemainSize;
+  uint16_t PacketSize;		/* unit: number of bytes to be sent */
+  uint16_t RemainSize;		/* remaining bytes to finish */
+  USB_SendDescriptorStatusType Status;
 } USB_PacketInforType;
 /*---------------------- Host Request ----------------------*/
 typedef struct _ENDPOINT_INFO

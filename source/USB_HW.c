@@ -89,6 +89,8 @@ __inline void USB_HW_SetDeviceAddr(int Address)
 __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size)
 {
 	int i = 0;
+	if (Size > 64)
+		Size = 64;
 	uint16_t *ptr_Adr = (uint16_t *) (USB_MEM->EP_BUFFER[EnpointIdx].ADDR_TX * 2 + USB_MEM_BASE);
 	uint8_t * ptr_Data = SourceData;
 	for (i = 0; i  < (Size + 1) / 2; i++)

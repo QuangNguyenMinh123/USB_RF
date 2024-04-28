@@ -42,7 +42,7 @@
 #define __bmRequestType_RECIPIENT_ENDPOINT		0b00000010
 #define __bmRequestType_RECIPIENT_OTHER			0b00000011
 
-
+#define MAX_EP0_PACKET_SIZE						64
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -64,6 +64,8 @@ uint16_t saveAdr = 0;
 USB_RequestType Request;
 USB_SpecificRequestType SpecificRequest;
 uint32_t *ptr_Data;
+USB_PacketInforType PacketInfo;
+int Dummy = 0;
 
 int ctr = 0;
 int dum = 0;
@@ -166,6 +168,7 @@ void USB_IRQ_ZeroLengthPacket(void)
 void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 {
 	setup++;
+	/* No data stage */
 	if (Request.wLength == 0)
 	{
 		/* Request is SET_CONFIGURATION, SET_ADDRESS, SET_FEATURE, CLEAR_FEATURE */
@@ -218,6 +221,7 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 			}
 		}
 	}
+	/* Data stage */
 	else
 	{
 		if (SpecificRequest.Request == GET_DESCRIPTOR)
@@ -236,7 +240,7 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					}
 					else if (EnumerationStatus == ADDRESSED)
 					{
-						EnumerationStatus = FULL_DESCRIPTOR;
+						EnumerationStatus = SENDING_FULL_DESCRIPTOR;
 						USB_HW_SetupData(EndpointIndex, USB_DeviceDescriptor, GET_DESCIPTOR_SIZE);
 						USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 						USB_HW_SetEPRxStatus(EndpointIndex, VALID);
@@ -245,10 +249,36 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 				}
 				else if (SpecificRequest.DescriptorType == CONFIG_DESCRIPTOR)
 				{
-					USB_HW_SetupData(EndpointIndex, Virtual_Com_Port_ConfigDescriptor,
-									 67);
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
-					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+					/* If configuration descriptor request is just sent */
+
+					if (Request.wLength == 0xff)
+					{
+						if (PacketInfo.Status == DESCRIPTOR_START)
+						{
+							PacketInfo.PacketSize = 67;			/* 67 = Virtual_Com_Port_ConfigDescriptor size */
+							PacketInfo.RemainSize = PacketInfo.PacketSize;
+							USB_HW_SetupData(EndpointIndex, Virtual_Com_Port_ConfigDescriptor,
+									 PacketInfo.PacketSize);
+							USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+							USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+							PacketInfo.RemainSize -= MAX_EP0_PACKET_SIZE;
+							PacketInfo.Status = DESCRIPTOR_SENDING;
+						}
+					}
+					else
+					{
+						if (PacketInfo.Status == DESCRIPTOR_SENDING)
+						{
+							USB_HW_SetupData(EndpointIndex,
+							&Virtual_Com_Port_ConfigDescriptor[PacketInfo.PacketSize - PacketInfo.RemainSize],
+							 PacketInfo.RemainSize);
+							USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+							PacketInfo.RemainSize -= MAX_EP0_PACKET_SIZE;
+							if (PacketInfo.RemainSize <= 0)
+								PacketInfo.Status = DESCRIPTOR_DONE;
+						}
+					}
+
 				}
 				else if (SpecificRequest.DescriptorType == STRING_DESCRIPTOR)
 				{
@@ -293,6 +323,13 @@ void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
 			USB_HW_SetDeviceAddr(saveAdr);
 		}
 		EnumerationStatus = ADDRESSED;
+	}
+	else if (EnumerationStatus == SENDING_FULL_DESCRIPTOR)
+	{
+		USB_IRQ_ZeroLengthPacket();
+		if (PacketInfo.RemainSize <= 0)
+			EnumerationStatus = DONE_FULL_DESCRIPTOR;
+		USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 	}
 }
 /***********************************************************************************************************************
@@ -374,6 +411,7 @@ void USB_IRQ_Suspend(void)
 void USB_IRQ_Reset(void)
 {
 	saveAdr = 0;
+	PacketInfo.Status = DESCRIPTOR_START;
 	EnumerationStatus = UNCONNECTED;
 	USB_EndpointReset(END_POINT_0);
 	USB_EndpointReset(END_POINT_1);

@@ -15,13 +15,24 @@
 /* rx/tx buffer base address */
 /* EP0  */
 #define ENDP0_RXADDR        (0x40)			/* actual address: 0x80 */
-#define ENDP0_TXADDR        (0xC0)			/* actual address: 0x180 */
+#define ENDP0_RX_SIZE		(80)
+#define ENDP0_TXADDR        (0xC0)			/* = 72 -> actual address =  0x90*/
+#define ENDP0_TX_SIZE		(80)
 /* EP1  */
 #define ENDP1_RXADDR        (0x140)			/* actual address: 0x280 */
+#define ENDP1_RX_SIZE
 #define ENDP1_TXADDR        (0x1C0)			/* actual address: 0x380 */
+#define ENDP1_TX_SIZE
 /* EP2  */
 #define ENDP2_RXADDR        (0x140)
+#define ENDP2_RX_SIZE
 #define ENDP2_TXADDR        (0xC0)
+#define ENDP2_TX_SIZE		(80)
+/* EP3  */
+#define ENDP3_RXADDR        (0x140)
+#define ENDP3_RX_SIZE
+#define ENDP3_TXADDR        (0xC0)
+#define ENDP3_TX_SIZE		(80)
 
 #define USB_EPR_DTOG_RX_POS             (14)
 #define USB_EPR_DTOG_RX_MSK             (0b1<<USB_EPR_DTOG_RX_POS)
@@ -69,8 +80,7 @@
 #define DBL_BUF							0
 #define STATUS_OUT						1
 
-/* EndPoint REGister MASK (no toggle fields) */
-#define EPREG_MASK     (EP_CTR_RX|EP_SETUP|EP_T_FIELD|EP_KIND|EP_CTR_TX|EPADDR_FIELD)
+/* EndPoint Register MASK (no toggle fields) */
 
 #define EP_CTR_RX      (0x8000) /* EndPoint Correct TRansfer RX */
 #define EP_DTOG_RX     (0x4000) /* EndPoint Data TOGGLE RX */
@@ -86,26 +96,9 @@
 #define EP_TX_DIS      (0x0000) /* EndPoint TX DISabled */
 #define EP_TX_NAK      (0x0020) /* EndPoint TX NAKed */
 #define EP_TX_VALID    (0x0030) /* EndPoint TX VALID */
-#define EP0REG  ((__IO unsigned *)(0x40005C00L)) /* endpoint 0 register address */
 /* EndPoint REGister MASK (no toggle fields) */
 #define EPREG_MASK     (EP_CTR_RX|EP_SETUP|EP_T_FIELD|EP_KIND|EP_CTR_TX|EPADDR_FIELD)
-#define EPTX_DTOGMASK  (EPTX_STAT|EPREG_MASK)
-#define EPTX_DTOG1     (0x0010) /* EndPoint TX Data TOGgle bit1 */
-#define EPTX_DTOG2     (0x0020) /* EndPoint TX Data TOGgle bit2 */
-#define _SetENDPOINT(bEpNum,wRegValue)  (*(EP0REG + bEpNum)= \
-    (uint16_t)wRegValue)
-#define _GetENDPOINT(bEpNum)        ((uint16_t)(*(EP0REG + bEpNum)))
-#define _SetEPTxStatus(bEpNum,wState) {\
-    register uint16_t _wRegVal;       \
-    _wRegVal = _GetENDPOINT(bEpNum) & EPTX_DTOGMASK;\
-    /* toggle first bit ? */     \
-    if((EPTX_DTOG1 & wState)!= 0)      \
-      _wRegVal ^= EPTX_DTOG1;        \
-    /* toggle second bit ?  */         \
-    if((EPTX_DTOG2 & wState)!= 0)      \
-      _wRegVal ^= EPTX_DTOG2;        \
-    _SetENDPOINT(bEpNum, (_wRegVal | EP_CTR_RX|EP_CTR_TX));    \
-  } /* _SetEPTxStatus */
+
 
 /***********************************************************************************************************************
  * Prototypes
