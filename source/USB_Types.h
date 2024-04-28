@@ -207,8 +207,8 @@ typedef struct
 /*----------------------  Packet Information ----------------------*/
 typedef struct
 {
-  uint16_t PacketSize;		/* unit: number of bytes to be sent */
-  uint16_t RemainSize;		/* remaining bytes to finish */
+  int PacketSize;		/* unit: number of bytes to be sent */
+  int RemainSize;		/* remaining bytes to finish */
   USB_SendDescriptorStatusType Status;
 } USB_PacketInforType;
 /*---------------------- Host Request ----------------------*/

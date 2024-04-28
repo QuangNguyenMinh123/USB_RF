@@ -31,12 +31,6 @@ void USB_IRQ_Wakeup(void);
 void USB_IRQ_Suspend(void);
 
 void USB_IRQ_Reset(void);
-
-void USB_IRQ_StartOfFrame(void);
-
-void USB_IRQ_ExpectedStartOfFrame(void);
-
-void USB_GetRequest(void);
 /***********************************************************************************************************************
  * EOF
  **********************************************************************************************************************/
