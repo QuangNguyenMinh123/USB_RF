@@ -47,9 +47,11 @@ typedef enum
 /*---------------------- Send descriptor status ----------------------*/
 typedef enum
 {
-	DESCRIPTOR_START,
-	DESCRIPTOR_SENDING,
-	DESCRIPTOR_DONE
+	FULL_DESCRIPTOR_START,
+	FULL_DESCRIPTOR_SENDING,
+	FULL_DESCRIPTOR_DONE,
+	STRING_DESCRIPTOR_SENDING,
+	STRING_DESCRIPTOR_DONE
 } USB_SendDescriptorStatusType;
 /*---------------------- DIRECTION ----------------------*/
 typedef enum
@@ -130,7 +132,10 @@ typedef enum
 	ADDRESSING,
 	ADDRESSED,
 	SENDING_FULL_DESCRIPTOR,
-	DONE_FULL_DESCRIPTOR
+	DONE_FULL_DESCRIPTOR,
+	SENDING_STRING_DESCRIPTOR,
+	DONE_STRING_DESCRIPTOR
+
 } USB_EnumerationType;
 /*---------------------- Definition of BwValue ----------------------*/
 typedef enum _DESCRIPTOR_TYPE
@@ -260,6 +265,10 @@ typedef struct _DEVICE_INFO
 extern uint8_t Virtual_Com_Port_DeviceDescriptor[];
 extern uint8_t USB_DeviceDescriptor[];
 extern uint8_t Virtual_Com_Port_ConfigDescriptor[];
+extern uint8_t Virtual_Com_Port_StringLangID[];
+extern uint8_t Virtual_Com_Port_StringVendor[];
+extern uint8_t Virtual_Com_Port_StringProduct[];
+extern uint8_t Virtual_Com_Port_StringSerial[];
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
