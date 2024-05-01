@@ -76,22 +76,6 @@ static void USB_EnableInterrupt(void)
 	NVIC_SetPriority ((IRQn_Type)USB_LP_CAN1_RX0_IRQn, (1UL << 11) - 1UL);
 	NVIC_SetPriority ((IRQn_Type)USBWakeUp_IRQn, (1UL << 12) - 1UL);
 }
-
-static void USB_Send0LengData(void)
-{
-	USB_HW_SetEPTxCount(END_POINT_0,0);
-	USB_HW_SetEPTxStatus(END_POINT_0, VALID);
-}
-
-static void USB_GPIO_Init(void)
-{
-	GPIO_SetOutPut(PA12, Alternate_Push_Pull);
-	GPIO_SetOutPut(PA11, Alternate_Push_Pull);
-	GPIOA->CRH &=  ~(0b11<<12);
-	GPIOA->CRH &=  ~(0b11<<16);
-	GPIOA->CRH |=  (0b11<<12);
-	GPIOA->CRH |=  (0b11<<16);
-}
 /***********************************************************************************************************************
  * Globbal function
  **********************************************************************************************************************/
@@ -114,6 +98,14 @@ void USB_Init(void)
 	USB_HW_ResetBTABLE();
 	/* Enable IRQ */
 	USB_EnableInterrupt();
+}
+
+void USB_SendString(uint8_t *Data, uint16_t size)
+{
+	int EndpointIndex = 2;
+	USB_HW_SetupData(EndpointIndex, Data, size);
+	USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+	USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 }
 
 /***********************************************************************************************************************

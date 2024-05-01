@@ -5,79 +5,109 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\source\USB_HW.h</file>
-            <file>$PROJ_DIR$\..\source\USB_Types.c</file>
-            <file>$PROJ_DIR$\..\source\USB_Types.h</file>
-            <file>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</file>
-            <file>$PROJ_DIR$\..\startup\stm32f10x.h</file>
-            <file>$PROJ_DIR$\..\startup\system_stm32f10x.c</file>
-            <file>$PROJ_DIR$\..\startup\system_stm32f10x.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\USB_RF.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\SPI.o</file>
-            <file>$PROJ_DIR$\..\source\USB_HW.c</file>
-            <file>$PROJ_DIR$\..\source\USB_IRQ.c</file>
-            <file>$PROJ_DIR$\..\source\USB_IRQ.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\USB.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup\system_stm32f10x.o</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_compiler.h</file>
             <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_iccarm.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\main.o</file>
             <file>$PROJ_DIR$\Debug\Obj\source\USB_Interrupt.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\FLASH.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\aarch32\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\USB_RF.out</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$TOOLKIT_DIR$\config\linker\ST\stm32f103x8.icf</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\nRF24L01.o</file>
-            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_version.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\USB_IRQ.o</file>
-            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_compiler.h</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\startup\startup_stm32f10x_md.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\..\source\USB_Interrupt.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\TIMER.o</file>
-            <file>$PROJ_DIR$\Debug\List\USB_RF.map</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\CLOCK.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\USB_Types.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\source\USB_HW.o</file>
             <file>$PROJ_DIR$\Debug\Obj\source\GPIO.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\startup\system_stm32f10x.o</file>
-            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\core_cm3.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup\startup_stm32f10x_md.o</file>
             <file>$PROJ_DIR$\..\source\USB_Interrupt.c</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$PROJ_DIR$\..\source\SPI.c</file>
-            <file>$PROJ_DIR$\..\source\GPIO.c</file>
-            <file>$PROJ_DIR$\..\source\main.c</file>
-            <file>$PROJ_DIR$\..\source\SPI.h</file>
-            <file>$PROJ_DIR$\..\source\TIMER.h</file>
-            <file>$PROJ_DIR$\..\source\USB.h</file>
-            <file>$PROJ_DIR$\..\source\USB_HID.h</file>
+            <file>$PROJ_DIR$\..\source\USB_Interrupt.h</file>
+            <file>$PROJ_DIR$\..\startup\system_stm32f10x.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\USB_Types.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\SPI.o</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\core_cm3.h</file>
+            <file>$PROJ_DIR$\..\startup\stm32f10x.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\USB.o</file>
+            <file>$PROJ_DIR$\..\startup\system_stm32f10x.h</file>
+            <file>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</file>
             <file>$PROJ_DIR$\..\source\CLOCK.h</file>
-            <file>$PROJ_DIR$\..\source\FLASH.c</file>
-            <file>$PROJ_DIR$\..\source\USB.c</file>
-            <file>$PROJ_DIR$\..\source\GPIO.h</file>
-            <file>$PROJ_DIR$\..\source\nRF24L01.c</file>
-            <file>$PROJ_DIR$\..\source\nRF24L01.h</file>
-            <file>$PROJ_DIR$\..\source\TIMER.c</file>
             <file>$PROJ_DIR$\..\source\FLASH.h</file>
+            <file>$PROJ_DIR$\..\source\USB_HW.h</file>
             <file>$PROJ_DIR$\..\source\CLOCK.c</file>
+            <file>$PROJ_DIR$\..\source\GPIO.c</file>
+            <file>$PROJ_DIR$\..\source\TIMER.c</file>
+            <file>$PROJ_DIR$\..\source\TIMER.h</file>
+            <file>$PROJ_DIR$\..\source\USB_IRQ.c</file>
+            <file>$PROJ_DIR$\..\source\USB_IRQ.h</file>
+            <file>$PROJ_DIR$\..\source\nRF24L01.c</file>
+            <file>$PROJ_DIR$\..\source\FLASH.c</file>
+            <file>$PROJ_DIR$\..\source\SPI.c</file>
+            <file>$PROJ_DIR$\..\source\SPI.h</file>
+            <file>$PROJ_DIR$\..\source\GPIO.h</file>
+            <file>$PROJ_DIR$\..\source\USB_HID.h</file>
+            <file>$PROJ_DIR$\..\source\USB_HW.c</file>
+            <file>$PROJ_DIR$\..\source\main.c</file>
+            <file>$PROJ_DIR$\..\source\nRF24L01.h</file>
+            <file>$PROJ_DIR$\..\source\USB.c</file>
+            <file>$PROJ_DIR$\..\source\USB.h</file>
+            <file>$PROJ_DIR$\..\source\USB_Types.c</file>
+            <file>$PROJ_DIR$\..\source\USB_Types.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\nRF24L01.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\CLOCK.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\aarch32\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\FLASH.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\USB_IRQ.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\USB_HW.o</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_version.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\List\USB_RF.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\TIMER.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\source\main.o</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\..\source\USB_Types.c</name>
+            <name>$PROJ_DIR$\Debug\Exe\USB_RF.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 57</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 6 49 51 7 59 48 15 10 0 58 21 53 52 14 56 47 19 5</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_Interrupt.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 35</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 2 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 12 17 16 18 55 8 46 20 9 54 1 2 50 22 45 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\startup\system_stm32f10x.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
@@ -86,106 +116,31 @@
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 28</file>
+                    <file> 10</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\startup\system_stm32f10x.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 39</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\USB_RF.out</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 32</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 22 34 19 38 17 23 9 28 39 31 15 37 25 35 27 43 41 21</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\USB_HW.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 37</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 2 4 40 36 13 14 33 7 29 24 26 16 20 6 0</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\USB_IRQ.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 25</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 12 4 40 36 13 14 33 7 29 24 26 16 20 6 2 0</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 8 32</file>
+                    <file> 4 57</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\USB_Interrupt.c</name>
+            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 18</file>
+                    <file> 49</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 30 4 40 36 13 14 33 7 29 24 26 16 20 6 2 0</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\SPI.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 9</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 47 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 24 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
@@ -194,28 +149,58 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 38</file>
+                    <file> 7</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 54 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 37 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\main.c</name>
+            <name>$PROJ_DIR$\..\source\TIMER.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 17</file>
+                    <file> 58</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 54 4 40 36 13 14 33 7 29 24 26 16 20 6 47 49 2 58 56 48 51 0 12</file>
+                    <file> 30 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_IRQ.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32 17 16 18 55 8 46 20 9 54 1 2 50 22 45 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\nRF24L01.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 48</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 41 36 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
@@ -224,18 +209,18 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 19</file>
+                    <file> 51</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 58 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 25 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\USB.c</name>
+            <name>$PROJ_DIR$\..\source\SPI.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -245,52 +230,67 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 49 4 40 36 13 14 33 7 29 24 26 16 20 6 2 54 0 51 12</file>
+                    <file> 36 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\nRF24L01.c</name>
+            <name>$PROJ_DIR$\..\source\USB_HW.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 23</file>
+                    <file> 53</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 56 47 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 45 17 16 18 55 8 46 20 9 54 1 2 50 22 26</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\TIMER.c</name>
+            <name>$PROJ_DIR$\..\source\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 31</file>
+                    <file> 59</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 48 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 37 17 16 18 55 8 46 20 9 54 1 2 50 22 36 43 45 25 41 30 24 26 32</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
+            <name>$PROJ_DIR$\..\source\USB.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 34</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 51 4 40 36 13 14 33 7 29 24 26 16 20 6</file>
+                    <file> 43 17 16 18 55 8 46 20 9 54 1 2 50 22 45 37 26 24 32</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_Types.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 45 17 16 18 55 8 46 20 9 54 1 2 50 22</file>
                 </tool>
             </inputs>
         </file>
@@ -305,71 +305,62 @@
     <configuration>
         <name>Release</name>
         <outputs>
-            <file>$PROJ_DIR$\..\source\USB_Types.h</file>
-            <file>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</file>
-            <file>$PROJ_DIR$\..\startup\stm32f10x.h</file>
             <file>$PROJ_DIR$\..\startup\system_stm32f10x.c</file>
-            <file>$PROJ_DIR$\..\source\USB_HW.c</file>
-            <file>$PROJ_DIR$\Release\Obj\startup\startup_stm32f10x_md.o</file>
-            <file>$PROJ_DIR$\Release\Exe\USB_RF.out</file>
-            <file>$PROJ_DIR$\..\source\SPI.c</file>
-            <file>$PROJ_DIR$\..\source\GPIO.c</file>
-            <file>$PROJ_DIR$\..\source\main.c</file>
-            <file>$PROJ_DIR$\..\source\SPI.h</file>
-            <file>$PROJ_DIR$\..\source\TIMER.h</file>
-            <file>$PROJ_DIR$\..\source\USB.h</file>
+            <file>$PROJ_DIR$\..\startup\stm32f10x.h</file>
+            <file>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</file>
             <file>$PROJ_DIR$\..\source\CLOCK.h</file>
-            <file>$PROJ_DIR$\..\source\FLASH.c</file>
-            <file>$PROJ_DIR$\..\source\USB.c</file>
-            <file>$PROJ_DIR$\..\source\GPIO.h</file>
-            <file>$PROJ_DIR$\..\source\nRF24L01.c</file>
-            <file>$PROJ_DIR$\..\source\nRF24L01.h</file>
-            <file>$PROJ_DIR$\..\source\TIMER.c</file>
             <file>$PROJ_DIR$\..\source\FLASH.h</file>
             <file>$PROJ_DIR$\..\source\CLOCK.c</file>
+            <file>$PROJ_DIR$\..\source\GPIO.c</file>
+            <file>$PROJ_DIR$\..\source\TIMER.c</file>
+            <file>$PROJ_DIR$\..\source\TIMER.h</file>
+            <file>$PROJ_DIR$\..\source\nRF24L01.c</file>
+            <file>$PROJ_DIR$\..\source\FLASH.c</file>
+            <file>$PROJ_DIR$\..\source\SPI.c</file>
+            <file>$PROJ_DIR$\..\source\SPI.h</file>
+            <file>$PROJ_DIR$\..\source\GPIO.h</file>
+            <file>$PROJ_DIR$\..\source\USB_HW.c</file>
+            <file>$PROJ_DIR$\..\source\main.c</file>
+            <file>$PROJ_DIR$\..\source\nRF24L01.h</file>
+            <file>$PROJ_DIR$\..\source\USB.c</file>
+            <file>$PROJ_DIR$\..\source\USB.h</file>
+            <file>$PROJ_DIR$\..\source\USB_Types.h</file>
+            <file>$PROJ_DIR$\Release\Obj\startup\startup_stm32f10x_md.o</file>
+            <file>$PROJ_DIR$\Release\Exe\USB_RF.out</file>
         </outputs>
-        <file>
-            <name>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</name>
-            <outputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 5</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\..\startup\system_stm32f10x.c</name>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 2</file>
+                    <file> 1</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\USB_HW.c</name>
-            <inputs>
+            <name>$PROJ_DIR$\..\startup\startup_stm32f10x_md.s</name>
+            <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 0</file>
+                    <name>AARM</name>
+                    <file> 20</file>
                 </tool>
-            </inputs>
+            </outputs>
         </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 6</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\SPI.c</name>
+            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 10</file>
+                    <file> 3</file>
                 </tool>
             </inputs>
         </file>
@@ -378,43 +369,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 16</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\main.c</name>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 16</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\FLASH.c</name>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 20</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\USB.c</name>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 12</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\source\nRF24L01.c</name>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 18 10</file>
+                    <file> 13</file>
                 </tool>
             </inputs>
         </file>
@@ -423,16 +378,61 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 11</file>
+                    <file> 8</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\source\CLOCK.c</name>
+            <name>$PROJ_DIR$\..\source\nRF24L01.c</name>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 16 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\FLASH.c</name>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\SPI.c</name>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB_HW.c</name>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\main.c</name>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
                     <file> 13</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\source\USB.c</name>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 18</file>
                 </tool>
             </inputs>
         </file>

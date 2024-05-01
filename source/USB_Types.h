@@ -44,15 +44,6 @@ typedef enum
 	ISOCHRONOUS	= 0b10,
 	INTERRUPT	= 0b11
 } USB_EndpointEncodingType;
-/*---------------------- Send descriptor status ----------------------*/
-typedef enum
-{
-	FULL_DESCRIPTOR_START,
-	FULL_DESCRIPTOR_SENDING,
-	FULL_DESCRIPTOR_DONE,
-	STRING_DESCRIPTOR_SENDING,
-	STRING_DESCRIPTOR_DONE
-} USB_SendDescriptorStatusType;
 /*---------------------- DIRECTION ----------------------*/
 typedef enum
 {
@@ -122,7 +113,10 @@ typedef enum
   	GET_INTERFACE,
   	SET_INTERFACE,
   	TOTAL_sREQUEST,  /* Total number of Standard request */
-	SYNCH_FRAME = 12
+	SYNCH_FRAME = 12,
+	SET_LINE_CODING	= 0x20,
+	GET_LINE_CODING	= 0x21,
+	SET_CONTROL_LINE_STATE	= 0x22,
 } USB_Request;
 /*---------------------- Enumeration state ----------------------*/
 typedef enum
@@ -134,8 +128,9 @@ typedef enum
 	SENDING_FULL_DESCRIPTOR,
 	DONE_FULL_DESCRIPTOR,
 	SENDING_STRING_DESCRIPTOR,
-	DONE_STRING_DESCRIPTOR
-
+	DONE_STRING_DESCRIPTOR,
+	SETTING_CONFIGURATION,
+	DONE_SETTING_CONFIGURATION,
 } USB_EnumerationType;
 /*---------------------- Definition of BwValue ----------------------*/
 typedef enum _DESCRIPTOR_TYPE
@@ -145,6 +140,7 @@ typedef enum _DESCRIPTOR_TYPE
   STRING_DESCRIPTOR = 3,
   INTERFACE_DESCRIPTOR = 4,
   ENDPOINT_DESCRIPTOR = 5,
+  DEVICE_QUALIFIER_DESCRIPTOR = 6,
   DEVICE_BOS_DESCRIPTOR = 0xF
 } USB_DescriptorType;
 /*---------------------- Transfer status ----------------------*/
@@ -214,7 +210,6 @@ typedef struct
 {
   int PacketSize;		/* unit: number of bytes to be sent */
   int RemainSize;		/* remaining bytes to finish */
-  USB_SendDescriptorStatusType Status;
 } USB_PacketInforType;
 /*---------------------- Host Request ----------------------*/
 typedef struct _ENDPOINT_INFO
@@ -269,6 +264,8 @@ extern uint8_t Virtual_Com_Port_StringLangID[];
 extern uint8_t Virtual_Com_Port_StringVendor[];
 extern uint8_t Virtual_Com_Port_StringProduct[];
 extern uint8_t Virtual_Com_Port_StringSerial[];
+extern uint8_t CDC_GetLineCoding[7];
+extern uint8_t CDC_SetLineCoding[7];
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/

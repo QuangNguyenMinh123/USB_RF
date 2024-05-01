@@ -15,23 +15,23 @@
 /* rx/tx buffer base address */
 /* EP0  */
 #define ENDP0_RXADDR        (0x40)			/* actual address: 0x80 */
-#define ENDP0_RX_SIZE		(80)
-#define ENDP0_TXADDR        (0xC0)			/* = 72 -> actual address =  0x90*/
-#define ENDP0_TX_SIZE		(80)
+#define ENDP0_RX_SIZE		(100)
+#define ENDP0_TXADDR        (0xC0)
+#define ENDP0_TX_SIZE		(100)
 /* EP1  */
-#define ENDP1_RXADDR        (0x140)			/* actual address: 0x280 */
+#define ENDP1_RXADDR        (0x100)			/* actual address: 0x280 */
 #define ENDP1_RX_SIZE
-#define ENDP1_TXADDR        (0x1C0)			/* actual address: 0x380 */
+#define ENDP1_TXADDR        (0x120)			/* actual address: 0x380 */
 #define ENDP1_TX_SIZE
 /* EP2  */
 #define ENDP2_RXADDR        (0x140)
 #define ENDP2_RX_SIZE
-#define ENDP2_TXADDR        (0xC0)
-#define ENDP2_TX_SIZE		(80)
+#define ENDP2_TXADDR        (0x180)
+#define ENDP2_TX_SIZE		(64)
 /* EP3  */
-#define ENDP3_RXADDR        (0x140)
+#define ENDP3_RXADDR        (0x180)
 #define ENDP3_RX_SIZE
-#define ENDP3_TXADDR        (0xC0)
+#define ENDP3_TXADDR        (0)
 #define ENDP3_TX_SIZE		(80)
 
 #define USB_EPR_DTOG_RX_POS             (14)
