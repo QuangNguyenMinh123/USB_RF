@@ -29,8 +29,7 @@
  **********************************************************************************************************************/
 static void USB_Reset(void);
 static void USB_EnableInterrupt(void);
-static void USB_ClearPMA(void);
-static void USB_GPIO_Init(void);
+static
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
@@ -40,16 +39,6 @@ volatile uint16_t checkCRT = 0;
 /***********************************************************************************************************************
  * Static function
  **********************************************************************************************************************/
-static void USB_ClearPMA(void)
-{
-	uint32_t *ptr = (uint32_t *)USB_MEM_BASE;
-	while (ptr <= (uint32_t *) (USB_MEM_BASE + 1024))
-	{
-		*ptr = 0;
-		*ptr ++;
-	}
-}
-
 static void USB_Reset(void)
 {
 	int timer;
@@ -92,7 +81,7 @@ void USB_Init(void)
 	RCC->CFGR &= ~RCC_CFGR_USBPRE;
 	/* Enable USB clock */
 	RCC->APB1ENR |= RCC_APB1ENR_USBEN;
-	USB_ClearPMA();
+	USB_HW_ClearPMA();
 	USB_Reset();
 	/* BTABLE reset */
 	USB_HW_ResetBTABLE();
@@ -100,9 +89,8 @@ void USB_Init(void)
 	USB_EnableInterrupt();
 }
 
-void USB_SendString(uint8_t *Data, uint16_t size)
+void USB_SendString(uint8_t EndpointIndex, uint8_t *Data, uint16_t size)
 {
-	int EndpointIndex = 2;
 	USB_HW_SetupData(EndpointIndex, Data, size);
 	USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 	USB_HW_SetEPRxStatus(EndpointIndex, VALID);

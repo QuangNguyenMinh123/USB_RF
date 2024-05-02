@@ -15,24 +15,16 @@
 /* rx/tx buffer base address */
 /* EP0  */
 #define ENDP0_RXADDR        (0x40)			/* actual address: 0x80 */
-#define ENDP0_RX_SIZE		(100)
-#define ENDP0_TXADDR        (0xC0)
-#define ENDP0_TX_SIZE		(100)
+#define ENDP0_TXADDR        (0x90)
 /* EP1  */
-#define ENDP1_RXADDR        (0x100)			/* actual address: 0x280 */
-#define ENDP1_RX_SIZE
-#define ENDP1_TXADDR        (0x120)			/* actual address: 0x380 */
-#define ENDP1_TX_SIZE
+#define ENDP1_RXADDR        (0xE0)			/* actual address: 0x280 */
+#define ENDP1_TXADDR        (0x110)			/* actual address: 0x380 */
 /* EP2  */
 #define ENDP2_RXADDR        (0x140)
-#define ENDP2_RX_SIZE
-#define ENDP2_TXADDR        (0x180)
-#define ENDP2_TX_SIZE		(64)
+#define ENDP2_TXADDR        (0x170)
 /* EP3  */
 #define ENDP3_RXADDR        (0x180)
-#define ENDP3_RX_SIZE
 #define ENDP3_TXADDR        (0)
-#define ENDP3_TX_SIZE		(80)
 
 #define USB_EPR_DTOG_RX_POS             (14)
 #define USB_EPR_DTOG_RX_MSK             (0b1<<USB_EPR_DTOG_RX_POS)
@@ -112,6 +104,8 @@
  * API
  **********************************************************************************************************************/
 void USB_HW_ResetBTABLE();
+
+void USB_HW_ClearPMA(void);
 
 void USB_HW_SetEPRxDataToggle(uint8_t EndpointIdx, int RXData);
 

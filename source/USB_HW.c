@@ -20,6 +20,16 @@ __inline void USB_HW_ResetBTABLE()
 	USB->BTABLE = 0;
 }
 
+void USB_HW_ClearPMA(void)
+{
+	uint32_t *ptr = (uint32_t *)USB_MEM_BASE;
+	while (ptr <= (uint32_t *) (USB_MEM_BASE + 1024))
+	{
+		*ptr = 0;
+		*ptr ++;
+	}
+}
+
 __inline void USB_HW_SetEPRxDataToggle(uint8_t EndpointIdx, int RXData)
 {
 	uint16_t Dummy = (USB->EPR[EndpointIdx] & USB_EPR_DTOG_RX_MSK);
@@ -99,7 +109,7 @@ __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size
 		ptr_Data+= 2;
 		ptr_Adr	+= 2;
 	}
-	USB_MEM->EP_BUFFER[EnpointIdx].COUNT_TX = Size;
+	USB_HW_SetEPTxCount(EnpointIdx, Size);
 	USB_HW_SetEPTxStatus(EnpointIdx, VALID);
 }
 
