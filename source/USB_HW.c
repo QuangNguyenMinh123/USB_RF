@@ -100,6 +100,7 @@ __inline void USB_HW_SetupData(uint8_t EnpointIdx, uint8_t *SourceData, int Size
 		ptr_Adr	+= 2;
 	}
 	USB_MEM->EP_BUFFER[EnpointIdx].COUNT_TX = Size;
+	USB_HW_SetEPTxStatus(EnpointIdx, VALID);
 }
 
 __inline void USB_HW_GetData(uint8_t EnpointIdx, uint32_t *DestData, int Size)

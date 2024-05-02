@@ -211,27 +211,6 @@ uint8_t Virtual_Com_Port_StringSerial[VIRTUAL_COM_PORT_SIZ_STRING_SERIAL] =
     'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0
  };
 
-uint8_t CDC_GetLineCoding[7] =
-{
-	0x00,			/* dwDTERate */
-	0x00,
-	0x00,
-	0x00,
-	0x00,			/* bCharFormat */
-	0x00,			/* bParityType */
-	0x00			/* bDataBits */
-};
-
-uint8_t CDC_SetLineCoding[7] =
-{
-	0x00,			/* dwDTERate */
-	0x00,
-	0x00,
-	0x00,
-	0x00,			/* bCharFormat */
-	0x00,			/* bParityType */
-	0x00			/* bDataBits */
-};
 /*******************************************************************************
  * Code
  ******************************************************************************/

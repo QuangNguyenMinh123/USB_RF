@@ -143,82 +143,12 @@ typedef enum _DESCRIPTOR_TYPE
   DEVICE_QUALIFIER_DESCRIPTOR = 6,
   DEVICE_BOS_DESCRIPTOR = 0xF
 } USB_DescriptorType;
-/*---------------------- Transfer status ----------------------*/
-typedef enum
-{
-	IN,
-	RECEIVING,
-	OUT,
-	SENDING,
-	HALTED
-} USB_StatusType;
-/*---------------------- Device Descriptor ----------------------*/
-typedef struct
-{
-	uint8_t bLength;
-	uint8_t bDescriptorType;
-	uint16_t bcdUSB;
-	uint8_t bDeviceClass;
-	uint8_t bDeviceSubClass;
-	uint8_t bDeviceProtocol;
-	uint8_t bMaxPacketSize0;
-	uint16_t idVendor;
-	uint16_t idProduct;
-	uint16_t bcdDevice;
-	uint8_t iManufacturer;
-	uint8_t iProduct;
-	uint8_t iSerialNumber;
-	uint8_t bNumConfigurations;
-} USB_DeviceDescriptorType;
-/*---------------------- Configuration Descriptor ----------------------*/
-typedef struct
-{
-	uint8_t bLength;
-	uint8_t bDescriptorType;
-	uint16_t wTotalLength;
-	uint8_t bNumInterfaces;
-	uint8_t bConfigurationValue;
-	uint8_t iConfiguration;
-	uint8_t bmAttributes;
-	uint8_t MaxPower;
-} USB_ConfigurationDescriptorType;
-/*---------------------- Interface Descriptor ----------------------*/
-typedef struct
-{
-	uint8_t bLength;
-	uint8_t bDescriptorType;
-	uint8_t bInterfaceNumber;
-	uint8_t bAlternateSetting;
-	uint8_t bNumEndpoints;
-	uint8_t bInterfaceClass;
-	uint8_t bInterfaceSubClass;
-	uint8_t bInterfaceProtocol;
-	uint8_t iInterface;
-} USB_InterfaceDescriptorType;
-/*---------------------- Endpoint Descriptor ----------------------*/
-typedef struct
-{
-	uint8_t bLength;
-	uint8_t bDescriptorType;
-	uint8_t bEndpointAddress;
-	uint8_t bmAttributes;
-	uint16_t wMaxPacketSize;
-	uint8_t bInterval;
-} USB_EndpointDescriptorType;
 /*----------------------  Packet Information ----------------------*/
 typedef struct
 {
   int PacketSize;		/* unit: number of bytes to be sent */
   int RemainSize;		/* remaining bytes to finish */
 } USB_PacketInforType;
-/*---------------------- Host Request ----------------------*/
-typedef struct _ENDPOINT_INFO
-{
-  uint16_t  Usb_wLength;
-  uint16_t  Usb_wOffset;
-  uint16_t  PacketSize;
-  uint8_t   *(*CopyData)(uint16_t Length);
-} ENDPOINT_INFO;
 /*---------------------- Request Type ----------------------*/
 typedef struct
 {
@@ -238,22 +168,6 @@ typedef struct
 	USB_DescriptorType DescriptorType;
 	uint8_t EndpointTarget;
 } USB_SpecificRequestType;
-
-typedef struct _DEVICE_INFO
-{
-  uint8_t USBbmRequestType;       	/* bmRequestType */
-  uint8_t USBbRequest;            	/* bRequest */
-  uint16_t USBwValues;         		/* wValue */
-  uint16_t USBwIndexs;         		/* wIndex */
-  uint16_t USBwLengths;        		/* wLength */
-  uint8_t ControlState;           	/* of type CONTROL_STATE */
-  uint8_t Current_Feature;
-  uint8_t Current_Configuration;   	/* Selected configuration */
-  uint8_t Current_Interface;       	/* Selected interface of current configuration */
-  uint8_t Current_AlternateSetting;	/* Selected Alternate Setting of current
-                                     interface*/
-  ENDPOINT_INFO Ctrl_Info;
-}DEVICE_INFO;
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
@@ -264,8 +178,6 @@ extern uint8_t Virtual_Com_Port_StringLangID[];
 extern uint8_t Virtual_Com_Port_StringVendor[];
 extern uint8_t Virtual_Com_Port_StringProduct[];
 extern uint8_t Virtual_Com_Port_StringSerial[];
-extern uint8_t CDC_GetLineCoding[7];
-extern uint8_t CDC_SetLineCoding[7];
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/

@@ -43,11 +43,17 @@
 #define __bmRequestType_RECIPIENT_OTHER			0b00000011
 
 #define MAX_EP0_PACKET_SIZE						64
+
+#define BAUD1(x)			(x & 0xFF) >> 0
+#define BAUD2(x)			(x & 0xFF00) >> 8
+#define BAUD3(x)			(x & 0xFF0000) >> 16
+#define BAUD4(x)			(x & 0xFF000000) >> 24
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
 static void USB_EndpointReset(int EndpointIdx);
 static uint16_t USB_ByteSwap(uint16_t Data);
+void USB_IRQ_SetCDCBaudrate(void);
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
@@ -63,6 +69,10 @@ USB_RequestType Request;
 USB_SpecificRequestType SpecificRequest;
 uint32_t *ptr_Data;
 USB_PacketInforType PacketInfo;
+int Baudrate = 9600;
+int Stopbit = 0;
+bool ParityType = 0;
+bool DataBits =  7;
 int Dummy = 0;
 #define StringDescriptorSize 	4
 typedef struct {
@@ -78,7 +88,19 @@ StringDescriptorType StringDescriptor[StringDescriptorSize] =
 };
 int StringDescriptorIdx = StringDescriptorSize - 1;
 int pass = 0;
+uint8_t CDC_LineCoding[7] =
+{
+	0x00,			/* dwDTERate */
+	0x00,
+	0x00,
+	0x00,
+	0x00,			/* bCharFormat */
+	0x00,			/* bParityType */
+	0x00			/* bDataBits */
+};
+USB_Request PreRequest = 0;
 
+int cnt = 0;
 int ctr = 0;
 int dum = 0;
 int reset = 0;
@@ -102,7 +124,6 @@ int setFeature = 0;
 int get_interface = 0;
 int getFullDes = 0;
 int string_des = 0;
-DEVICE_INFO pInformation;
 int pid_in = 0;
 /***********************************************************************************************************************
  * Static function
@@ -116,6 +137,19 @@ static uint16_t USB_ByteSwap(uint16_t Data)
   return (Ret);
 }
 
+void USB_IRQ_SetCDCBaudrate(void)
+{
+	CDC_LineCoding[0] = BAUD1(Baudrate);
+	CDC_LineCoding[1] = BAUD2(Baudrate);
+	CDC_LineCoding[2] = BAUD3(Baudrate);
+	CDC_LineCoding[3] = BAUD4(Baudrate);
+	if (Stopbit == 0)
+		CDC_LineCoding[4] = 0;
+	else if (Stopbit == 2)
+		CDC_LineCoding[4] = 2;
+	CDC_LineCoding[5] = ParityType;
+	CDC_LineCoding[6] = DataBits;
+}
 static void USB_EndpointReset(int EndpointIdx)
 {
 	USB_HW_SetEPRxStatus(EndpointIdx, DISABLED);
@@ -173,15 +207,14 @@ void USB_IRQ_PrepareBuffer(uint32_t * ptr)
 	ptr_Data = ptr;
 }
 
-void USB_IRQ_ZeroLengthPacket(void)
+void USB_IRQ_ZeroLengthPacket(int EndpointIdx)
 {
-	USB_HW_SetEPTxCount(0,0);
-	USB_HW_SetEPTxStatus(0, VALID);
+	USB_HW_SetEPTxCount(EndpointIdx,0);
+	USB_HW_SetEPTxStatus(EndpointIdx, VALID);
 }
 
 void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 {
-	setup++;
 	/* No data stage */
 	if (Request.wLength == 0)
 	{
@@ -193,8 +226,7 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 				if (SpecificRequest.Request == SET_CONFIGURATION)
     			{
 					EnumerationStatus = SETTING_CONFIGURATION;
-					USB_IRQ_ZeroLengthPacket();
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+					USB_IRQ_ZeroLengthPacket(EndpointIndex);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
     			}
 				else if (SpecificRequest.Request == SET_ADDRESS)
@@ -202,39 +234,39 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					saveAdr = USB_ByteSwap(Request.wValue);
 					USB_HW_SetEPRxCount(EndpointIndex, 64);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
-					USB_IRQ_ZeroLengthPacket();
+					USB_IRQ_ZeroLengthPacket(EndpointIndex);
 					EnumerationStatus = ADDRESSING;
-    			}
-				else if (SpecificRequest.Request == SET_FEATURE)
-    			{
-
     			}
 				else if (SpecificRequest.Request == CLEAR_FEATURE)
     			{
-
+					PreRequest = CLEAR_FEATURE;
     			}
 			}
 			else if (SpecificRequest.Receiver == INTERFACE)
 			{
-				if (SpecificRequest.Request == SET_INTERFACE)
+				if (SpecificRequest.Request == SET_FEATURE)
     			{
-
+					PreRequest = SET_FEATURE;
     			}
 			}
 			else if (SpecificRequest.Receiver == ENDPOINT)
 			{
 				if (SpecificRequest.Request == CLEAR_FEATURE)
     			{
-
+					Dummy = USB_ByteSwap(Request.wIndex) & 0b1111;
+					USB_IRQ_ZeroLengthPacket(EndpointIndex);
+					USB_HW_SetEPRxStatus(Dummy, VALID);
+					Baudrate = 0;
+					ParityType = 0;
+					DataBits = 7;
+					ParityType = 0;
+					USB_IRQ_SetCDCBaudrate();
+					PreRequest = CLEAR_FEATURE;
     			}
 				else if (SpecificRequest.Request == SET_FEATURE)
     			{
-
+					PreRequest = SET_FEATURE;
     			}
-			}
-			else
-			{
-
 			}
 		}
 		else if (SpecificRequest.RequestClass == VENDOR)
@@ -246,17 +278,18 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 			{
 				if (SpecificRequest.Request == SET_CONTROL_LINE_STATE)
 				{
-					USB_IRQ_ZeroLengthPacket();
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+					USB_IRQ_ZeroLengthPacket(EndpointIndex);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+					PreRequest = SET_CONTROL_LINE_STATE;
 					pass = 1;
 				}
 				else if (SpecificRequest.Request == SET_LINE_CODING)
 				{
-					USB_HW_SetupData(END_POINT_0, CDC_SetLineCoding, 7);
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+					USB_HW_SetupData(END_POINT_0, CDC_LineCoding, 7);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+					PreRequest = SET_LINE_CODING;
 					pass = 3;
+					cnt ++;
 				}
 			}
 			else if (SpecificRequest.Receiver == ENDPOINT)
@@ -285,7 +318,6 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					else if (EnumerationStatus == ADDRESSED)
 					{
 						USB_HW_SetupData(EndpointIndex, USB_DeviceDescriptor, GET_DESCIPTOR_SIZE);
-						USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 						USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 					}
 				}
@@ -304,7 +336,6 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 						USB_HW_SetupData(EndpointIndex, Virtual_Com_Port_ConfigDescriptor,
 								Request.wLength);
 					}
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 					EnumerationStatus = SENDING_FULL_DESCRIPTOR;
 				}
@@ -314,7 +345,6 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					USB_HW_SetupData(EndpointIndex,
 									StringDescriptor[Dummy].ptr,
 									StringDescriptor[Dummy].size);
-					USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 					EnumerationStatus = SENDING_STRING_DESCRIPTOR;
 				}
@@ -346,24 +376,42 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 		}
 		else if (SpecificRequest.Request == GET_LINE_CODING)
 		{
-			USB_HW_SetupData(END_POINT_0, CDC_GetLineCoding, 7);
-			USB_HW_SetEPTxStatus(EndpointIndex, VALID);
+			USB_IRQ_SetCDCBaudrate();
+			USB_HW_SetupData(END_POINT_0, CDC_LineCoding, 7);
 			USB_HW_SetEPRxStatus(EndpointIndex, VALID);
-			pass = 2;
+			PreRequest = GET_LINE_CODING;
 		}
 		else if (SpecificRequest.Request == SET_LINE_CODING)
 		{
-			USB_HW_SetupData(END_POINT_0, CDC_SetLineCoding, 7);
-			USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 			USB_HW_SetEPRxStatus(EndpointIndex, VALID);
-			pass = 3;
+			PreRequest = SET_LINE_CODING;
 		}
 	}
 }
 
 void USB_IRQ_CTR_PID_OUT_Process(uint8_t EndpointIndex)
 {
-	data_out++;
+	if (PreRequest == SET_LINE_CODING)
+	{
+		Baudrate = ((Request.wValue & 0x00ff) << 24);
+		Baudrate |= ((Request.wValue & 0xff00) << 8);
+		Baudrate |= (Request.bRequest<< 8);
+		Baudrate |= Request.bmRequestType;
+		Stopbit = Request.wIndex & 0xff;
+		ParityType = Request.wIndex & 0xff00;
+		DataBits = Request.wLength & 0xf;
+		USB_IRQ_SetCDCBaudrate();
+		USB_IRQ_ZeroLengthPacket(EndpointIndex);
+		USB_HW_SetEPRxStatus(EndpointIndex, VALID);
+	}
+	else if (PreRequest == SET_CONTROL_LINE_STATE)
+	{
+		stop = 0;
+	}
+	else if (PreRequest == GET_LINE_CODING)
+	{
+		stop = 0;
+	}
 }
 
 void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
@@ -383,15 +431,13 @@ void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
 			USB_HW_SetupData(EndpointIndex,
 			&Virtual_Com_Port_ConfigDescriptor[PacketInfo.PacketSize - PacketInfo.RemainSize],
 				PacketInfo.RemainSize);
-			USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 			USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 			PacketInfo.RemainSize -= MAX_EP0_PACKET_SIZE;
 		}
 		else
 		{
-			USB_IRQ_ZeroLengthPacket();
+			USB_IRQ_ZeroLengthPacket(EndpointIndex);
 			/* Start sending string descriptor */
-			USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 			USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 			EnumerationStatus = DONE_FULL_DESCRIPTOR;
 		}
@@ -409,15 +455,19 @@ void USB_IRQ_CTR_PID_IN_Process(uint8_t EndpointIndex)
  **********************************************************************************************************************/
 void USB_IRQ_CorrecTransfer(void)
 {
-	ctr ++;
 	EndpointIndex = CURRENT_EP_ID;
 	/* Save endpoint status, istr register status */
 	SaveISTR = USB->ISTR;
 	SaveEPRStatus = USB->EPR[EndpointIndex];
 	/* Retrieve data from bufer */
 	USB_GetRequest();
-	if (SpecificRequest.Request == SET_LINE_CODING)
-		pass = 0;
+	if (Request.bRequest == GET_LINE_CODING)
+	{
+		if (Request.wIndex > 0 )
+		{
+			stop = 0;
+		}
+	}
 	if (EndpointIndex == END_POINT_0)
 	{
 		Direction = SaveISTR & USB_ISTR_DIR;
@@ -453,6 +503,8 @@ void USB_IRQ_CorrecTransfer(void)
 		if ((SaveEPRStatus & USB_EPR_CTR_RX_MSK) == USB_EPR_CTR_RX_MSK)
 		{
 			USB_HW_ClearEP_CTR_RX(EndpointIndex);
+			USB_IRQ_ZeroLengthPacket(EndpointIndex);
+			USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 		}
 		/* If device send data to host */
 		if ((SaveEPRStatus & USB_EPR_CTR_TX_MSK) == USB_EPR_CTR_TX_MSK)
@@ -504,6 +556,7 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPType(END_POINT_0, CONTROL);
 	USB_HW_SetEPTxDataToggle(END_POINT_0, 1);
 	USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
+	USB_HW_SetEPEnpointAddress(END_POINT_0, 0);
 	/* Endpoint 1 init */
 	USB_HW_SetEPEnpointAddress(END_POINT_1, 0);
 	USB_HW_SetEPRxAddr(END_POINT_1, ENDP1_RXADDR);
@@ -514,6 +567,7 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPKind(END_POINT_1, 1);
 	USB_HW_SetEPTxDataToggle(END_POINT_1, 0);
 	USB_HW_SetEPRxDataToggle(END_POINT_1, 0);
+	USB_HW_SetEPEnpointAddress(END_POINT_1, 1);
 	/* Endpoint 2 init */
 	USB_HW_SetEPEnpointAddress(END_POINT_2, 0);
 	USB_HW_SetEPRxAddr(END_POINT_2, ENDP2_RXADDR);
@@ -524,6 +578,7 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPKind(END_POINT_2, 1);
 	USB_HW_SetEPTxDataToggle(END_POINT_2, 0);
 	USB_HW_SetEPRxDataToggle(END_POINT_2, 0);
+	USB_HW_SetEPEnpointAddress(END_POINT_2, 2);
 	/* PMA */
 	USB_HW_SetPacketSize(END_POINT_0, 18);
 	USB_HW_SetPacketSize(END_POINT_1, 18);

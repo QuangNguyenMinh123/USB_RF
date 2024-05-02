@@ -96205,751 +96205,13 @@
     "scope": null
   },
   {
-    "ID": "c:@EA@USB_StatusType",
-    "What": "Enum",
-    "defdec": "Def",
-    "display": "",
-    "fields": [
-      {
-        "ID": "c:@EA@USB_StatusType@IN",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "IN",
-        "location": {
-          "column": "2",
-          "line": "149",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "IN",
-        "origin": "user_include",
-        "scope": null
-      },
-      {
-        "ID": "c:@EA@USB_StatusType@RECEIVING",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "RECEIVING",
-        "location": {
-          "column": "2",
-          "line": "150",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "RECEIVING",
-        "origin": "user_include",
-        "scope": null
-      },
-      {
-        "ID": "c:@EA@USB_StatusType@OUT",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "OUT",
-        "location": {
-          "column": "2",
-          "line": "151",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "OUT",
-        "origin": "user_include",
-        "scope": null
-      },
-      {
-        "ID": "c:@EA@USB_StatusType@SENDING",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "SENDING",
-        "location": {
-          "column": "2",
-          "line": "152",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "SENDING",
-        "origin": "user_include",
-        "scope": null
-      },
-      {
-        "ID": "c:@EA@USB_StatusType@HALTED",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "HALTED",
-        "location": {
-          "column": "2",
-          "line": "153",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "HALTED",
-        "origin": "user_include",
-        "scope": null
-      }
-    ],
-    "location": {
-      "column": "9",
-      "line": "147",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@USB_StatusType",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "enum USB_StatusType",
-    "location": {
-      "column": "3",
-      "line": "154",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "USB_StatusType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SA@USB_DeviceDescriptorType",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "",
-    "location": {
-      "column": "9",
-      "line": "156",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bLength",
-        "location": {
-          "column": "10",
-          "line": "158",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bLength",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bDescriptorType",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDescriptorType",
-        "location": {
-          "column": "10",
-          "line": "159",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDescriptorType",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bcdUSB",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bcdUSB",
-        "location": {
-          "column": "11",
-          "line": "160",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bcdUSB",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bDeviceClass",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDeviceClass",
-        "location": {
-          "column": "10",
-          "line": "161",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDeviceClass",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bDeviceSubClass",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDeviceSubClass",
-        "location": {
-          "column": "10",
-          "line": "162",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDeviceSubClass",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bDeviceProtocol",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDeviceProtocol",
-        "location": {
-          "column": "10",
-          "line": "163",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDeviceProtocol",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bMaxPacketSize0",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bMaxPacketSize0",
-        "location": {
-          "column": "10",
-          "line": "164",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bMaxPacketSize0",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@idVendor",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "idVendor",
-        "location": {
-          "column": "11",
-          "line": "165",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "idVendor",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@idProduct",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "idProduct",
-        "location": {
-          "column": "11",
-          "line": "166",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "idProduct",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bcdDevice",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bcdDevice",
-        "location": {
-          "column": "11",
-          "line": "167",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bcdDevice",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@iManufacturer",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "iManufacturer",
-        "location": {
-          "column": "10",
-          "line": "168",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "iManufacturer",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@iProduct",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "iProduct",
-        "location": {
-          "column": "10",
-          "line": "169",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "iProduct",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@iSerialNumber",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "iSerialNumber",
-        "location": {
-          "column": "10",
-          "line": "170",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "iSerialNumber",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      },
-      {
-        "ID": "c:@SA@USB_DeviceDescriptorType@FI@bNumConfigurations",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bNumConfigurations",
-        "location": {
-          "column": "10",
-          "line": "171",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bNumConfigurations",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_156_9"
-      }
-    ],
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@USB_DeviceDescriptorType",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "struct USB_DeviceDescriptorType",
-    "location": {
-      "column": "3",
-      "line": "172",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "USB_DeviceDescriptorType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SA@USB_ConfigurationDescriptorType",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "",
-    "location": {
-      "column": "9",
-      "line": "174",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@bLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bLength",
-        "location": {
-          "column": "10",
-          "line": "176",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bLength",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@bDescriptorType",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDescriptorType",
-        "location": {
-          "column": "10",
-          "line": "177",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDescriptorType",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@wTotalLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "wTotalLength",
-        "location": {
-          "column": "11",
-          "line": "178",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "wTotalLength",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@bNumInterfaces",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bNumInterfaces",
-        "location": {
-          "column": "10",
-          "line": "179",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bNumInterfaces",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@bConfigurationValue",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bConfigurationValue",
-        "location": {
-          "column": "10",
-          "line": "180",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bConfigurationValue",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@iConfiguration",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "iConfiguration",
-        "location": {
-          "column": "10",
-          "line": "181",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "iConfiguration",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@bmAttributes",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bmAttributes",
-        "location": {
-          "column": "10",
-          "line": "182",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bmAttributes",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      },
-      {
-        "ID": "c:@SA@USB_ConfigurationDescriptorType@FI@MaxPower",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "MaxPower",
-        "location": {
-          "column": "10",
-          "line": "183",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "MaxPower",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_174_9"
-      }
-    ],
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@USB_ConfigurationDescriptorType",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "struct USB_ConfigurationDescriptorType",
-    "location": {
-      "column": "3",
-      "line": "184",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "USB_ConfigurationDescriptorType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SA@USB_InterfaceDescriptorType",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "",
-    "location": {
-      "column": "9",
-      "line": "186",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bLength",
-        "location": {
-          "column": "10",
-          "line": "188",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bLength",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bDescriptorType",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDescriptorType",
-        "location": {
-          "column": "10",
-          "line": "189",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDescriptorType",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bInterfaceNumber",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bInterfaceNumber",
-        "location": {
-          "column": "10",
-          "line": "190",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bInterfaceNumber",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bAlternateSetting",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bAlternateSetting",
-        "location": {
-          "column": "10",
-          "line": "191",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bAlternateSetting",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bNumEndpoints",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bNumEndpoints",
-        "location": {
-          "column": "10",
-          "line": "192",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bNumEndpoints",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bInterfaceClass",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bInterfaceClass",
-        "location": {
-          "column": "10",
-          "line": "193",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bInterfaceClass",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bInterfaceSubClass",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bInterfaceSubClass",
-        "location": {
-          "column": "10",
-          "line": "194",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bInterfaceSubClass",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@bInterfaceProtocol",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bInterfaceProtocol",
-        "location": {
-          "column": "10",
-          "line": "195",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bInterfaceProtocol",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      },
-      {
-        "ID": "c:@SA@USB_InterfaceDescriptorType@FI@iInterface",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "iInterface",
-        "location": {
-          "column": "10",
-          "line": "196",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "iInterface",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_186_9"
-      }
-    ],
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@USB_InterfaceDescriptorType",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "struct USB_InterfaceDescriptorType",
-    "location": {
-      "column": "3",
-      "line": "197",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "USB_InterfaceDescriptorType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SA@USB_EndpointDescriptorType",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "",
-    "location": {
-      "column": "9",
-      "line": "199",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@bLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bLength",
-        "location": {
-          "column": "10",
-          "line": "201",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bLength",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      },
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@bDescriptorType",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bDescriptorType",
-        "location": {
-          "column": "10",
-          "line": "202",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bDescriptorType",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      },
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@bEndpointAddress",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bEndpointAddress",
-        "location": {
-          "column": "10",
-          "line": "203",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bEndpointAddress",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      },
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@bmAttributes",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bmAttributes",
-        "location": {
-          "column": "10",
-          "line": "204",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bmAttributes",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      },
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@wMaxPacketSize",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "wMaxPacketSize",
-        "location": {
-          "column": "11",
-          "line": "205",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "wMaxPacketSize",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      },
-      {
-        "ID": "c:@SA@USB_EndpointDescriptorType@FI@bInterval",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "bInterval",
-        "location": {
-          "column": "10",
-          "line": "206",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "bInterval",
-        "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_199_9"
-      }
-    ],
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@USB_EndpointDescriptorType",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "struct USB_EndpointDescriptorType",
-    "location": {
-      "column": "3",
-      "line": "207",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "USB_EndpointDescriptorType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
     "ID": "c:@SA@USB_PacketInforType",
     "What": "Struct",
     "defdec": "Def",
     "display": "",
     "location": {
       "column": "9",
-      "line": "209",
+      "line": "147",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "members": [
@@ -96960,12 +96222,12 @@
         "display": "PacketSize",
         "location": {
           "column": "7",
-          "line": "211",
+          "line": "149",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "PacketSize",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_209_9"
+        "scope": "_anonymous_USB_Types_h_147_9"
       },
       {
         "ID": "c:@SA@USB_PacketInforType@FI@RemainSize",
@@ -96974,12 +96236,12 @@
         "display": "RemainSize",
         "location": {
           "column": "7",
-          "line": "212",
+          "line": "150",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "RemainSize",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_209_9"
+        "scope": "_anonymous_USB_Types_h_147_9"
       }
     ],
     "name": "",
@@ -96993,96 +96255,10 @@
     "display": "struct USB_PacketInforType",
     "location": {
       "column": "3",
-      "line": "213",
+      "line": "151",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "USB_PacketInforType",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@S@_ENDPOINT_INFO",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "_ENDPOINT_INFO",
-    "location": {
-      "column": "16",
-      "line": "215",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@S@_ENDPOINT_INFO@FI@Usb_wLength",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Usb_wLength",
-        "location": {
-          "column": "13",
-          "line": "217",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Usb_wLength",
-        "origin": "user_include",
-        "scope": "_ENDPOINT_INFO"
-      },
-      {
-        "ID": "c:@S@_ENDPOINT_INFO@FI@Usb_wOffset",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Usb_wOffset",
-        "location": {
-          "column": "13",
-          "line": "218",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Usb_wOffset",
-        "origin": "user_include",
-        "scope": "_ENDPOINT_INFO"
-      },
-      {
-        "ID": "c:@S@_ENDPOINT_INFO@FI@PacketSize",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "PacketSize",
-        "location": {
-          "column": "13",
-          "line": "219",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "PacketSize",
-        "origin": "user_include",
-        "scope": "_ENDPOINT_INFO"
-      },
-      {
-        "ID": "c:@S@_ENDPOINT_INFO@FI@CopyData",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "CopyData",
-        "location": {
-          "column": "16",
-          "line": "220",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "CopyData",
-        "origin": "user_include",
-        "scope": "_ENDPOINT_INFO"
-      }
-    ],
-    "name": "_ENDPOINT_INFO",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:USB_Types.h@T@ENDPOINT_INFO",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "struct _ENDPOINT_INFO",
-    "location": {
-      "column": "3",
-      "line": "221",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "ENDPOINT_INFO",
     "origin": "user_include",
     "scope": null
   },
@@ -97093,7 +96269,7 @@
     "display": "",
     "location": {
       "column": "9",
-      "line": "223",
+      "line": "153",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "members": [
@@ -97104,12 +96280,12 @@
         "display": "bmRequestType",
         "location": {
           "column": "13",
-          "line": "225",
+          "line": "155",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "bmRequestType",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_223_9"
+        "scope": "_anonymous_USB_Types_h_153_9"
       },
       {
         "ID": "c:@SA@USB_RequestType@FI@bRequest",
@@ -97118,12 +96294,12 @@
         "display": "bRequest",
         "location": {
           "column": "13",
-          "line": "226",
+          "line": "156",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "bRequest",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_223_9"
+        "scope": "_anonymous_USB_Types_h_153_9"
       },
       {
         "ID": "c:@SA@USB_RequestType@FI@wValue",
@@ -97132,12 +96308,12 @@
         "display": "wValue",
         "location": {
           "column": "13",
-          "line": "227",
+          "line": "157",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "wValue",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_223_9"
+        "scope": "_anonymous_USB_Types_h_153_9"
       },
       {
         "ID": "c:@SA@USB_RequestType@FI@wIndex",
@@ -97146,12 +96322,12 @@
         "display": "wIndex",
         "location": {
           "column": "11",
-          "line": "228",
+          "line": "158",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "wIndex",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_223_9"
+        "scope": "_anonymous_USB_Types_h_153_9"
       },
       {
         "ID": "c:@SA@USB_RequestType@FI@wLength",
@@ -97160,12 +96336,12 @@
         "display": "wLength",
         "location": {
           "column": "11",
-          "line": "229",
+          "line": "159",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "wLength",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_223_9"
+        "scope": "_anonymous_USB_Types_h_153_9"
       }
     ],
     "name": "",
@@ -97179,7 +96355,7 @@
     "display": "struct USB_RequestType",
     "location": {
       "column": "3",
-      "line": "230",
+      "line": "160",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "USB_RequestType",
@@ -97193,7 +96369,7 @@
     "display": "",
     "location": {
       "column": "9",
-      "line": "232",
+      "line": "162",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "members": [
@@ -97204,12 +96380,12 @@
         "display": "Dir",
         "location": {
           "column": "22",
-          "line": "234",
+          "line": "164",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "Dir",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       },
       {
         "ID": "c:@SA@USB_SpecificRequestType@FI@RequestClass",
@@ -97218,12 +96394,12 @@
         "display": "RequestClass",
         "location": {
           "column": "28",
-          "line": "235",
+          "line": "165",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "RequestClass",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       },
       {
         "ID": "c:@SA@USB_SpecificRequestType@FI@Request",
@@ -97232,12 +96408,12 @@
         "display": "Request",
         "location": {
           "column": "14",
-          "line": "236",
+          "line": "166",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "Request",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       },
       {
         "ID": "c:@SA@USB_SpecificRequestType@FI@Receiver",
@@ -97246,12 +96422,12 @@
         "display": "Receiver",
         "location": {
           "column": "20",
-          "line": "237",
+          "line": "167",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "Receiver",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       },
       {
         "ID": "c:@SA@USB_SpecificRequestType@FI@DescriptorType",
@@ -97260,12 +96436,12 @@
         "display": "DescriptorType",
         "location": {
           "column": "21",
-          "line": "238",
+          "line": "168",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "DescriptorType",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       },
       {
         "ID": "c:@SA@USB_SpecificRequestType@FI@EndpointTarget",
@@ -97274,12 +96450,12 @@
         "display": "EndpointTarget",
         "location": {
           "column": "10",
-          "line": "239",
+          "line": "169",
           "path": "F:\\USB_RF\\source\\USB_Types.h"
         },
         "name": "EndpointTarget",
         "origin": "user_include",
-        "scope": "_anonymous_USB_Types_h_232_9"
+        "scope": "_anonymous_USB_Types_h_162_9"
       }
     ],
     "name": "",
@@ -97293,7 +96469,7 @@
     "display": "struct USB_SpecificRequestType",
     "location": {
       "column": "3",
-      "line": "240",
+      "line": "170",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "USB_SpecificRequestType",
@@ -97301,197 +96477,13 @@
     "scope": null
   },
   {
-    "ID": "c:@S@_DEVICE_INFO",
-    "What": "Struct",
-    "defdec": "Def",
-    "display": "_DEVICE_INFO",
-    "location": {
-      "column": "16",
-      "line": "242",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "members": [
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@USBbmRequestType",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "USBbmRequestType",
-        "location": {
-          "column": "11",
-          "line": "244",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "USBbmRequestType",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@USBbRequest",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "USBbRequest",
-        "location": {
-          "column": "11",
-          "line": "245",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "USBbRequest",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@USBwValues",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "USBwValues",
-        "location": {
-          "column": "12",
-          "line": "246",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "USBwValues",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@USBwIndexs",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "USBwIndexs",
-        "location": {
-          "column": "12",
-          "line": "247",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "USBwIndexs",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@USBwLengths",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "USBwLengths",
-        "location": {
-          "column": "12",
-          "line": "248",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "USBwLengths",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@ControlState",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "ControlState",
-        "location": {
-          "column": "11",
-          "line": "249",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "ControlState",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@Current_Feature",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Current_Feature",
-        "location": {
-          "column": "11",
-          "line": "250",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Current_Feature",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@Current_Configuration",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Current_Configuration",
-        "location": {
-          "column": "11",
-          "line": "251",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Current_Configuration",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@Current_Interface",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Current_Interface",
-        "location": {
-          "column": "11",
-          "line": "252",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Current_Interface",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@Current_AlternateSetting",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Current_AlternateSetting",
-        "location": {
-          "column": "11",
-          "line": "253",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Current_AlternateSetting",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:@S@_DEVICE_INFO@FI@Ctrl_Info",
-        "What": "FieldDecl",
-        "defdec": "Def",
-        "display": "Ctrl_Info",
-        "location": {
-          "column": "17",
-          "line": "255",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "Ctrl_Info",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      },
-      {
-        "ID": "c:USB_Types.h@T@DEVICE_INFO",
-        "What": "TypedefDecl",
-        "defdec": "Def",
-        "display": "struct _DEVICE_INFO",
-        "location": {
-          "column": "2",
-          "line": "256",
-          "path": "F:\\USB_RF\\source\\USB_Types.h"
-        },
-        "name": "DEVICE_INFO",
-        "origin": "user_include",
-        "scope": "_DEVICE_INFO"
-      }
-    ],
-    "name": "_DEVICE_INFO",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
     "ID": "c:@Virtual_Com_Port_DeviceDescriptor",
     "What": "Variable",
     "defdec": "Dec",
     "display": "Virtual_Com_Port_DeviceDescriptor",
     "location": {
       "column": "16",
-      "line": "260",
+      "line": "174",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_DeviceDescriptor",
@@ -97505,7 +96497,7 @@
     "display": "Virtual_Com_Port_DeviceDescriptor",
     "location": {
       "column": "16",
-      "line": "260",
+      "line": "174",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_DeviceDescriptor",
@@ -97519,7 +96511,7 @@
     "display": "USB_DeviceDescriptor",
     "location": {
       "column": "16",
-      "line": "261",
+      "line": "175",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "USB_DeviceDescriptor",
@@ -97533,7 +96525,7 @@
     "display": "USB_DeviceDescriptor",
     "location": {
       "column": "16",
-      "line": "261",
+      "line": "175",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "USB_DeviceDescriptor",
@@ -97547,7 +96539,7 @@
     "display": "Virtual_Com_Port_ConfigDescriptor",
     "location": {
       "column": "16",
-      "line": "262",
+      "line": "176",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_ConfigDescriptor",
@@ -97561,7 +96553,7 @@
     "display": "Virtual_Com_Port_ConfigDescriptor",
     "location": {
       "column": "16",
-      "line": "262",
+      "line": "176",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_ConfigDescriptor",
@@ -97575,7 +96567,7 @@
     "display": "Virtual_Com_Port_StringLangID",
     "location": {
       "column": "16",
-      "line": "263",
+      "line": "177",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringLangID",
@@ -97589,7 +96581,7 @@
     "display": "Virtual_Com_Port_StringLangID",
     "location": {
       "column": "16",
-      "line": "263",
+      "line": "177",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringLangID",
@@ -97603,7 +96595,7 @@
     "display": "Virtual_Com_Port_StringVendor",
     "location": {
       "column": "16",
-      "line": "264",
+      "line": "178",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringVendor",
@@ -97617,7 +96609,7 @@
     "display": "Virtual_Com_Port_StringVendor",
     "location": {
       "column": "16",
-      "line": "264",
+      "line": "178",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringVendor",
@@ -97631,7 +96623,7 @@
     "display": "Virtual_Com_Port_StringProduct",
     "location": {
       "column": "16",
-      "line": "265",
+      "line": "179",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringProduct",
@@ -97645,7 +96637,7 @@
     "display": "Virtual_Com_Port_StringProduct",
     "location": {
       "column": "16",
-      "line": "265",
+      "line": "179",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringProduct",
@@ -97659,7 +96651,7 @@
     "display": "Virtual_Com_Port_StringSerial",
     "location": {
       "column": "16",
-      "line": "266",
+      "line": "180",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringSerial",
@@ -97673,66 +96665,10 @@
     "display": "Virtual_Com_Port_StringSerial",
     "location": {
       "column": "16",
-      "line": "266",
+      "line": "180",
       "path": "F:\\USB_RF\\source\\USB_Types.h"
     },
     "name": "Virtual_Com_Port_StringSerial",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@CDC_GetLineCoding",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "CDC_GetLineCoding",
-    "location": {
-      "column": "16",
-      "line": "267",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "CDC_GetLineCoding",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@CDC_GetLineCoding",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "CDC_GetLineCoding",
-    "location": {
-      "column": "16",
-      "line": "267",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "CDC_GetLineCoding",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@CDC_SetLineCoding",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "CDC_SetLineCoding",
-    "location": {
-      "column": "16",
-      "line": "268",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "CDC_SetLineCoding",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@CDC_SetLineCoding",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "CDC_SetLineCoding",
-    "location": {
-      "column": "16",
-      "line": "268",
-      "path": "F:\\USB_RF\\source\\USB_Types.h"
-    },
-    "name": "CDC_SetLineCoding",
     "origin": "user_include",
     "scope": null
   },
@@ -100175,216 +99111,6 @@
     "scope": null
   },
   {
-    "ID": "c:TIMER.c@TIMER_SourceMillis",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "TIMER_SourceMillis",
-    "location": {
-      "column": "21",
-      "line": "13",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_SourceMillis",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@TIMER_SourceMicros",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "TIMER_SourceMicros",
-    "location": {
-      "column": "21",
-      "line": "14",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_SourceMicros",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@F@delay",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void delay(uint32_t)",
-    "location": {
-      "column": "13",
-      "line": "18",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "delay",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@1186@F@delay@ui32Cnt",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "ui32Cnt",
-    "location": {
-      "column": "11",
-      "line": "19",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "ui32Cnt",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Init",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
-    "location": {
-      "column": "6",
-      "line": "24",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_Init",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Chaining",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void TIMER_Chaining(void)",
-    "location": {
-      "column": "6",
-      "line": "56",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_Chaining",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMillis",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "90",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_SetCLockSourceMillis",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMicros",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "95",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_SetCLockSourceMicros",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_EnableInterrupt",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "100",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_EnableInterrupt",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Milis",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "uint32_t TIMER_Milis(void)",
-    "location": {
-      "column": "10",
-      "line": "105",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_Milis",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@4272@F@TIMER_Milis@a",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "a",
-    "location": {
-      "column": "11",
-      "line": "107",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@4312@F@TIMER_Milis@b",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "b",
-    "location": {
-      "column": "11",
-      "line": "108",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Micros",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "uint32_t TIMER_Micros(void)",
-    "location": {
-      "column": "10",
-      "line": "112",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "TIMER_Micros",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@4413@F@TIMER_Micros@a",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "a",
-    "location": {
-      "column": "11",
-      "line": "114",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "a",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.c@4460@F@TIMER_Micros@b",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "b",
-    "location": {
-      "column": "11",
-      "line": "115",
-      "path": "F:\\USB_RF\\source\\TIMER.c"
-    },
-    "name": "b",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
     "ID": "c:USB.c@368@macro@END_POINT_0",
     "What": "MacroDef",
     "defdec": "Def",
@@ -100833,6 +99559,216 @@
     "scope": null
   },
   {
+    "ID": "c:TIMER.c@TIMER_SourceMillis",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "TIMER_SourceMillis",
+    "location": {
+      "column": "21",
+      "line": "13",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_SourceMillis",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@TIMER_SourceMicros",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "TIMER_SourceMicros",
+    "location": {
+      "column": "21",
+      "line": "14",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_SourceMicros",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@F@delay",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void delay(uint32_t)",
+    "location": {
+      "column": "13",
+      "line": "18",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "delay",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@1186@F@delay@ui32Cnt",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "ui32Cnt",
+    "location": {
+      "column": "11",
+      "line": "19",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "ui32Cnt",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Init",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
+    "location": {
+      "column": "6",
+      "line": "24",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_Init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Chaining",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TIMER_Chaining(void)",
+    "location": {
+      "column": "6",
+      "line": "56",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_Chaining",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMillis",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "90",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_SetCLockSourceMillis",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMicros",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "95",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_SetCLockSourceMicros",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_EnableInterrupt",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "100",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_EnableInterrupt",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Milis",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "uint32_t TIMER_Milis(void)",
+    "location": {
+      "column": "10",
+      "line": "105",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_Milis",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@4272@F@TIMER_Milis@a",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "a",
+    "location": {
+      "column": "11",
+      "line": "107",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "a",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@4312@F@TIMER_Milis@b",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "b",
+    "location": {
+      "column": "11",
+      "line": "108",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "b",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Micros",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "uint32_t TIMER_Micros(void)",
+    "location": {
+      "column": "10",
+      "line": "112",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "TIMER_Micros",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@4413@F@TIMER_Micros@a",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "a",
+    "location": {
+      "column": "11",
+      "line": "114",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "a",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.c@4460@F@TIMER_Micros@b",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "b",
+    "location": {
+      "column": "11",
+      "line": "115",
+      "path": "F:\\USB_RF\\source\\TIMER.c"
+    },
+    "name": "b",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@USB_HW_ResetBTABLE",
     "What": "Function",
     "defdec": "Def",
@@ -101161,7 +100097,7 @@
     "display": "void USB_HW_GetData(uint8_t, uint32_t *, int)",
     "location": {
       "column": "15",
-      "line": "105",
+      "line": "106",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_GetData",
@@ -101169,13 +100105,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@3649@F@USB_HW_GetData@i",
+    "ID": "c:USB_HW.c@3692@F@USB_HW_GetData@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "6",
-      "line": "107",
+      "line": "108",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "i",
@@ -101183,13 +100119,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@3662@F@USB_HW_GetData@ptr_Adr",
+    "ID": "c:USB_HW.c@3705@F@USB_HW_GetData@ptr_Adr",
     "What": "Variable",
     "defdec": "Def",
     "display": "ptr_Adr",
     "location": {
       "column": "12",
-      "line": "108",
+      "line": "109",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "ptr_Adr",
@@ -101197,13 +100133,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@3758@F@USB_HW_GetData@ptr_Data",
+    "ID": "c:USB_HW.c@3801@F@USB_HW_GetData@ptr_Data",
     "What": "Variable",
     "defdec": "Def",
     "display": "ptr_Data",
     "location": {
       "column": "13",
-      "line": "109",
+      "line": "110",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "ptr_Data",
@@ -101217,7 +100153,7 @@
     "display": "void USB_HW_SetEPType(uint8_t, USB_EndpointEncodingType)",
     "location": {
       "column": "15",
-      "line": "118",
+      "line": "119",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_SetEPType",
@@ -101225,13 +100161,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@3974@F@USB_HW_SetEPType@Msk",
+    "ID": "c:USB_HW.c@4017@F@USB_HW_SetEPType@Msk",
     "What": "Variable",
     "defdec": "Def",
     "display": "Msk",
     "location": {
       "column": "11",
-      "line": "120",
+      "line": "121",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Msk",
@@ -101245,7 +100181,7 @@
     "display": "void USB_HW_ClearEP_CTR_RX(uint8_t)",
     "location": {
       "column": "15",
-      "line": "124",
+      "line": "125",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_ClearEP_CTR_RX",
@@ -101253,13 +100189,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4158@F@USB_HW_ClearEP_CTR_RX@Save",
+    "ID": "c:USB_HW.c@4201@F@USB_HW_ClearEP_CTR_RX@Save",
     "What": "Variable",
     "defdec": "Def",
     "display": "Save",
     "location": {
       "column": "11",
-      "line": "126",
+      "line": "127",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Save",
@@ -101273,7 +100209,7 @@
     "display": "void USB_HW_ClearEP_CTR_TX(uint8_t)",
     "location": {
       "column": "15",
-      "line": "130",
+      "line": "131",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_ClearEP_CTR_TX",
@@ -101281,13 +100217,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4316@F@USB_HW_ClearEP_CTR_TX@Save",
+    "ID": "c:USB_HW.c@4359@F@USB_HW_ClearEP_CTR_TX@Save",
     "What": "Variable",
     "defdec": "Def",
     "display": "Save",
     "location": {
       "column": "11",
-      "line": "132",
+      "line": "133",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Save",
@@ -101301,7 +100237,7 @@
     "display": "void USB_HW_SetEPKind(uint8_t, uint8_t)",
     "location": {
       "column": "15",
-      "line": "136",
+      "line": "137",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_SetEPKind",
@@ -101309,13 +100245,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4483@F@USB_HW_SetEPKind@Msk",
+    "ID": "c:USB_HW.c@4526@F@USB_HW_SetEPKind@Msk",
     "What": "Variable",
     "defdec": "Def",
     "display": "Msk",
     "location": {
       "column": "11",
-      "line": "138",
+      "line": "139",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Msk",
@@ -101329,7 +100265,7 @@
     "display": "void USB_HW_SetEPEnpointAddress(uint8_t, uint8_t)",
     "location": {
       "column": "15",
-      "line": "142",
+      "line": "143",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_SetEPEnpointAddress",
@@ -101337,13 +100273,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4716@F@USB_HW_SetEPEnpointAddress@Msk",
+    "ID": "c:USB_HW.c@4759@F@USB_HW_SetEPEnpointAddress@Msk",
     "What": "Variable",
     "defdec": "Def",
     "display": "Msk",
     "location": {
       "column": "11",
-      "line": "145",
+      "line": "146",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Msk",
@@ -101357,7 +100293,7 @@
     "display": "uint8_t USB_HW_IsSetupPacket(uint8_t)",
     "location": {
       "column": "15",
-      "line": "149",
+      "line": "150",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_IsSetupPacket",
@@ -101365,13 +100301,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4883@F@USB_HW_IsSetupPacket@Msk",
+    "ID": "c:USB_HW.c@4926@F@USB_HW_IsSetupPacket@Msk",
     "What": "Variable",
     "defdec": "Def",
     "display": "Msk",
     "location": {
       "column": "11",
-      "line": "151",
+      "line": "152",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Msk",
@@ -101379,13 +100315,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@4942@F@USB_HW_IsSetupPacket@Ret",
+    "ID": "c:USB_HW.c@4985@F@USB_HW_IsSetupPacket@Ret",
     "What": "Variable",
     "defdec": "Def",
     "display": "Ret",
     "location": {
       "column": "7",
-      "line": "152",
+      "line": "153",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "Ret",
@@ -101399,7 +100335,7 @@
     "display": "void USB_HW_SetEPTxCount(uint8_t, uint16_t)",
     "location": {
       "column": "15",
-      "line": "156",
+      "line": "157",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_SetEPTxCount",
@@ -101413,7 +100349,7 @@
     "display": "void USB_HW_SetEPRxCount(uint8_t, uint16_t)",
     "location": {
       "column": "15",
-      "line": "161",
+      "line": "162",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "USB_HW_SetEPRxCount",
@@ -101421,13 +100357,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_HW.c@5206@F@USB_HW_SetEPRxCount@NBlocks",
+    "ID": "c:USB_HW.c@5249@F@USB_HW_SetEPRxCount@NBlocks",
     "What": "Variable",
     "defdec": "Def",
     "display": "NBlocks",
     "location": {
       "column": "11",
-      "line": "163",
+      "line": "164",
       "path": "F:\\USB_RF\\source\\USB_HW.c"
     },
     "name": "NBlocks",
@@ -101883,13 +100819,69 @@
     "scope": null
   },
   {
+    "ID": "c:USB_IRQ.c@1780@macro@BAUD1",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BAUD1",
+    "location": {
+      "column": "9",
+      "line": "47",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "BAUD1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:USB_IRQ.c@1816@macro@BAUD2",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BAUD2",
+    "location": {
+      "column": "9",
+      "line": "48",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "BAUD2",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:USB_IRQ.c@1854@macro@BAUD3",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BAUD3",
+    "location": {
+      "column": "9",
+      "line": "49",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "BAUD3",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:USB_IRQ.c@1895@macro@BAUD4",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BAUD4",
+    "location": {
+      "column": "9",
+      "line": "50",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "BAUD4",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:USB_IRQ.c@F@USB_EndpointReset",
     "What": "Function",
     "defdec": "Dec",
     "display": "void USB_EndpointReset(int)",
     "location": {
       "column": "13",
-      "line": "49",
+      "line": "54",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_EndpointReset",
@@ -101903,10 +100895,24 @@
     "display": "uint16_t USB_ByteSwap(uint16_t)",
     "location": {
       "column": "17",
-      "line": "50",
+      "line": "55",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_ByteSwap",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_IRQ_SetCDCBaudrate",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void USB_IRQ_SetCDCBaudrate(void)",
+    "location": {
+      "column": "6",
+      "line": "56",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "USB_IRQ_SetCDCBaudrate",
     "origin": "project_file",
     "scope": null
   },
@@ -101917,7 +100923,7 @@
     "display": "SaveEPRStatus",
     "location": {
       "column": "10",
-      "line": "54",
+      "line": "60",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "SaveEPRStatus",
@@ -101931,7 +100937,7 @@
     "display": "SaveISTR",
     "location": {
       "column": "10",
-      "line": "55",
+      "line": "61",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "SaveISTR",
@@ -101945,7 +100951,7 @@
     "display": "EndpointIndex",
     "location": {
       "column": "10",
-      "line": "56",
+      "line": "62",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "EndpointIndex",
@@ -101959,7 +100965,7 @@
     "display": "Direction",
     "location": {
       "column": "10",
-      "line": "57",
+      "line": "63",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "Direction",
@@ -101973,7 +100979,7 @@
     "display": "SaveRx",
     "location": {
       "column": "22",
-      "line": "58",
+      "line": "64",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "SaveRx",
@@ -101987,7 +100993,7 @@
     "display": "SaveTx",
     "location": {
       "column": "22",
-      "line": "59",
+      "line": "65",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "SaveTx",
@@ -102001,7 +101007,7 @@
     "display": "EnumerationStatus",
     "location": {
       "column": "21",
-      "line": "60",
+      "line": "66",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "EnumerationStatus",
@@ -102015,7 +101021,7 @@
     "display": "saveAdr",
     "location": {
       "column": "10",
-      "line": "61",
+      "line": "67",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "saveAdr",
@@ -102029,7 +101035,7 @@
     "display": "Request",
     "location": {
       "column": "17",
-      "line": "62",
+      "line": "68",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "Request",
@@ -102043,7 +101049,7 @@
     "display": "SpecificRequest",
     "location": {
       "column": "25",
-      "line": "63",
+      "line": "69",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "SpecificRequest",
@@ -102057,7 +101063,7 @@
     "display": "ptr_Data",
     "location": {
       "column": "11",
-      "line": "64",
+      "line": "70",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "ptr_Data",
@@ -102071,10 +101077,66 @@
     "display": "PacketInfo",
     "location": {
       "column": "21",
-      "line": "65",
+      "line": "71",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "PacketInfo",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@Baudrate",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "Baudrate",
+    "location": {
+      "column": "5",
+      "line": "72",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "Baudrate",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@Stopbit",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "Stopbit",
+    "location": {
+      "column": "5",
+      "line": "73",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "Stopbit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@ParityType",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "ParityType",
+    "location": {
+      "column": "6",
+      "line": "74",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "ParityType",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@DataBits",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "DataBits",
+    "location": {
+      "column": "6",
+      "line": "75",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "DataBits",
     "origin": "project_file",
     "scope": null
   },
@@ -102085,7 +101147,7 @@
     "display": "Dummy",
     "location": {
       "column": "5",
-      "line": "66",
+      "line": "76",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "Dummy",
@@ -102093,13 +101155,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_IRQ.c@2772@macro@StringDescriptorSize",
+    "ID": "c:USB_IRQ.c@3051@macro@StringDescriptorSize",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "StringDescriptorSize",
     "location": {
       "column": "9",
-      "line": "67",
+      "line": "77",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "StringDescriptorSize",
@@ -102113,7 +101175,7 @@
     "display": "",
     "location": {
       "column": "9",
-      "line": "68",
+      "line": "78",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "members": [
@@ -102124,12 +101186,12 @@
         "display": "ptr",
         "location": {
           "column": "11",
-          "line": "69",
+          "line": "79",
           "path": "F:\\USB_RF\\source\\USB_IRQ.c"
         },
         "name": "ptr",
         "origin": "project_file",
-        "scope": "_anonymous_USB_IRQ_c_68_9"
+        "scope": "_anonymous_USB_IRQ_c_78_9"
       },
       {
         "ID": "c:@SA@StringDescriptorType@FI@size",
@@ -102138,12 +101200,12 @@
         "display": "size",
         "location": {
           "column": "10",
-          "line": "70",
+          "line": "80",
           "path": "F:\\USB_RF\\source\\USB_IRQ.c"
         },
         "name": "size",
         "origin": "project_file",
-        "scope": "_anonymous_USB_IRQ_c_68_9"
+        "scope": "_anonymous_USB_IRQ_c_78_9"
       }
     ],
     "name": "",
@@ -102157,7 +101219,7 @@
     "display": "struct StringDescriptorType",
     "location": {
       "column": "3",
-      "line": "71",
+      "line": "81",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "StringDescriptorType",
@@ -102171,7 +101233,7 @@
     "display": "StringDescriptor",
     "location": {
       "column": "22",
-      "line": "72",
+      "line": "82",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "StringDescriptor",
@@ -102185,7 +101247,7 @@
     "display": "StringDescriptorIdx",
     "location": {
       "column": "5",
-      "line": "79",
+      "line": "89",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "StringDescriptorIdx",
@@ -102199,10 +101261,52 @@
     "display": "pass",
     "location": {
       "column": "5",
-      "line": "80",
+      "line": "90",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "pass",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@CDC_LineCoding",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "CDC_LineCoding",
+    "location": {
+      "column": "9",
+      "line": "91",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "CDC_LineCoding",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@PreRequest",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "PreRequest",
+    "location": {
+      "column": "13",
+      "line": "101",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "PreRequest",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@cnt",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "cnt",
+    "location": {
+      "column": "5",
+      "line": "103",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "cnt",
     "origin": "project_file",
     "scope": null
   },
@@ -102213,7 +101317,7 @@
     "display": "ctr",
     "location": {
       "column": "5",
-      "line": "82",
+      "line": "104",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "ctr",
@@ -102227,7 +101331,7 @@
     "display": "dum",
     "location": {
       "column": "5",
-      "line": "83",
+      "line": "105",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "dum",
@@ -102241,7 +101345,7 @@
     "display": "reset",
     "location": {
       "column": "5",
-      "line": "84",
+      "line": "106",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "reset",
@@ -102255,7 +101359,7 @@
     "display": "wk",
     "location": {
       "column": "5",
-      "line": "85",
+      "line": "107",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "wk",
@@ -102269,7 +101373,7 @@
     "display": "sof",
     "location": {
       "column": "5",
-      "line": "86",
+      "line": "108",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "sof",
@@ -102283,7 +101387,7 @@
     "display": "err",
     "location": {
       "column": "5",
-      "line": "87",
+      "line": "109",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "err",
@@ -102297,7 +101401,7 @@
     "display": "sus",
     "location": {
       "column": "5",
-      "line": "88",
+      "line": "110",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "sus",
@@ -102311,7 +101415,7 @@
     "display": "set_addr",
     "location": {
       "column": "5",
-      "line": "89",
+      "line": "111",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "set_addr",
@@ -102325,7 +101429,7 @@
     "display": "get_configDes",
     "location": {
       "column": "5",
-      "line": "90",
+      "line": "112",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "get_configDes",
@@ -102339,7 +101443,7 @@
     "display": "get_device_des",
     "location": {
       "column": "5",
-      "line": "91",
+      "line": "113",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "get_device_des",
@@ -102353,7 +101457,7 @@
     "display": "get_ful_des",
     "location": {
       "column": "5",
-      "line": "92",
+      "line": "114",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "get_ful_des",
@@ -102367,7 +101471,7 @@
     "display": "data_out",
     "location": {
       "column": "5",
-      "line": "93",
+      "line": "115",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "data_out",
@@ -102381,7 +101485,7 @@
     "display": "host_in",
     "location": {
       "column": "5",
-      "line": "94",
+      "line": "116",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "host_in",
@@ -102395,7 +101499,7 @@
     "display": "setup",
     "location": {
       "column": "5",
-      "line": "95",
+      "line": "117",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "setup",
@@ -102409,7 +101513,7 @@
     "display": "stop",
     "location": {
       "column": "5",
-      "line": "96",
+      "line": "118",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "stop",
@@ -102423,7 +101527,7 @@
     "display": "check",
     "location": {
       "column": "5",
-      "line": "97",
+      "line": "119",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "check",
@@ -102437,7 +101541,7 @@
     "display": "k",
     "location": {
       "column": "5",
-      "line": "98",
+      "line": "120",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "k",
@@ -102451,7 +101555,7 @@
     "display": "getStatus",
     "location": {
       "column": "5",
-      "line": "99",
+      "line": "121",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "getStatus",
@@ -102465,7 +101569,7 @@
     "display": "clearFeature",
     "location": {
       "column": "5",
-      "line": "100",
+      "line": "122",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "clearFeature",
@@ -102479,7 +101583,7 @@
     "display": "setFeature",
     "location": {
       "column": "5",
-      "line": "101",
+      "line": "123",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "setFeature",
@@ -102493,7 +101597,7 @@
     "display": "get_interface",
     "location": {
       "column": "5",
-      "line": "102",
+      "line": "124",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "get_interface",
@@ -102507,7 +101611,7 @@
     "display": "getFullDes",
     "location": {
       "column": "5",
-      "line": "103",
+      "line": "125",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "getFullDes",
@@ -102521,24 +101625,10 @@
     "display": "string_des",
     "location": {
       "column": "5",
-      "line": "104",
+      "line": "126",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "string_des",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@pInformation",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "pInformation",
-    "location": {
-      "column": "13",
-      "line": "105",
-      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
-    },
-    "name": "pInformation",
     "origin": "project_file",
     "scope": null
   },
@@ -102549,7 +101639,7 @@
     "display": "pid_in",
     "location": {
       "column": "5",
-      "line": "106",
+      "line": "127",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "pid_in",
@@ -102563,7 +101653,7 @@
     "display": "uint16_t USB_ByteSwap(uint16_t)",
     "location": {
       "column": "17",
-      "line": "110",
+      "line": "131",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_ByteSwap",
@@ -102571,13 +101661,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_IRQ.c@3949@F@USB_ByteSwap@Temp",
+    "ID": "c:USB_IRQ.c@4411@F@USB_ByteSwap@Temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "Temp",
     "location": {
       "column": "11",
-      "line": "112",
+      "line": "133",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "Temp",
@@ -102585,16 +101675,30 @@
     "scope": null
   },
   {
-    "ID": "c:USB_IRQ.c@3966@F@USB_ByteSwap@Ret",
+    "ID": "c:USB_IRQ.c@4428@F@USB_ByteSwap@Ret",
     "What": "Variable",
     "defdec": "Def",
     "display": "Ret",
     "location": {
       "column": "12",
-      "line": "113",
+      "line": "134",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "Ret",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_IRQ_SetCDCBaudrate",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void USB_IRQ_SetCDCBaudrate(void)",
+    "location": {
+      "column": "6",
+      "line": "140",
+      "path": "F:\\USB_RF\\source\\USB_IRQ.c"
+    },
+    "name": "USB_IRQ_SetCDCBaudrate",
     "origin": "project_file",
     "scope": null
   },
@@ -102605,7 +101709,7 @@
     "display": "void USB_EndpointReset(int)",
     "location": {
       "column": "13",
-      "line": "119",
+      "line": "153",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_EndpointReset",
@@ -102619,7 +101723,7 @@
     "display": "void USB_GetRequest(void)",
     "location": {
       "column": "6",
-      "line": "128",
+      "line": "162",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_GetRequest",
@@ -102627,13 +101731,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_IRQ.c@4381@F@USB_GetRequest@ptr_Adr16",
+    "ID": "c:USB_IRQ.c@5203@F@USB_GetRequest@ptr_Adr16",
     "What": "Variable",
     "defdec": "Def",
     "display": "ptr_Adr16",
     "location": {
       "column": "12",
-      "line": "129",
+      "line": "163",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "ptr_Adr16",
@@ -102641,13 +101745,13 @@
     "scope": null
   },
   {
-    "ID": "c:USB_IRQ.c@4493@F@USB_GetRequest@ptr_Adr8",
+    "ID": "c:USB_IRQ.c@5315@F@USB_GetRequest@ptr_Adr8",
     "What": "Variable",
     "defdec": "Def",
     "display": "ptr_Adr8",
     "location": {
       "column": "12",
-      "line": "130",
+      "line": "164",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "ptr_Adr8",
@@ -102661,7 +101765,7 @@
     "display": "void USB_IRQ_SendDeviceDescriptor(void)",
     "location": {
       "column": "13",
-      "line": "164",
+      "line": "198",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_SendDeviceDescriptor",
@@ -102675,7 +101779,7 @@
     "display": "void USB_IRQ_PrepareBuffer(uint32_t *)",
     "location": {
       "column": "6",
-      "line": "171",
+      "line": "205",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_PrepareBuffer",
@@ -102686,10 +101790,10 @@
     "ID": "c:@F@USB_IRQ_ZeroLengthPacket",
     "What": "Function",
     "defdec": "Def",
-    "display": "void USB_IRQ_ZeroLengthPacket(void)",
+    "display": "void USB_IRQ_ZeroLengthPacket(int)",
     "location": {
       "column": "6",
-      "line": "176",
+      "line": "210",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_ZeroLengthPacket",
@@ -102703,7 +101807,7 @@
     "display": "void USB_IRQ_CTR_PID_SETUP_Process(uint8_t)",
     "location": {
       "column": "6",
-      "line": "182",
+      "line": "216",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_CTR_PID_SETUP_Process",
@@ -102717,7 +101821,7 @@
     "display": "void USB_IRQ_CTR_PID_OUT_Process(uint8_t)",
     "location": {
       "column": "6",
-      "line": "364",
+      "line": "392",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_CTR_PID_OUT_Process",
@@ -102731,7 +101835,7 @@
     "display": "void USB_IRQ_CTR_PID_IN_Process(uint8_t)",
     "location": {
       "column": "6",
-      "line": "369",
+      "line": "417",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_CTR_PID_IN_Process",
@@ -102745,7 +101849,7 @@
     "display": "void USB_IRQ_CorrecTransfer(void)",
     "location": {
       "column": "6",
-      "line": "410",
+      "line": "456",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_CorrecTransfer",
@@ -102759,7 +101863,7 @@
     "display": "void USB_IRQ_BufferOverrun(void)",
     "location": {
       "column": "6",
-      "line": "465",
+      "line": "517",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_BufferOverrun",
@@ -102773,7 +101877,7 @@
     "display": "void USB_IRQ_Error(void)",
     "location": {
       "column": "6",
-      "line": "470",
+      "line": "522",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_Error",
@@ -102787,7 +101891,7 @@
     "display": "void USB_IRQ_Wakeup(void)",
     "location": {
       "column": "6",
-      "line": "475",
+      "line": "527",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_Wakeup",
@@ -102801,7 +101905,7 @@
     "display": "void USB_IRQ_Suspend(void)",
     "location": {
       "column": "6",
-      "line": "480",
+      "line": "532",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_Suspend",
@@ -102815,220 +101919,10 @@
     "display": "void USB_IRQ_Reset(void)",
     "location": {
       "column": "6",
-      "line": "485",
+      "line": "537",
       "path": "F:\\USB_RF\\source\\USB_IRQ.c"
     },
     "name": "USB_IRQ_Reset",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@4715@macro@SYSCLK_FREQ_72MHz",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "SYSCLK_FREQ_72MHz",
-    "location": {
-      "column": "9",
-      "line": "115",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SYSCLK_FREQ_72MHz",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@5262@macro@VECT_TAB_OFFSET",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "VECT_TAB_OFFSET",
-    "location": {
-      "column": "9",
-      "line": "128",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "VECT_TAB_OFFSET",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@SystemCoreClock",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "SystemCoreClock",
-    "location": {
-      "column": "12",
-      "line": "162",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SystemCoreClock",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@AHBPrescTable",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "AHBPrescTable",
-    "location": {
-      "column": "13",
-      "line": "167",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "AHBPrescTable",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@F@SetSysClock",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SetSysClock(void)",
-    "location": {
-      "column": "13",
-      "line": "176",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SetSysClock",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@F@SetSysClockTo72",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SetSysClockTo72(void)",
-    "location": {
-      "column": "15",
-      "line": "189",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SetSysClockTo72",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SystemInit",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void SystemInit(void)",
-    "location": {
-      "column": "6",
-      "line": "212",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SystemInit",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SystemCoreClockUpdate",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void SystemCoreClockUpdate(void)",
-    "location": {
-      "column": "6",
-      "line": "306",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SystemCoreClockUpdate",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@tmp",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "tmp",
-    "location": {
-      "column": "12",
-      "line": "308",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "tmp",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@pllmull",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "pllmull",
-    "location": {
-      "column": "21",
-      "line": "308",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "pllmull",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@pllsource",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "pllsource",
-    "location": {
-      "column": "34",
-      "line": "308",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "pllsource",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@F@SetSysClock",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void SetSysClock(void)",
-    "location": {
-      "column": "13",
-      "line": "419",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SetSysClock",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@F@SetSysClockTo72",
-    "What": "Function",
-    "defdec": "Def",
-    "display": "void SetSysClockTo72(void)",
-    "location": {
-      "column": "13",
-      "line": "987",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "SetSysClockTo72",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@33426@F@SetSysClockTo72@StartUpCounter",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "StartUpCounter",
-    "location": {
-      "column": "17",
-      "line": "989",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "StartUpCounter",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:system_stm32f10x.c@33426@F@SetSysClockTo72@HSEStatus",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "HSEStatus",
-    "location": {
-      "column": "37",
-      "line": "989",
-      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
-    },
-    "name": "HSEStatus",
     "origin": "project_file",
     "scope": null
   },
@@ -103509,30 +102403,212 @@
     "scope": null
   },
   {
-    "ID": "c:@CDC_GetLineCoding",
-    "What": "Variable",
+    "ID": "c:system_stm32f10x.c@4715@macro@SYSCLK_FREQ_72MHz",
+    "What": "MacroDef",
     "defdec": "Def",
-    "display": "CDC_GetLineCoding",
+    "display": "SYSCLK_FREQ_72MHz",
     "location": {
       "column": "9",
-      "line": "214",
-      "path": "F:\\USB_RF\\source\\USB_Types.c"
+      "line": "115",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
     },
-    "name": "CDC_GetLineCoding",
+    "name": "SYSCLK_FREQ_72MHz",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@CDC_SetLineCoding",
-    "What": "Variable",
+    "ID": "c:system_stm32f10x.c@5262@macro@VECT_TAB_OFFSET",
+    "What": "MacroDef",
     "defdec": "Def",
-    "display": "CDC_SetLineCoding",
+    "display": "VECT_TAB_OFFSET",
     "location": {
       "column": "9",
-      "line": "225",
-      "path": "F:\\USB_RF\\source\\USB_Types.c"
+      "line": "128",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
     },
-    "name": "CDC_SetLineCoding",
+    "name": "VECT_TAB_OFFSET",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@SystemCoreClock",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "SystemCoreClock",
+    "location": {
+      "column": "12",
+      "line": "162",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SystemCoreClock",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@AHBPrescTable",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "AHBPrescTable",
+    "location": {
+      "column": "13",
+      "line": "167",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "AHBPrescTable",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@F@SetSysClock",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SetSysClock(void)",
+    "location": {
+      "column": "13",
+      "line": "176",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SetSysClock",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@F@SetSysClockTo72",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SetSysClockTo72(void)",
+    "location": {
+      "column": "15",
+      "line": "189",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SetSysClockTo72",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SystemInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SystemInit(void)",
+    "location": {
+      "column": "6",
+      "line": "212",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SystemInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SystemCoreClockUpdate",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SystemCoreClockUpdate(void)",
+    "location": {
+      "column": "6",
+      "line": "306",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SystemCoreClockUpdate",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@tmp",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "tmp",
+    "location": {
+      "column": "12",
+      "line": "308",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "tmp",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@pllmull",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "pllmull",
+    "location": {
+      "column": "21",
+      "line": "308",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "pllmull",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@11640@F@SystemCoreClockUpdate@pllsource",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "pllsource",
+    "location": {
+      "column": "34",
+      "line": "308",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "pllsource",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@F@SetSysClock",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SetSysClock(void)",
+    "location": {
+      "column": "13",
+      "line": "419",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SetSysClock",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@F@SetSysClockTo72",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SetSysClockTo72(void)",
+    "location": {
+      "column": "13",
+      "line": "987",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "SetSysClockTo72",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@33426@F@SetSysClockTo72@StartUpCounter",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "StartUpCounter",
+    "location": {
+      "column": "17",
+      "line": "989",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "StartUpCounter",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f10x.c@33426@F@SetSysClockTo72@HSEStatus",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "HSEStatus",
+    "location": {
+      "column": "37",
+      "line": "989",
+      "path": "F:\\USB_RF\\startup\\system_stm32f10x.c"
+    },
+    "name": "HSEStatus",
     "origin": "project_file",
     "scope": null
   }
