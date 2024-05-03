@@ -131,8 +131,6 @@ void USB_HW_SetEPRxAddr(uint8_t EndpointIdx, uint16_t Addr);
 
 void USB_HW_SetEPTxAddr(uint8_t EndpointIdx, uint16_t Addr);
 
-void USB_HW_SetPacketSize(uint8_t EndpointIdx, int Size);
-
 void USB_HW_SetEPType(uint8_t EnpointIdx, USB_EndpointEncodingType Type);
 
 void USB_HW_ClearEP_CTR_RX(uint8_t EnpointIdx);

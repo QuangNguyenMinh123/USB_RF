@@ -551,10 +551,9 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPRxDataToggle(END_POINT_2, 0);
 	USB_HW_SetEPEnpointAddress(END_POINT_2, 2);
 	/* PMA */
-	USB_HW_SetPacketSize(END_POINT_0, 30);
-	USB_HW_SetPacketSize(END_POINT_1, 30);
-	USB_HW_SetPacketSize(END_POINT_2, 30);
-
+	USB_HW_SetEPRxCount(END_POINT_0, 64);
+	USB_HW_SetEPRxCount(END_POINT_1, 64);
+	USB_HW_SetEPRxCount(END_POINT_2, 64);
 }
 /***********************************************************************************************************************
  * EOF

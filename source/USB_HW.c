@@ -78,19 +78,6 @@ __inline void USB_HW_SetEPRxAddr(uint8_t EndpointIdx, uint16_t Addr)
 	USB_MEM->EP_BUFFER[EndpointIdx].ADDR_RX = Addr;
 }
 
-void USB_HW_SetPacketSize(uint8_t EndpointIdx, int Size)
-{
-	USB_MEM->EP_BUFFER[EndpointIdx].COUNT_RX = 0;
-	if (Size < 32)
-	{
-		USB_MEM->EP_BUFFER[EndpointIdx].COUNT_RX |= (Size / 2) << USB_EPR_NUM_BLOCK_POS | Size;
-	}
-	else
-	{
-
-	}
-}
-
 __inline void USB_HW_SetDeviceAddr(int Address)
 {
 	USB->DADDR = BIT_7 | Address;

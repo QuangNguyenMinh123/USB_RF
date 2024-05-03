@@ -86,7 +86,6 @@ void USB_Init(void)
 void USB_SendString(uint8_t EndpointIndex, uint8_t *Data, uint16_t size)
 {
 	USB_HW_SetupData(EndpointIndex, Data, size);
-	USB_HW_SetEPTxStatus(EndpointIndex, VALID);
 	USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 }
 
