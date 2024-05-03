@@ -51,9 +51,7 @@ void main()
 	timer = micros();
 	while (1)
 	{
-		delay(5000*MS);
-		GPIO_PINToggle(PB10);
-		USB_SendString(1, STRING, 10);
+		USB_SendString(1, STRING, 37);
 	}
 }
 /***********************************************************************************************************************
