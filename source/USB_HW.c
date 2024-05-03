@@ -26,7 +26,7 @@ void USB_HW_ClearPMA(void)
 	while (ptr <= (uint32_t *) (USB_MEM_BASE + 1024))
 	{
 		*ptr = 0;
-		*ptr ++;
+		ptr ++;
 	}
 }
 

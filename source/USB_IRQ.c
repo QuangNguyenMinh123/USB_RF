@@ -275,7 +275,6 @@ void USB_IRQ_CTR_PID_SETUP_Process(uint8_t EndpointIndex)
 					USB_HW_SetupData(END_POINT_0, CDC_LineCoding, 7);
 					USB_HW_SetEPRxStatus(EndpointIndex, VALID);
 					PreRequest = SET_LINE_CODING;
-					cnt ++;
 				}
 			}
 			else if (SpecificRequest.Receiver == ENDPOINT)
@@ -512,7 +511,6 @@ void USB_IRQ_Suspend(void)
 
 void USB_IRQ_Reset(void)
 {
-	reset ++;
 	EnumerationStatus = UNCONNECTED;
 	USB_EndpointReset(END_POINT_0);
 	USB_EndpointReset(END_POINT_1);
@@ -524,7 +522,6 @@ void USB_IRQ_Reset(void)
 	USB_EndpointReset(END_POINT_7);
 	USB_HW_SetDeviceAddr(0);
 	/* Endpoint 0 init */
-	USB_HW_SetEPEnpointAddress(END_POINT_0, 0);
 	USB_HW_SetEPRxAddr(END_POINT_0, ENDP0_RXADDR);
 	USB_HW_SetEPTxAddr(END_POINT_0, ENDP0_TXADDR);
 	USB_HW_SetEPRxStatus(END_POINT_0, VALID);
@@ -534,7 +531,6 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPRxDataToggle(END_POINT_0, 0);
 	USB_HW_SetEPEnpointAddress(END_POINT_0, 0);
 	/* Endpoint 1 init */
-	USB_HW_SetEPEnpointAddress(END_POINT_1, 0);
 	USB_HW_SetEPRxAddr(END_POINT_1, ENDP1_RXADDR);
 	USB_HW_SetEPTxAddr(END_POINT_1, ENDP1_TXADDR);
 	USB_HW_SetEPRxStatus(END_POINT_1, VALID);
@@ -545,7 +541,6 @@ void USB_IRQ_Reset(void)
 	USB_HW_SetEPRxDataToggle(END_POINT_1, 0);
 	USB_HW_SetEPEnpointAddress(END_POINT_1, 1);
 	/* Endpoint 2 init */
-	USB_HW_SetEPEnpointAddress(END_POINT_2, 0);
 	USB_HW_SetEPRxAddr(END_POINT_2, ENDP2_RXADDR);
 	USB_HW_SetEPTxAddr(END_POINT_2, ENDP2_TXADDR);
 	USB_HW_SetEPRxStatus(END_POINT_2, VALID);
