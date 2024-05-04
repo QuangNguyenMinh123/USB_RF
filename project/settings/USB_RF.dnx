@@ -20,8 +20,8 @@
         <MemConfigValue>C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32F103C8.ddf</MemConfigValue>
     </PlDriver>
     <ArmDriver>
-        <EnableCache>0</EnableCache>
         <EnforceMemoryConfiguration>1</EnforceMemoryConfiguration>
+        <EnableCache>0</EnableCache>
     </ArmDriver>
     <JLinkDriver>
         <TraceBufferSize>0x10000</TraceBufferSize>
@@ -33,7 +33,7 @@
         <CStepIntDis>_ 0</CStepIntDis>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>3635811091</Checksum>
+        <Checksum>2905790963</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -87,10 +87,10 @@
     <StLinkDriver>
         <stlinkserialNo>@</stlinkserialNo>
         <stlinkfoundProbes />
-        <stlinkResetStyle>0</stlinkResetStyle>
-        <stlinkResetStrategy>0</stlinkResetStrategy>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
         <CStepIntDis>_ 0</CStepIntDis>
+        <stlinkResetStyle>0</stlinkResetStyle>
+        <stlinkResetStrategy>0</stlinkResetStrategy>
     </StLinkDriver>
     <Interrupts>
         <Enabled>1</Enabled>
@@ -192,8 +192,7 @@
     </DisassembleMode>
     <Breakpoints2>
         <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\CLOCK.c}.28.2" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\source\main.c}.56.3" 0 0 1 "" 0 "" 0</Bp1>
-        <Count>2</Count>
+        <Count>1</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>

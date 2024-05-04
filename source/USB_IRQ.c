@@ -494,16 +494,6 @@ void USB_IRQ_BufferOverrun(void)
 
 }
 
-void USB_IRQ_Error(void)
-{
-	err++;
-}
-
-void USB_IRQ_Wakeup(void)
-{
-	wk ++;
-}
-
 void USB_IRQ_Suspend(void)
 {
 	sus ++;

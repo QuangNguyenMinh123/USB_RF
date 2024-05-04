@@ -22,10 +22,6 @@ void USB_IRQ_CorrecTransfer(void);
 
 void USB_IRQ_BufferOverrun(void);
 
-void USB_IRQ_Error(void);
-
-void USB_IRQ_Wakeup(void);
-
 void USB_IRQ_Suspend(void);
 
 void USB_IRQ_Reset(void);

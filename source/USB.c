@@ -52,12 +52,10 @@ static void USB_EnableInterrupt(void)
 {
 	USB->CNTR |= USB_CNTR_RESETM  | USB_CNTR_CTRM;
 	USB->CNTR |= USB_CNTR_SUSPM;
-	NVIC_EnableIRQ((IRQn_Type)USBWakeUp_IRQ);
 	NVIC_EnableIRQ((IRQn_Type)USB_HP_CAN1_TX_IRQ);
 	NVIC_EnableIRQ((IRQn_Type)USB_LP_CAN1_RX0_IRQ);
 	NVIC_SetPriority ((IRQn_Type)USB_HP_CAN1_TX_IRQn, (1UL << 10) - 1UL);
 	NVIC_SetPriority ((IRQn_Type)USB_LP_CAN1_RX0_IRQn, (1UL << 11) - 1UL);
-	NVIC_SetPriority ((IRQn_Type)USBWakeUp_IRQn, (1UL << 12) - 1UL);
 }
 /***********************************************************************************************************************
  * Globbal function
@@ -99,7 +97,7 @@ void USBWakeUp_IRQHandler(void)
 
 void USB_HP_CAN1_TX_IRQHandler(void)
 {
-	TX_IRQ = 2;
+	TX_IRQ ++;
 }
 
 void USB_LP_CAN1_RX0_IRQHandler(void)
@@ -121,19 +119,6 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 	if (CTR_IRQ_OCCURED)
 	{
 		USB_IRQ_CorrecTransfer();
-	}
-	/*Handling errors */
-	if (ERROR_IRQ_OCCURED)
-	{
-		USB->ISTR &= ~USB_ISTR_ERR;
-		USB_IRQ_Error();
-	}
-
-	if (WKUP_IRQ_OCCURED)
-	{
-		USB->ISTR &= ~USB_ISTR_WKUP;
-		USB_IRQ_Wakeup();
-
 	}
 }
 /***********************************************************************************************************************

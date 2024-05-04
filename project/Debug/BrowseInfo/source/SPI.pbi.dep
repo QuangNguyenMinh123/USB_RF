@@ -11,4 +11,5 @@ F:\USB_RF\project\Debug\BrowseInfo\source\SPI.pbi: F:\USB_RF\source\SPI.c \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\cmsis_compiler.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\CMSIS\Core\Include\cmsis_iccarm.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\iccarm_builtin.h \
-  F:\USB_RF\startup\system_stm32f10x.h
+  F:\USB_RF\startup\system_stm32f10x.h F:\USB_RF\source\CLOCK.h \
+  F:\USB_RF\source\GPIO.h
