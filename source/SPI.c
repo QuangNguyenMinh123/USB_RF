@@ -24,7 +24,9 @@
 #define SPI_COMMAND_REUSE_TX_PL				0b11100011
 #define SPI_COMMAND_R_RX_PL_WID				0b01100000
 
-
+#define GPIOB_CRL0_MODE_OUTPUT_2MHZ			(0b10)
+#define GPIOB_CRL0_MODE_OUTPUT_10MHZ		(0b01)
+#define GPIOB_CRL0_MODE_OUTPUT_50MHZ		(0b11)
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -37,20 +39,18 @@ PB0 GPIO_NSS
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-
+uint16_t DummySpi = 0;
 /***********************************************************************************************************************
  * Static function
  **********************************************************************************************************************/
 __inline static void SPI1_Start(void)
 {
 	GPIO_PinLow(PB0);
-	//SPI1->CR1 |= SPI_CR1_SPE;			/* Enable SPI1 */
 }
 
 __inline static void SPI1_Stop(void)
 {
 	GPIO_PinHigh(PB0);
-	//SPI1->CR1 &= ~SPI_CR1_SPE;			/* Disable SPI1 */
 }
 /***********************************************************************************************************************
  * Global function
@@ -66,6 +66,8 @@ void SPI1_Init(void)
 	GPIOA->CRL |= (1<<26);    		// PA6 (MISO) Input mode (floating)
 	/* PB0 GPIO_NSS: General_Open_Drain */
 	GPIO_SetOutPut(PB0, General_Open_Drain);
+	GPIOB->CRL &= ~0b11;
+	GPIOB->CRL |= GPIOB_CRL0_MODE_OUTPUT_10MHZ;
 	GPIO_PinHigh(PB0);
 	/* Remap = 0 */
 	AFIO->MAPR &= ~ AFIO_MAPR_SPI1_REMAP;
@@ -77,13 +79,13 @@ void SPI1_Init(void)
 	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
 	/* 1. Select the BR[2:0] bits to define the serial clock baud rate (see SPI_CR1 register). */
 	/* SPI1 clock derived from APB2 = 72MHz */
-	SPI1->CR1 |= SPI_CR1_BR_DIV_16;			/* 72 / 16 = 4MHz */
+	SPI1->CR1 |= SPI_CR1_BR_DIV_8;			/* 72 / 16 = 4MHz */
  	/* 2. Select the CPOL and CPHA bits to define one of the four relationships between the
  	data transfer and the serial clock/ */
 	SPI1->CR1 &= ~SPI_CR1_CPOL;			/* CPOL = 0, clock idle low */
 	SPI1->CR1 &= ~SPI_CR1_CPHA;			/* CPHA = 0 */
 	/* 3. Set the DFF bit to define 8- or 16-bit data frame format */
-	SPI1->CR1 &= ~SPI_CR1_DFF;			/* 8 bit data frame */
+	SPI1->CR1 |= SPI_CR1_DFF;			/* 16 bit data frame */
 	/* 4. Configure the LSBFIRST bit in the SPI_CR1 register to define the frame format. */
 	SPI1->CR1 &= ~SPI_CR1_LSBFIRST;		/* MSB first */
 	/* 5. If the NSS pin is required in input mode, in hardware mode, connect the NSS pin to a
@@ -105,24 +107,24 @@ void SPI1_InterruptInit(void)
 
 void SPI1_Send1Byte(uint16_t Register, uint8_t Data)
 {
-	SPI1_Start();
-	SPI1->DR = SPI_COMMAND_WRITE(Register);
-	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
-	SPI1->DR = Data;
+	GPIOB->BSRR |= GPIO_BSRR_BR0;
+	SPI1->DR = SPI_COMMAND_WRITE(Register) << 8 | Data;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
 	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
-	SPI1_Stop();
+	DummySpi = SPI1->DR;
+	DummySpi = SPI1->SR;
+	GPIOB->BSRR |= GPIO_BSRR_BS0;
 }
 
 uint16_t SPI1_Read1Byte(uint16_t Register, uint16_t* Des)
 {
 	uint16_t data = 0;
-	SPI1_Start();
-	SPI1->DR = SPI_COMMAND_READ(Register);
+	GPIOB->BSRR |= GPIO_BSRR_BR0;
+	SPI1->DR = SPI_COMMAND_READ(Register) << 8;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
-	while ((SPI1->SR & SPI_SR_RXNE) != SPI_SR_RXNE){}			/* Wait until bufer is empty */
-	data = SPI1->DR;
-	SPI1_Stop();
+	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
+	data = (SPI1->DR);
+	GPIOB->BSRR |= GPIO_BSRR_BS0;
 	return data;
 }
 /***********************************************************************************************************************

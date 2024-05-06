@@ -98915,13 +98915,69 @@
     "scope": null
   },
   {
+    "ID": "c:SPI.c@1127@macro@GPIOB_CRL0_MODE_OUTPUT_2MHZ",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "GPIOB_CRL0_MODE_OUTPUT_2MHZ",
+    "location": {
+      "column": "9",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\SPI.c"
+    },
+    "name": "GPIOB_CRL0_MODE_OUTPUT_2MHZ",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:SPI.c@1173@macro@GPIOB_CRL0_MODE_OUTPUT_10MHZ",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "GPIOB_CRL0_MODE_OUTPUT_10MHZ",
+    "location": {
+      "column": "9",
+      "line": "28",
+      "path": "F:\\USB_RF\\source\\SPI.c"
+    },
+    "name": "GPIOB_CRL0_MODE_OUTPUT_10MHZ",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:SPI.c@1219@macro@GPIOB_CRL0_MODE_OUTPUT_50MHZ",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "GPIOB_CRL0_MODE_OUTPUT_50MHZ",
+    "location": {
+      "column": "9",
+      "line": "29",
+      "path": "F:\\USB_RF\\source\\SPI.c"
+    },
+    "name": "GPIOB_CRL0_MODE_OUTPUT_50MHZ",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@DummySpi",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "DummySpi",
+    "location": {
+      "column": "10",
+      "line": "42",
+      "path": "F:\\USB_RF\\source\\SPI.c"
+    },
+    "name": "DummySpi",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:SPI.c@F@SPI1_Start",
     "What": "Function",
     "defdec": "Def",
     "display": "void SPI1_Start(void)",
     "location": {
       "column": "22",
-      "line": "44",
+      "line": "46",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "SPI1_Start",
@@ -98935,7 +98991,7 @@
     "display": "void SPI1_Stop(void)",
     "location": {
       "column": "22",
-      "line": "50",
+      "line": "51",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "SPI1_Stop",
@@ -98963,7 +99019,7 @@
     "display": "void SPI1_InterruptInit(void)",
     "location": {
       "column": "6",
-      "line": "101",
+      "line": "103",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "SPI1_InterruptInit",
@@ -98977,7 +99033,7 @@
     "display": "void SPI1_Send1Byte(uint16_t, uint8_t)",
     "location": {
       "column": "6",
-      "line": "106",
+      "line": "108",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "SPI1_Send1Byte",
@@ -98991,7 +99047,7 @@
     "display": "uint16_t SPI1_Read1Byte(uint16_t, uint16_t *)",
     "location": {
       "column": "10",
-      "line": "117",
+      "line": "119",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "SPI1_Read1Byte",
@@ -98999,13 +99055,13 @@
     "scope": null
   },
   {
-    "ID": "c:SPI.c@4978@F@SPI1_Read1Byte@data",
+    "ID": "c:SPI.c@5090@F@SPI1_Read1Byte@data",
     "What": "Variable",
     "defdec": "Def",
     "display": "data",
     "location": {
       "column": "11",
-      "line": "119",
+      "line": "121",
       "path": "F:\\USB_RF\\source\\SPI.c"
     },
     "name": "data",

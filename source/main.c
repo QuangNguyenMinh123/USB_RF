@@ -52,15 +52,20 @@ void main()
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
 	timer = micros();
+	SPI1_Send1Byte(0, 0b00000010);
 	while (1)
 	{
 		delay(100*MS);
-		SPI1_Send1Byte(1, i);
-		*ptr = SPI1_Read1Byte(1, ptr);
-		i++;
+		SPI1_Send1Byte(i, i);
+		delay(10);
+		*ptr = SPI1_Read1Byte(i, ptr);
 		ptr++;
-		if ( ptr - data >= 99)
-			ptr = data;
+		i++;
+		if (i == 16)
+		{
+			while (1)
+			{}
+		}
 	}
 }
 /***********************************************************************************************************************
