@@ -83,8 +83,8 @@ typedef enum {
  ******************************************************************************/
 /* GPIO Output Module */
 void GPIO_SetOutPut(IO_PIN PIN, OUTPUT_MODE mode);
-void GPIO_PINLow(IO_PIN PIN);
-void GPIO_PINHigh(IO_PIN PIN);
+void GPIO_PinLow(IO_PIN PIN);
+void GPIO_PinHigh(IO_PIN PIN);
 void GPIO_PINToggle(IO_PIN PIN);
 /* GPIO Input Module */
 void GPIO_SetInPut(IO_PIN PIN, INPUT_MODE MODE);

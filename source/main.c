@@ -21,13 +21,16 @@
  * Variables
  **********************************************************************************************************************/
 uint32_t timer = 0;
+uint16_t data[100];
+uint16_t *ptr = &data[1];
+uint8_t i = 1;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
 void main()
 {
 	/* Clock initialization */
-	CLOCK_Init(16);
+	CLOCK_Init(8);
 	CLOCK_SystickInit();
 	SystemCoreClockUpdate();
 	/* Timer initialization */
@@ -40,19 +43,24 @@ void main()
 	TIMER_Chaining();
 	/* Peripheral initialization */
 	/* SPI initialization */
-	SPI_Init();
+	SPI1_Init();
 	/* USB initialization */
 	USB_Init();
 	/* Led initialization */
 	GPIO_SetOutPut(PB10, General_Push_Pull);
-	GPIO_PINLow(PB10);
+	GPIO_PinLow(PB10);
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
 	timer = micros();
 	while (1)
 	{
-		delay(5*MS);
-		USB_SendString(1, STRING, 37);
+		delay(100*MS);
+		SPI1_Send1Byte(1, i);
+		*ptr = SPI1_Read1Byte(1, ptr);
+		i++;
+		ptr++;
+		if ( ptr - data >= 99)
+			ptr = data;
 	}
 }
 /***********************************************************************************************************************
