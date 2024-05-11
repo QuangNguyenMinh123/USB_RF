@@ -20,8 +20,8 @@
         <MemConfigValue>C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32F103C8.ddf</MemConfigValue>
     </PlDriver>
     <ArmDriver>
-        <EnableCache>0</EnableCache>
         <EnforceMemoryConfiguration>1</EnforceMemoryConfiguration>
+        <EnableCache>0</EnableCache>
     </ArmDriver>
     <JLinkDriver>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
@@ -33,7 +33,7 @@
         <TracePortSize>0x0</TracePortSize>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>2290591829</Checksum>
+        <Checksum>2914062006</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -109,8 +109,11 @@
         <Fmt6>uint32_t[16]	4	0</Fmt6>
     </array_types>
     <watch_formats>
-        <Fmt0>{W}1:Msk	4	0</Fmt0>
-        <Fmt1>{W}1:check	1	0</Fmt1>
+        <Fmt0>{W}1:Dummy	1	0</Fmt0>
+        <Fmt1>{W}1:FifoStatus	1	0</Fmt1>
+        <Fmt2>{W}1:Msk	4	0</Fmt2>
+        <Fmt3>{W}1:check	1	0</Fmt3>
+        <Fmt4>{W}1:status	1	0</Fmt4>
     </watch_formats>
     <Trace2>
         <Enabled>0</Enabled>
@@ -170,8 +173,7 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\nRF24L01.c}.166.2" 0 0 1 "" 0 "" 0</Bp0>
-        <Count>1</Count>
+        <Count>0</Count>
     </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>

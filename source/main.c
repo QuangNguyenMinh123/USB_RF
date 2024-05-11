@@ -53,7 +53,11 @@ void main()
 	GPIO_PinLow(GREEN_LED);
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
+#if (IS_TX == TRUE)
+	Address[0] = 0xEE;
+#else
 	Address[0] = 0;
+#endif
 	Address[1] = 0xDD;
 	Address[2] = 0xCC;
 	Address[3] = 0xBB;
@@ -68,21 +72,18 @@ void main()
 	while (1)
 	{
 		timer = micros();
-	/*
 #if (IS_TX == TRUE)
 	if (nRF24L01_Transmit(TxData) == 1)
 	{
 		PIO_PinToggle(GREEN_LED);
 	}
 #else
-	if (nRF24L01_DataAvailable(2) == TRUE)
+	if (nRF24L01_DataAvailable(1) == TRUE)
 	{
 		nRF24L01_ReceiveData(RxData);
 		USB_SendString(1, RxData, strlen((char *)RxData));
 	}
 #endif
-*/
-		PIO_PinToggle(GREEN_LED);
 		while (micros() - timer < 1000000);
 	}
 }

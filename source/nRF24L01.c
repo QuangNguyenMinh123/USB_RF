@@ -1,6 +1,7 @@
 #include "nRF24L01.h"
 #include "SPI.h"
 #include "GPIO.h"
+#include "CLOCK.h"
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
@@ -14,10 +15,11 @@ static uint8_t nRF24L01_Read1Byte(uint8_t Register);
 static void nRF24L01_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size);
 static void nRF24L01_Enable(void);
 static void nRF24L01_Disable(void);
+static void TimerDelayUs(int time);
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-
+static int timer = 0;
 /***********************************************************************************************************************
  * Static Function
  **********************************************************************************************************************/
@@ -49,6 +51,12 @@ static void nRF24L01_Enable(void)
 static void nRF24L01_Disable(void)
 {
 	GPIO_PinLow(NRF24L01_CE_PIN);
+}
+
+static void TimerDelayUs(int time)
+{
+	timer = micros();
+	while (micros() - timer < time);
 }
 /***********************************************************************************************************************
  * Global Function
@@ -136,17 +144,20 @@ void nRF24L01_TxMode(uint8_t *Address, uint8_t Channel)
 	nRF24L01_Write1Byte(RF_CH_REG, Channel);
 	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
 	Dummy = nRF24L01_Read1Byte(CONFIG_REG);
+	Dummy = Dummy | (1<<1);
 	Dummy = Dummy & 0xF2;
 	nRF24L01_Write1Byte(CONFIG_REG, Dummy);
+	TimerDelayUs(1500);
 	nRF24L01_Enable();
+	TimerDelayUs(10);
 }
 
 bool nRF24L01_Transmit(uint8_t *Data)
 {
 	uint8_t FifoStatus = 0;
 	SPI1_WriteMulBytes(nRF24_COMMAND_WRITE_TX_PAYLOAD, Data, 32);
+	TimerDelayUs(1000);
 	FifoStatus = nRF24L01_Read1Byte(FIFO_STATUS_REG);
-
 	if ((FifoStatus & (1<<4)) && !((FifoStatus) & (1<<3)))
 	{
 		nRF24L01_Command(FLUSH_TX);
@@ -160,22 +171,18 @@ void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 {
 	uint8_t Dummy;
 	nRF24L01_Disable();
-	nRF24L01_Reset(STATUS_REG);
 	nRF24L01_Write1Byte(RF_CH_REG, Channel);
-	/* Select data pipe 2 */
+	/* Select data pipe 1 */
 	Dummy = nRF24L01_Read1Byte(EN_RXADDR_REG);
-	Dummy |= (1<<2);
+	Dummy |= (1<<1);
 	nRF24L01_Write1Byte(EN_RXADDR_REG, Dummy);
-
-	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);			/* Write Pipe 1 Address */
-	nRF24L01_Write1Byte(RX_ADDR_P2_REG, 0xEE);					/* Write Pipe 2 LSB address */
-	nRF24L01_Write1Byte(RX_PW_P2_REG, 32);						/* 32 bit payload for pipe 2 */
+	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);	/* Write Pipe 1 Address */
+	nRF24L01_Write1Byte(RX_PW_P1_REG, 32);				/* 32 bit payload for pipe 2 */
 
 	/* Power up device in Rx Mode */
 	Dummy = nRF24L01_Read1Byte(CONFIG_REG);
-	Dummy |= (1<<1) | (1<<0);
+	Dummy |= (1<<1) | (1<<1);
 	nRF24L01_Write1Byte(CONFIG_REG, Dummy);
-
 	nRF24L01_Enable();
 }
 
@@ -193,6 +200,7 @@ bool nRF24L01_DataAvailable(uint8_t PipeIndex)
 void nRF24L01_ReceiveData(uint8_t *DestinationData)
 {
 	SPI1_ReadMulBytes(nRF24_COMMAND_READ_RX_PAYLOAD, DestinationData, 32);
+	TimerDelayUs(1000);
 	nRF24L01_Command(FLUSH_TX);
 }
 
