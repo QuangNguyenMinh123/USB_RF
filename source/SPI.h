@@ -12,13 +12,21 @@
 /***********************************************************************************************************************
  * Global Variables
  **********************************************************************************************************************/
-
+extern bool SPIInit_b;
 /***********************************************************************************************************************
  * API
  **********************************************************************************************************************/
 void SPI1_Init(void);
 
-void SPI1_Send1Byte(uint16_t Register, uint8_t Data);
+void SPI1_Start(void);
 
-uint16_t SPI1_Read1Byte(uint16_t Register, uint16_t* Des);
+void SPI1_Stop(void);
+
+void SPI1_Write1Byte(uint8_t Register, uint8_t Data);
+
+void SPI1_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size);
+
+uint8_t SPI1_Read1Byte(uint8_t Register);
+
+void SPI1_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size);
 #endif  /* _SPI_H */

@@ -196,7 +196,7 @@ void GPIO_PinHigh(IO_PIN PIN) {
 	}
 }
 
-void GPIO_PINToggle(IO_PIN PIN) {
+void PIO_PinToggle(IO_PIN PIN) {
 	uint32_t Data = 0;
 	/* PORT A */
 	uint32_t ui32Temp = (uint32_t) PIN % 16;

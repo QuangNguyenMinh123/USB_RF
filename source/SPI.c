@@ -15,18 +15,11 @@
 #define SPI_CR1_BR_DIV_128					(0b110) << 3
 #define SPI_CR1_BR_DIV_256					(0b111) << 3
 
-#define SPI_COMMAND_READ(Reg)				(0b00000000 | (Reg & 0b00011111))
-#define SPI_COMMAND_WRITE(Reg)				(0b00100000 | (Reg & 0b00011111))
-#define SPI_COMMAND_READ_RX_PAYLOAD			0b01100001
-#define SPI_COMMAND_WRITE_TX_PAYLOAD		0b10100000
-#define SPI_COMMAND_FLUSH_TX				0b11100001
-#define SPI_COMMAND_FLUSH_RX				0b11100010
-#define SPI_COMMAND_REUSE_TX_PL				0b11100011
-#define SPI_COMMAND_R_RX_PL_WID				0b01100000
-
 #define GPIOB_CRL0_MODE_OUTPUT_2MHZ			(0b10)
 #define GPIOB_CRL0_MODE_OUTPUT_10MHZ		(0b01)
 #define GPIOB_CRL0_MODE_OUTPUT_50MHZ		(0b11)
+
+#define DELAY								10
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -39,19 +32,12 @@ PB0 GPIO_NSS
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-uint16_t DummySpi = 0;
+static uint16_t DummySpi = 0;
+bool SPIInit_b = FALSE;
 /***********************************************************************************************************************
  * Static function
  **********************************************************************************************************************/
-__inline static void SPI1_Start(void)
-{
-	GPIO_PinLow(PB0);
-}
 
-__inline static void SPI1_Stop(void)
-{
-	GPIO_PinHigh(PB0);
-}
 /***********************************************************************************************************************
  * Global function
  **********************************************************************************************************************/
@@ -64,8 +50,8 @@ void SPI1_Init(void)
 	GPIO_SetOutPut(PA7, Alternate_Push_Pull);
 	/* PA6 SPI1_MISO: Full duplex / master = Input_Pullup */
 	GPIOA->CRL |= (1<<26);    		// PA6 (MISO) Input mode (floating)
-	/* PB0 GPIO_NSS: General_Open_Drain */
-	GPIO_SetOutPut(PB0, General_Open_Drain);
+	/* PB0 GPIO_NSS: General_Push_Pull */
+	GPIO_SetOutPut(PB0, General_Push_Pull);
 	GPIOB->CRL &= ~0b11;
 	GPIOB->CRL |= GPIOB_CRL0_MODE_OUTPUT_10MHZ;
 	GPIO_PinHigh(PB0);
@@ -79,13 +65,13 @@ void SPI1_Init(void)
 	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
 	/* 1. Select the BR[2:0] bits to define the serial clock baud rate (see SPI_CR1 register). */
 	/* SPI1 clock derived from APB2 = 72MHz */
-	SPI1->CR1 |= SPI_CR1_BR_DIV_8;			/* 72 / 16 = 4MHz */
+	SPI1->CR1 |= SPI_CR1_BR_DIV_16;			/* 72 / 8 = 9MHz */
  	/* 2. Select the CPOL and CPHA bits to define one of the four relationships between the
  	data transfer and the serial clock/ */
 	SPI1->CR1 &= ~SPI_CR1_CPOL;			/* CPOL = 0, clock idle low */
 	SPI1->CR1 &= ~SPI_CR1_CPHA;			/* CPHA = 0 */
 	/* 3. Set the DFF bit to define 8- or 16-bit data frame format */
-	SPI1->CR1 |= SPI_CR1_DFF;			/* 16 bit data frame */
+	SPI1->CR1 &= ~SPI_CR1_DFF;			/* 8 bit data frame */
 	/* 4. Configure the LSBFIRST bit in the SPI_CR1 register to define the frame format. */
 	SPI1->CR1 &= ~SPI_CR1_LSBFIRST;		/* MSB first */
 	/* 5. If the NSS pin is required in input mode, in hardware mode, connect the NSS pin to a
@@ -98,34 +84,92 @@ void SPI1_Init(void)
  	to a high-level signal). */
 	SPI1->CR1 |= SPI_CR1_MSTR;			/* Master mode */
 	SPI1->CR1 |= SPI_CR1_SPE;
+	SPIInit_b = TRUE;
 }
+
 
 void SPI1_InterruptInit(void)
 {
 
 }
 
-void SPI1_Send1Byte(uint16_t Register, uint8_t Data)
+__inline void SPI1_Start(void)
 {
 	GPIOB->BSRR |= GPIO_BSRR_BR0;
-	SPI1->DR = SPI_COMMAND_WRITE(Register) << 8 | Data;
+}
+
+__inline void SPI1_Stop(void)
+{
+	GPIOB->BSRR |= GPIO_BSRR_BS0;
+}
+
+void SPI1_Write1Byte(uint8_t Register, uint8_t Data)
+{
+	SPI1_Start();
+	SPI1->DR = Register;
+	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
+	SPI1->DR = Data;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
 	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
 	DummySpi = SPI1->DR;
 	DummySpi = SPI1->SR;
-	GPIOB->BSRR |= GPIO_BSRR_BS0;
+	SPI1_Stop();
+	delay(DELAY);
 }
 
-uint16_t SPI1_Read1Byte(uint16_t Register, uint16_t* Des)
+void SPI1_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size)
 {
-	uint16_t data = 0;
-	GPIOB->BSRR |= GPIO_BSRR_BR0;
-	SPI1->DR = SPI_COMMAND_READ(Register) << 8;
+	SPI1_Start();
+	SPI1->DR = Register;
+	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
+	while (Size > 0)
+	{
+		SPI1->DR = *Data;
+		while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}			/* Wait until bufer is empty */
+		Data++;
+		Size --;
+	}
+	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
+	DummySpi = SPI1->DR;
+	DummySpi = SPI1->SR;
+	SPI1_Stop();
+	delay(DELAY);
+}
+
+uint8_t SPI1_Read1Byte(uint8_t Register)
+{
+	uint8_t data = 0;
+	SPI1_Start();
+	SPI1->DR = Register;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
+	SPI1->DR = 0;
 	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
-	data = (SPI1->DR);
-	GPIOB->BSRR |= GPIO_BSRR_BS0;
+	data = SPI1->DR;
+	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
+	data = SPI1->DR;
+	SPI1_Stop();
+	delay(DELAY);
 	return data;
+}
+
+void SPI1_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size)
+{
+	SPI1_Start();
+	SPI1->DR = Register;
+	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
+	SPI1->DR = 0;
+	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}
+	DummySpi = SPI1->DR;
+	while (Size > 0)
+	{
+		SPI1->DR = 0;
+		while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
+		*Des = SPI1->DR;
+		Size--;
+		Des++;
+	}
+	SPI1_Stop();
+	delay(DELAY);
 }
 /***********************************************************************************************************************
  * EOF

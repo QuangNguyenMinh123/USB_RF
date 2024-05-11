@@ -85,7 +85,7 @@ typedef enum {
 void GPIO_SetOutPut(IO_PIN PIN, OUTPUT_MODE mode);
 void GPIO_PinLow(IO_PIN PIN);
 void GPIO_PinHigh(IO_PIN PIN);
-void GPIO_PINToggle(IO_PIN PIN);
+void PIO_PinToggle(IO_PIN PIN);
 /* GPIO Input Module */
 void GPIO_SetInPut(IO_PIN PIN, INPUT_MODE MODE);
 uint32_t GPIO_ReadPIN(IO_PIN PIN);
