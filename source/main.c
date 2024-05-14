@@ -15,6 +15,7 @@
 #define MS								3120U
 #define IS_TX							FALSE
 #define GREEN_LED						PB10
+#define USB_ENABLE_PIN					PB5
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -51,12 +52,14 @@ void main()
 	/* Led initialization */
 	GPIO_SetOutPut(GREEN_LED, General_Push_Pull);
 	GPIO_PinLow(GREEN_LED);
+	GPIO_SetOutPut(USB_ENABLE_PIN, General_Push_Pull);
+	GPIO_PinLow(USB_ENABLE_PIN);
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
 #if (IS_TX == TRUE)
 	Address[0] = 0xEE;
 #else
-	Address[0] = 0;
+	Address[0] = 0xEE;
 #endif
 	Address[1] = 0xDD;
 	Address[2] = 0xCC;
@@ -84,8 +87,8 @@ void main()
 		USB_SendString(1, RxData, strlen((char *)RxData));
 	}
 #endif
-		while (micros() - timer < 1000000);
 	}
+	USB_SendString(1, "1234", 4);
 }
 /***********************************************************************************************************************
  * EOF

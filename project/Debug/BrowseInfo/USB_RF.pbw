@@ -94655,6 +94655,244 @@
     "scope": null
   },
   {
+    "ID": "c:SPI.h@24@macro@_SPI_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "_SPI_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "_SPI_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@SPIInit_b",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "SPIInit_b",
+    "location": {
+      "column": "13",
+      "line": "15",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPIInit_b",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@SPIInit_b",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "SPIInit_b",
+    "location": {
+      "column": "13",
+      "line": "15",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPIInit_b",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Start",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Start(void)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Start",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Start",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Start(void)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Start",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Stop",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Stop(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Stop",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Stop",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Stop(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Stop",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Write1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Write1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Write1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Write1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_WriteMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_WriteMulBytes",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_WriteMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_WriteMulBytes",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Read1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
+    "location": {
+      "column": "9",
+      "line": "29",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Read1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Read1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
+    "location": {
+      "column": "9",
+      "line": "29",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Read1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_ReadMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "31",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_ReadMulBytes",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_ReadMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "31",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_ReadMulBytes",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
     "ID": "c:DLib_Product_string.h@269@macro@_DLIB_PRODUCTS_STRING_H_",
     "What": "MacroDef",
     "defdec": "Def",
@@ -95585,7 +95823,7 @@
     "display": "void nRF24L01_Init(void)",
     "location": {
       "column": "6",
-      "line": "110",
+      "line": "119",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_Init",
@@ -95599,7 +95837,7 @@
     "display": "void nRF24L01_Command(uint8_t)",
     "location": {
       "column": "6",
-      "line": "130",
+      "line": "139",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_Command",
@@ -95613,7 +95851,7 @@
     "display": "void nRF24L01_TxMode(uint8_t *, uint8_t)",
     "location": {
       "column": "6",
-      "line": "140",
+      "line": "149",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_TxMode",
@@ -95621,13 +95859,13 @@
     "scope": null
   },
   {
-    "ID": "c:nRF24L01.c@5087@F@nRF24L01_TxMode@Dummy",
+    "ID": "c:nRF24L01.c@5387@F@nRF24L01_TxMode@Dummy",
     "What": "Variable",
     "defdec": "Def",
     "display": "Dummy",
     "location": {
       "column": "10",
-      "line": "142",
+      "line": "151",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "Dummy",
@@ -95641,7 +95879,7 @@
     "display": "uint8_t nRF24L01_Transmit(uint8_t *)",
     "location": {
       "column": "6",
-      "line": "155",
+      "line": "164",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_Transmit",
@@ -95649,13 +95887,13 @@
     "scope": null
   },
   {
-    "ID": "c:nRF24L01.c@5464@F@nRF24L01_Transmit@FifoStatus",
+    "ID": "c:nRF24L01.c@5764@F@nRF24L01_Transmit@FifoStatus",
     "What": "Variable",
     "defdec": "Def",
     "display": "FifoStatus",
     "location": {
       "column": "10",
-      "line": "157",
+      "line": "166",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "FifoStatus",
@@ -95669,7 +95907,7 @@
     "display": "void nRF24L01_RxMode(uint8_t *, uint8_t)",
     "location": {
       "column": "6",
-      "line": "170",
+      "line": "179",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_RxMode",
@@ -95677,13 +95915,13 @@
     "scope": null
   },
   {
-    "ID": "c:nRF24L01.c@5857@F@nRF24L01_RxMode@Dummy",
+    "ID": "c:nRF24L01.c@6157@F@nRF24L01_RxMode@Dummy",
     "What": "Variable",
     "defdec": "Def",
     "display": "Dummy",
     "location": {
       "column": "10",
-      "line": "172",
+      "line": "181",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "Dummy",
@@ -95697,7 +95935,7 @@
     "display": "uint8_t nRF24L01_DataAvailable(uint8_t)",
     "location": {
       "column": "6",
-      "line": "189",
+      "line": "198",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_DataAvailable",
@@ -95705,13 +95943,13 @@
     "scope": null
   },
   {
-    "ID": "c:nRF24L01.c@6458@F@nRF24L01_DataAvailable@status",
+    "ID": "c:nRF24L01.c@6758@F@nRF24L01_DataAvailable@status",
     "What": "Variable",
     "defdec": "Def",
     "display": "status",
     "location": {
       "column": "10",
-      "line": "191",
+      "line": "200",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "status",
@@ -95725,7 +95963,7 @@
     "display": "void nRF24L01_ReceiveData(uint8_t *)",
     "location": {
       "column": "6",
-      "line": "200",
+      "line": "209",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_ReceiveData",
@@ -95739,7 +95977,7 @@
     "display": "void nRF24L01_ReadAllData(uint8_t *)",
     "location": {
       "column": "6",
-      "line": "207",
+      "line": "216",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "nRF24L01_ReadAllData",
@@ -95747,13 +95985,13 @@
     "scope": null
   },
   {
-    "ID": "c:nRF24L01.c@6877@F@nRF24L01_ReadAllData@i",
+    "ID": "c:nRF24L01.c@7177@F@nRF24L01_ReadAllData@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "6",
-      "line": "209",
+      "line": "218",
       "path": "F:\\USB_RF\\source\\nRF24L01.c"
     },
     "name": "i",
@@ -100243,13 +100481,27 @@
     "scope": null
   },
   {
+    "ID": "c:main.c@582@macro@USB_ENABLE_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "USB_ENABLE_PIN",
+    "location": {
+      "column": "9",
+      "line": "18",
+      "path": "F:\\USB_RF\\source\\main.c"
+    },
+    "name": "USB_ENABLE_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@timer",
     "What": "Variable",
     "defdec": "Def",
     "display": "timer",
     "location": {
       "column": "10",
-      "line": "25",
+      "line": "26",
       "path": "F:\\USB_RF\\source\\main.c"
     },
     "name": "timer",
@@ -100263,7 +100515,7 @@
     "display": "Address",
     "location": {
       "column": "9",
-      "line": "26",
+      "line": "27",
       "path": "F:\\USB_RF\\source\\main.c"
     },
     "name": "Address",
@@ -100277,7 +100529,7 @@
     "display": "RxData",
     "location": {
       "column": "9",
-      "line": "27",
+      "line": "28",
       "path": "F:\\USB_RF\\source\\main.c"
     },
     "name": "RxData",
@@ -100291,7 +100543,7 @@
     "display": "TxData",
     "location": {
       "column": "9",
-      "line": "28",
+      "line": "29",
       "path": "F:\\USB_RF\\source\\main.c"
     },
     "name": "TxData",
@@ -100305,11 +100557,81 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "32",
+      "line": "33",
       "path": "F:\\USB_RF\\source\\main.c"
     },
     "name": "main",
     "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:USB.h@24@macro@_USB_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "_USB_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "F:\\USB_RF\\source\\USB.h"
+    },
+    "name": "_USB_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void USB_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "20",
+      "path": "F:\\USB_RF\\source\\USB.h"
+    },
+    "name": "USB_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void USB_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "20",
+      "path": "F:\\USB_RF\\source\\USB.h"
+    },
+    "name": "USB_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_SendString",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void USB_SendString(uint8_t, uint8_t *, uint16_t)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\USB.h"
+    },
+    "name": "USB_SendString",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@USB_SendString",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void USB_SendString(uint8_t, uint8_t *, uint16_t)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\USB.h"
+    },
+    "name": "USB_SendString",
+    "origin": "user_include",
     "scope": null
   },
   {
@@ -100703,314 +101025,6 @@
       "path": "F:\\USB_RF\\source\\USB_IRQ.h"
     },
     "name": "USB_IRQ_Reset",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:SPI.h@24@macro@_SPI_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "_SPI_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "_SPI_H",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SPIInit_b",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "SPIInit_b",
-    "location": {
-      "column": "13",
-      "line": "15",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPIInit_b",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@SPIInit_b",
-    "What": "Variable",
-    "defdec": "Dec",
-    "display": "SPIInit_b",
-    "location": {
-      "column": "13",
-      "line": "15",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPIInit_b",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "19",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "19",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Start",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Start(void)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Start",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Start",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Start(void)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Start",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Stop",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Stop(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Stop",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Stop",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Stop(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Stop",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Write1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Write1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Write1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Write1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_WriteMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_WriteMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_WriteMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_WriteMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Read1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
-    "location": {
-      "column": "9",
-      "line": "29",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Read1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Read1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
-    "location": {
-      "column": "9",
-      "line": "29",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Read1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_ReadMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "31",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_ReadMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_ReadMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "31",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_ReadMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:USB.h@24@macro@_USB_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "_USB_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "F:\\USB_RF\\source\\USB.h"
-    },
-    "name": "_USB_H",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@USB_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void USB_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "20",
-      "path": "F:\\USB_RF\\source\\USB.h"
-    },
-    "name": "USB_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@USB_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void USB_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "20",
-      "path": "F:\\USB_RF\\source\\USB.h"
-    },
-    "name": "USB_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@USB_SendString",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void USB_SendString(uint8_t, uint8_t *, uint16_t)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\USB.h"
-    },
-    "name": "USB_SendString",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@USB_SendString",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void USB_SendString(uint8_t, uint8_t *, uint16_t)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\USB.h"
-    },
-    "name": "USB_SendString",
     "origin": "user_include",
     "scope": null
   },

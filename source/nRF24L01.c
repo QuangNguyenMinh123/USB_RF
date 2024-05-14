@@ -95,6 +95,15 @@ void nRF24L01_Reset(uint8_t Register)
 		nRF24L01_Write1Byte(RX_ADDR_P5_REG, 0xC6);
 		Buffer[0] = Buffer[1] = Buffer[2] = Buffer[3] = Buffer[4] = 0xEF;
 		nRF24L01_WriteMulBytes(TX_ADDR_REG, Buffer, 5);
+		/* Checkpoint */
+		Buffer[0] = Buffer[1] = Buffer[2] = Buffer[3] = Buffer[4] = 0;
+		nRF24L01_ReadMulBytes(TX_ADDR_REG, Buffer, 5);
+		if (Buffer[0] != 0xEF || Buffer[1] != 0xEF || Buffer[2] != 0xEF
+			|| Buffer[3] != 0xEF || Buffer[4] != 0xEF)
+		{
+			while (1);
+		}
+		/*  End checkpoint */
 		nRF24L01_Write1Byte(RX_PW_P0_REG, 0);
 		nRF24L01_Write1Byte(RX_PW_P1_REG, 0);
 		nRF24L01_Write1Byte(RX_PW_P2_REG, 0);
@@ -181,7 +190,7 @@ void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 
 	/* Power up device in Rx Mode */
 	Dummy = nRF24L01_Read1Byte(CONFIG_REG);
-	Dummy |= (1<<1) | (1<<1);
+	Dummy |= (1<<1) | (1<<0);
 	nRF24L01_Write1Byte(CONFIG_REG, Dummy);
 	nRF24L01_Enable();
 }
