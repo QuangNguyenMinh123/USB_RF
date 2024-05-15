@@ -114,7 +114,6 @@ void SPI1_Write1Byte(uint8_t Register, uint8_t Data)
 	DummySpi = SPI1->DR;
 	DummySpi = SPI1->SR;
 	SPI1_Stop();
-	delay(DELAY);
 }
 
 void SPI1_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size)
@@ -133,7 +132,6 @@ void SPI1_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size)
 	DummySpi = SPI1->DR;
 	DummySpi = SPI1->SR;
 	SPI1_Stop();
-	delay(DELAY);
 }
 
 uint8_t SPI1_Read1Byte(uint8_t Register)
@@ -145,10 +143,10 @@ uint8_t SPI1_Read1Byte(uint8_t Register)
 	SPI1->DR = 0;
 	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
 	data = SPI1->DR;
+	SPI1->DR = 0;
 	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
 	data = SPI1->DR;
 	SPI1_Stop();
-	delay(DELAY);
 	return data;
 }
 
@@ -169,7 +167,6 @@ void SPI1_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size)
 		Des++;
 	}
 	SPI1_Stop();
-	delay(DELAY);
 }
 /***********************************************************************************************************************
  * EOF

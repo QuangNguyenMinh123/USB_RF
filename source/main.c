@@ -81,13 +81,12 @@ void main()
 			GPIO_PinToggle(GREEN_LED);
 		}
 #else
-		if (nRF24L01_DataAvailable(1) == TRUE)
+		if (nRF24L01_DataAvailable(1) == 1)
 		{
 			nRF24L01_ReceiveData(RxData);
 			USB_SendString(1, RxData, strlen((char *)RxData));
 		}
 #endif
-		USB_SendString(1, "1234", 4);
 #if (IS_TX == TRUE)
 		while (micros() - timer < 1000000);
 #endif
