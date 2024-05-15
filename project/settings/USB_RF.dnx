@@ -33,7 +33,7 @@
         <TracePortSize>0x0</TracePortSize>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>3525794529</Checksum>
+        <Checksum>3913031828</Checksum>
     </DebugChecksum>
     <Disassembly>
         <MixedMode>1</MixedMode>
@@ -65,10 +65,10 @@
         <ITMlogFile>$PROJ_DIR$\ITM.log</ITMlogFile>
     </SWOTraceHWSettings>
     <StLinkDriver>
-        <stlinkResetStyle>0</stlinkResetStyle>
-        <stlinkResetStrategy>0</stlinkResetStrategy>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
         <CStepIntDis>_ 0</CStepIntDis>
+        <stlinkResetStyle>0</stlinkResetStyle>
+        <stlinkResetStrategy>0</stlinkResetStrategy>
         <stlinkserialNo>@</stlinkserialNo>
         <stlinkfoundProbes />
     </StLinkDriver>
@@ -87,6 +87,26 @@
         <FreqHi>0</FreqHi>
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
+    <PowerLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <Title_0>I0</Title_0>
+        <Symbol_0>0 4 0</Symbol_0>
+        <LiveEnabled>0</LiveEnabled>
+        <LiveFile />
+    </PowerLog>
+    <CallStackLog>
+        <Enabled>0</Enabled>
+    </CallStackLog>
+    <CallStackStripe>
+        <ShowTiming>1</ShowTiming>
+    </CallStackStripe>
+    <PowerProbe>
+        <Frequency>10000</Frequency>
+        <Probe0>I0</Probe0>
+        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
+    </PowerProbe>
     <struct_types>
         <Fmt0>USB_RequestType-bRequest	4	0</Fmt0>
         <Fmt1>USB_RequestType-bmRequestType	4	0</Fmt1>
@@ -110,26 +130,6 @@
         <Fmt3>{W}1:check	1	0</Fmt3>
         <Fmt4>{W}1:status	1	0</Fmt4>
     </watch_formats>
-    <PowerLog>
-        <GraphEnabled>0</GraphEnabled>
-        <LogEnabled>0</LogEnabled>
-        <ShowTimeLog>1</ShowTimeLog>
-        <Title_0>I0</Title_0>
-        <Symbol_0>0 4 0</Symbol_0>
-        <LiveEnabled>0</LiveEnabled>
-        <LiveFile />
-    </PowerLog>
-    <CallStackLog>
-        <Enabled>0</Enabled>
-    </CallStackLog>
-    <CallStackStripe>
-        <ShowTiming>1</ShowTiming>
-    </CallStackStripe>
-    <PowerProbe>
-        <Frequency>10000</Frequency>
-        <Probe0>I0</Probe0>
-        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
-    </PowerProbe>
     <Trace2>
         <Enabled>0</Enabled>
         <ShowSource>0</ShowSource>
@@ -175,6 +175,17 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\source\main.c}.81.3" 0 0 1 "" 0 "" 0</Bp0>
+        <Count>1</Count>
+    </Breakpoints2>
+    <Aliases>
+        <Count>0</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
     <DriverProfiling>
         <Enabled>0</Enabled>
         <Mode>3</Mode>
@@ -182,16 +193,6 @@
         <Symbiont>0</Symbiont>
         <Exclusions />
     </DriverProfiling>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
-    <Aliases>
-        <Count>0</Count>
-        <SuppressDialog>0</SuppressDialog>
-    </Aliases>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>

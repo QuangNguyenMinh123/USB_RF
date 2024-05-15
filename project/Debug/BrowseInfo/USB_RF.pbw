@@ -88996,21 +88996,21 @@
     "scope": null
   },
   {
-    "ID": "c:@F@PIO_PinToggle",
+    "ID": "c:@F@GPIO_PinToggle",
     "What": "Function",
     "defdec": "Def",
-    "display": "void PIO_PinToggle(IO_PIN)",
+    "display": "void GPIO_PinToggle(IO_PIN)",
     "location": {
       "column": "6",
       "line": "199",
       "path": "F:\\USB_RF\\source\\GPIO.c"
     },
-    "name": "PIO_PinToggle",
+    "name": "GPIO_PinToggle",
     "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@6590@F@PIO_PinToggle@Data",
+    "ID": "c:GPIO.c@6591@F@GPIO_PinToggle@Data",
     "What": "Variable",
     "defdec": "Def",
     "display": "Data",
@@ -89024,7 +89024,7 @@
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@6626@F@PIO_PinToggle@ui32Temp",
+    "ID": "c:GPIO.c@6627@F@GPIO_PinToggle@ui32Temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "ui32Temp",
@@ -89052,7 +89052,7 @@
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@7231@F@GPIO_SetInPut@ui32Temp",
+    "ID": "c:GPIO.c@7232@F@GPIO_SetInPut@ui32Temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "ui32Temp",
@@ -89080,7 +89080,7 @@
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@10944@F@GPIO_ReadPIN@ui32Ret",
+    "ID": "c:GPIO.c@10945@F@GPIO_ReadPIN@ui32Ret",
     "What": "Variable",
     "defdec": "Def",
     "display": "ui32Ret",
@@ -89108,7 +89108,7 @@
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@11326@F@GPIO_SetAnalog@ui32Temp",
+    "ID": "c:GPIO.c@11327@F@GPIO_SetAnalog@ui32Temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "ui32Temp",
@@ -89136,7 +89136,7 @@
     "scope": null
   },
   {
-    "ID": "c:GPIO.c@13452@F@GPIO_SetInterrupt@IRQ_Idx",
+    "ID": "c:GPIO.c@13453@F@GPIO_SetInterrupt@IRQ_Idx",
     "What": "Variable",
     "defdec": "Def",
     "display": "IRQ_Idx",
@@ -90126,30 +90126,30 @@
     "scope": null
   },
   {
-    "ID": "c:@F@PIO_PinToggle",
+    "ID": "c:@F@GPIO_PinToggle",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void PIO_PinToggle(IO_PIN)",
+    "display": "void GPIO_PinToggle(IO_PIN)",
     "location": {
       "column": "6",
       "line": "88",
       "path": "F:\\USB_RF\\source\\GPIO.h"
     },
-    "name": "PIO_PinToggle",
+    "name": "GPIO_PinToggle",
     "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@F@PIO_PinToggle",
+    "ID": "c:@F@GPIO_PinToggle",
     "What": "Function",
     "defdec": "Dec",
-    "display": "void PIO_PinToggle(IO_PIN)",
+    "display": "void GPIO_PinToggle(IO_PIN)",
     "location": {
       "column": "6",
       "line": "88",
       "path": "F:\\USB_RF\\source\\GPIO.h"
     },
-    "name": "PIO_PinToggle",
+    "name": "GPIO_PinToggle",
     "origin": "user_include",
     "scope": null
   },
@@ -94655,241 +94655,129 @@
     "scope": null
   },
   {
-    "ID": "c:SPI.h@24@macro@_SPI_H",
+    "ID": "c:main.c@501@macro@MS",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "_SPI_H",
+    "display": "MS",
     "location": {
       "column": "9",
-      "line": "2",
-      "path": "F:\\USB_RF\\source\\SPI.h"
+      "line": "15",
+      "path": "F:\\USB_RF\\source\\main.c"
     },
-    "name": "_SPI_H",
-    "origin": "user_include",
+    "name": "MS",
+    "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@SPIInit_b",
+    "ID": "c:main.c@526@macro@IS_TX",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "IS_TX",
+    "location": {
+      "column": "9",
+      "line": "16",
+      "path": "F:\\USB_RF\\source\\main.c"
+    },
+    "name": "IS_TX",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@552@macro@GREEN_LED",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "GREEN_LED",
+    "location": {
+      "column": "9",
+      "line": "17",
+      "path": "F:\\USB_RF\\source\\main.c"
+    },
+    "name": "GREEN_LED",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@581@macro@USB_ENABLE_PIN",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "USB_ENABLE_PIN",
+    "location": {
+      "column": "9",
+      "line": "18",
+      "path": "F:\\USB_RF\\source\\main.c"
+    },
+    "name": "USB_ENABLE_PIN",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@timer",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "timer",
+    "location": {
+      "column": "10",
+      "line": "26",
+      "path": "F:\\USB_RF\\source\\main.c"
+    },
+    "name": "timer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@Address",
     "What": "Variable",
     "defdec": "Dec",
-    "display": "SPIInit_b",
+    "display": "Address",
     "location": {
-      "column": "13",
-      "line": "15",
-      "path": "F:\\USB_RF\\source\\SPI.h"
+      "column": "9",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\main.c"
     },
-    "name": "SPIInit_b",
-    "origin": "user_include",
+    "name": "Address",
+    "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@SPIInit_b",
+    "ID": "c:@RxData",
     "What": "Variable",
     "defdec": "Dec",
-    "display": "SPIInit_b",
+    "display": "RxData",
     "location": {
-      "column": "13",
-      "line": "15",
-      "path": "F:\\USB_RF\\source\\SPI.h"
+      "column": "9",
+      "line": "28",
+      "path": "F:\\USB_RF\\source\\main.c"
     },
-    "name": "SPIInit_b",
-    "origin": "user_include",
+    "name": "RxData",
+    "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@SPI1_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "19",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Init(void)",
-    "location": {
-      "column": "6",
-      "line": "19",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Start",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Start(void)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Start",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Start",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Start(void)",
-    "location": {
-      "column": "6",
-      "line": "21",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Start",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Stop",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Stop(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Stop",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Stop",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Stop(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Stop",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Write1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Write1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Write1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Write1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_WriteMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_WriteMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_WriteMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_WriteMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_Read1Byte",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
+    "ID": "c:@TxData",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "TxData",
     "location": {
       "column": "9",
       "line": "29",
-      "path": "F:\\USB_RF\\source\\SPI.h"
+      "path": "F:\\USB_RF\\source\\main.c"
     },
-    "name": "SPI1_Read1Byte",
-    "origin": "user_include",
+    "name": "TxData",
+    "origin": "project_file",
     "scope": null
   },
   {
-    "ID": "c:@F@SPI1_Read1Byte",
+    "ID": "c:@F@main",
     "What": "Function",
-    "defdec": "Dec",
-    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
-    "location": {
-      "column": "9",
-      "line": "29",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_Read1Byte",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_ReadMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "defdec": "Def",
+    "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "31",
-      "path": "F:\\USB_RF\\source\\SPI.h"
+      "line": "33",
+      "path": "F:\\USB_RF\\source\\main.c"
     },
-    "name": "SPI1_ReadMulBytes",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@SPI1_ReadMulBytes",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
-    "location": {
-      "column": "6",
-      "line": "31",
-      "path": "F:\\USB_RF\\source\\SPI.h"
-    },
-    "name": "SPI1_ReadMulBytes",
-    "origin": "user_include",
+    "name": "main",
+    "origin": "project_file",
     "scope": null
   },
   {
@@ -95072,6 +94960,274 @@
     },
     "name": "memset",
     "origin": "system_include",
+    "scope": null
+  },
+  {
+    "ID": "c:TIMER.h@26@macro@_TIMER_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "_TIMER_H",
+    "location": {
+      "column": "9",
+      "line": "2",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "_TIMER_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@EA@TIMER_CounterMode",
+    "What": "Enum",
+    "defdec": "Def",
+    "display": "",
+    "fields": [
+      {
+        "ID": "c:@EA@TIMER_CounterMode@COUNTER_UP",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "COUNTER_UP",
+        "location": {
+          "column": "2",
+          "line": "12",
+          "path": "F:\\USB_RF\\source\\TIMER.h"
+        },
+        "name": "COUNTER_UP",
+        "origin": "user_include",
+        "scope": null
+      },
+      {
+        "ID": "c:@EA@TIMER_CounterMode@COUNTER_DOWN",
+        "What": "Enumerator",
+        "defdec": "Def",
+        "display": "COUNTER_DOWN",
+        "location": {
+          "column": "2",
+          "line": "13",
+          "path": "F:\\USB_RF\\source\\TIMER.h"
+        },
+        "name": "COUNTER_DOWN",
+        "origin": "user_include",
+        "scope": null
+      }
+    ],
+    "location": {
+      "column": "9",
+      "line": "11",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@T@TIMER_CounterMode",
+    "What": "Typedef",
+    "defdec": "Def",
+    "display": "enum TIMER_CounterMode",
+    "location": {
+      "column": "3",
+      "line": "14",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_CounterMode",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
+    "location": {
+      "column": "6",
+      "line": "22",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
+    "location": {
+      "column": "6",
+      "line": "22",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Chaining",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_Chaining(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Chaining",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Chaining",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_Chaining(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Chaining",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMillis",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "24",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_SetCLockSourceMillis",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMillis",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "24",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_SetCLockSourceMillis",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMicros",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_SetCLockSourceMicros",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_SetCLockSourceMicros",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_SetCLockSourceMicros",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_EnableInterrupt",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "26",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_EnableInterrupt",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_EnableInterrupt",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
+    "location": {
+      "column": "6",
+      "line": "26",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_EnableInterrupt",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Milis",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint32_t TIMER_Milis(void)",
+    "location": {
+      "column": "10",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Milis",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Milis",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint32_t TIMER_Milis(void)",
+    "location": {
+      "column": "10",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Milis",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Micros",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint32_t TIMER_Micros(void)",
+    "location": {
+      "column": "10",
+      "line": "28",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Micros",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@TIMER_Micros",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint32_t TIMER_Micros(void)",
+    "location": {
+      "column": "10",
+      "line": "28",
+      "path": "F:\\USB_RF\\source\\TIMER.h"
+    },
+    "name": "TIMER_Micros",
+    "origin": "user_include",
     "scope": null
   },
   {
@@ -100439,129 +100595,241 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@501@macro@MS",
+    "ID": "c:SPI.h@24@macro@_SPI_H",
     "What": "MacroDef",
     "defdec": "Def",
-    "display": "MS",
+    "display": "_SPI_H",
     "location": {
       "column": "9",
+      "line": "2",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "_SPI_H",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@SPIInit_b",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "SPIInit_b",
+    "location": {
+      "column": "13",
       "line": "15",
-      "path": "F:\\USB_RF\\source\\main.c"
+      "path": "F:\\USB_RF\\source\\SPI.h"
     },
-    "name": "MS",
-    "origin": "project_file",
+    "name": "SPIInit_b",
+    "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:main.c@526@macro@IS_TX",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "IS_TX",
-    "location": {
-      "column": "9",
-      "line": "16",
-      "path": "F:\\USB_RF\\source\\main.c"
-    },
-    "name": "IS_TX",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@553@macro@GREEN_LED",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "GREEN_LED",
-    "location": {
-      "column": "9",
-      "line": "17",
-      "path": "F:\\USB_RF\\source\\main.c"
-    },
-    "name": "GREEN_LED",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:main.c@582@macro@USB_ENABLE_PIN",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "USB_ENABLE_PIN",
-    "location": {
-      "column": "9",
-      "line": "18",
-      "path": "F:\\USB_RF\\source\\main.c"
-    },
-    "name": "USB_ENABLE_PIN",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@timer",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "timer",
-    "location": {
-      "column": "10",
-      "line": "26",
-      "path": "F:\\USB_RF\\source\\main.c"
-    },
-    "name": "timer",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
-    "ID": "c:@Address",
+    "ID": "c:@SPIInit_b",
     "What": "Variable",
     "defdec": "Dec",
-    "display": "Address",
+    "display": "SPIInit_b",
     "location": {
-      "column": "9",
+      "column": "13",
+      "line": "15",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPIInit_b",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Init",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "19",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Init",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Start",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Start(void)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Start",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Start",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Start(void)",
+    "location": {
+      "column": "6",
+      "line": "21",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Start",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Stop",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Stop(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Stop",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Stop",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Stop(void)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Stop",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Write1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Write1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_Write1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_Write1Byte(uint8_t, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "25",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Write1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_WriteMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
       "line": "27",
-      "path": "F:\\USB_RF\\source\\main.c"
+      "path": "F:\\USB_RF\\source\\SPI.h"
     },
-    "name": "Address",
-    "origin": "project_file",
+    "name": "SPI1_WriteMulBytes",
+    "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@RxData",
-    "What": "Variable",
+    "ID": "c:@F@SPI1_WriteMulBytes",
+    "What": "Function",
     "defdec": "Dec",
-    "display": "RxData",
+    "display": "void SPI1_WriteMulBytes(uint8_t, uint8_t *, uint8_t)",
     "location": {
-      "column": "9",
-      "line": "28",
-      "path": "F:\\USB_RF\\source\\main.c"
+      "column": "6",
+      "line": "27",
+      "path": "F:\\USB_RF\\source\\SPI.h"
     },
-    "name": "RxData",
-    "origin": "project_file",
+    "name": "SPI1_WriteMulBytes",
+    "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@TxData",
-    "What": "Variable",
-    "defdec": "Def",
-    "display": "TxData",
+    "ID": "c:@F@SPI1_Read1Byte",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
     "location": {
       "column": "9",
       "line": "29",
-      "path": "F:\\USB_RF\\source\\main.c"
+      "path": "F:\\USB_RF\\source\\SPI.h"
     },
-    "name": "TxData",
-    "origin": "project_file",
+    "name": "SPI1_Read1Byte",
+    "origin": "user_include",
     "scope": null
   },
   {
-    "ID": "c:@F@main",
+    "ID": "c:@F@SPI1_Read1Byte",
     "What": "Function",
-    "defdec": "Def",
-    "display": "void main(void)",
+    "defdec": "Dec",
+    "display": "uint8_t SPI1_Read1Byte(uint8_t)",
+    "location": {
+      "column": "9",
+      "line": "29",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_Read1Byte",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_ReadMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
     "location": {
       "column": "6",
-      "line": "33",
-      "path": "F:\\USB_RF\\source\\main.c"
+      "line": "31",
+      "path": "F:\\USB_RF\\source\\SPI.h"
     },
-    "name": "main",
-    "origin": "project_file",
+    "name": "SPI1_ReadMulBytes",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SPI1_ReadMulBytes",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void SPI1_ReadMulBytes(uint8_t, uint8_t *, uint8_t)",
+    "location": {
+      "column": "6",
+      "line": "31",
+      "path": "F:\\USB_RF\\source\\SPI.h"
+    },
+    "name": "SPI1_ReadMulBytes",
+    "origin": "user_include",
     "scope": null
   },
   {
@@ -100631,274 +100899,6 @@
       "path": "F:\\USB_RF\\source\\USB.h"
     },
     "name": "USB_SendString",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:TIMER.h@26@macro@_TIMER_H",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "_TIMER_H",
-    "location": {
-      "column": "9",
-      "line": "2",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "_TIMER_H",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@EA@TIMER_CounterMode",
-    "What": "Enum",
-    "defdec": "Def",
-    "display": "",
-    "fields": [
-      {
-        "ID": "c:@EA@TIMER_CounterMode@COUNTER_UP",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "COUNTER_UP",
-        "location": {
-          "column": "2",
-          "line": "12",
-          "path": "F:\\USB_RF\\source\\TIMER.h"
-        },
-        "name": "COUNTER_UP",
-        "origin": "user_include",
-        "scope": null
-      },
-      {
-        "ID": "c:@EA@TIMER_CounterMode@COUNTER_DOWN",
-        "What": "Enumerator",
-        "defdec": "Def",
-        "display": "COUNTER_DOWN",
-        "location": {
-          "column": "2",
-          "line": "13",
-          "path": "F:\\USB_RF\\source\\TIMER.h"
-        },
-        "name": "COUNTER_DOWN",
-        "origin": "user_include",
-        "scope": null
-      }
-    ],
-    "location": {
-      "column": "9",
-      "line": "11",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@T@TIMER_CounterMode",
-    "What": "Typedef",
-    "defdec": "Def",
-    "display": "enum TIMER_CounterMode",
-    "location": {
-      "column": "3",
-      "line": "14",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_CounterMode",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
-    "location": {
-      "column": "6",
-      "line": "22",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Init",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_Init(TIM_TypeDef *, TIMER_CounterMode, uint32_t)",
-    "location": {
-      "column": "6",
-      "line": "22",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Init",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Chaining",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_Chaining(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Chaining",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Chaining",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_Chaining(void)",
-    "location": {
-      "column": "6",
-      "line": "23",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Chaining",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMillis",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "24",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_SetCLockSourceMillis",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMillis",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_SetCLockSourceMillis(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "24",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_SetCLockSourceMillis",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMicros",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_SetCLockSourceMicros",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_SetCLockSourceMicros",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_SetCLockSourceMicros(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "25",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_SetCLockSourceMicros",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_EnableInterrupt",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "26",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_EnableInterrupt",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_EnableInterrupt",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "void TIMER_EnableInterrupt(TIM_TypeDef *)",
-    "location": {
-      "column": "6",
-      "line": "26",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_EnableInterrupt",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Milis",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint32_t TIMER_Milis(void)",
-    "location": {
-      "column": "10",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Milis",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Milis",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint32_t TIMER_Milis(void)",
-    "location": {
-      "column": "10",
-      "line": "27",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Milis",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Micros",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint32_t TIMER_Micros(void)",
-    "location": {
-      "column": "10",
-      "line": "28",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Micros",
-    "origin": "user_include",
-    "scope": null
-  },
-  {
-    "ID": "c:@F@TIMER_Micros",
-    "What": "Function",
-    "defdec": "Dec",
-    "display": "uint32_t TIMER_Micros(void)",
-    "location": {
-      "column": "10",
-      "line": "28",
-      "path": "F:\\USB_RF\\source\\TIMER.h"
-    },
-    "name": "TIMER_Micros",
     "origin": "user_include",
     "scope": null
   },

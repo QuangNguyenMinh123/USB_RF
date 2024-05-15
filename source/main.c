@@ -13,7 +13,7 @@
  * Definitions
  **********************************************************************************************************************/
 #define MS								3120U
-#define IS_TX							FALSE
+#define IS_TX							TRUE
 #define GREEN_LED						PB10
 #define USB_ENABLE_PIN					PB5
 /***********************************************************************************************************************
@@ -76,19 +76,22 @@ void main()
 	{
 		timer = micros();
 #if (IS_TX == TRUE)
-	if (nRF24L01_Transmit(TxData) == 1)
-	{
-		PIO_PinToggle(GREEN_LED);
-	}
+		if (nRF24L01_Transmit(TxData) == 1)
+		{
+			GPIO_PinToggle(GREEN_LED);
+		}
 #else
-	if (nRF24L01_DataAvailable(1) == TRUE)
-	{
-		nRF24L01_ReceiveData(RxData);
-		USB_SendString(1, RxData, strlen((char *)RxData));
-	}
+		if (nRF24L01_DataAvailable(1) == TRUE)
+		{
+			nRF24L01_ReceiveData(RxData);
+			USB_SendString(1, RxData, strlen((char *)RxData));
+		}
+#endif
+		USB_SendString(1, "1234", 4);
+#if (IS_TX == TRUE)
+		while (micros() - timer < 1000000);
 #endif
 	}
-	USB_SendString(1, "1234", 4);
 }
 /***********************************************************************************************************************
  * EOF
