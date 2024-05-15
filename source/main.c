@@ -13,7 +13,7 @@
  * Definitions
  **********************************************************************************************************************/
 #define MS								3120U
-#define IS_TX							TRUE
+#define IS_TX							FALSE
 #define GREEN_LED						PB10
 #define USB_ENABLE_PIN					PB5
 /***********************************************************************************************************************
@@ -51,7 +51,7 @@ void main()
 	USB_Init();
 	/* Led initialization */
 	GPIO_SetOutPut(GREEN_LED, General_Push_Pull);
-	GPIO_PinLow(GREEN_LED);
+	GPIO_PinHigh(GREEN_LED);
 	GPIO_SetOutPut(USB_ENABLE_PIN, General_Push_Pull);
 	GPIO_PinLow(USB_ENABLE_PIN);
 	/* nRF24L01 initialization */
@@ -85,6 +85,7 @@ void main()
 		{
 			nRF24L01_ReceiveData(RxData);
 			USB_SendString(1, RxData, strlen((char *)RxData));
+			GPIO_PinToggle(GREEN_LED);
 		}
 #endif
 #if (IS_TX == TRUE)
