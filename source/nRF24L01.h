@@ -56,6 +56,9 @@
 #define FLUSH_RX                        0xE2
 #define REUSE_TX_PL                     0xE3
 #define NOP                             0xFF
+
+#define NRF24L01_CE_PIN					PB1
+#define NRF24L01_IRQ_PIN				PA3
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -75,11 +78,11 @@ void nRF24L01_RxMode(uint8_t *Address, uint8_t channel);
 
 void nRF24L01_TxMode(uint8_t *Address, uint8_t channel);
 
-bool nRF24L01_Transmit(uint8_t *data);
+void nRF24L01_Transmit(uint8_t *data);
 
 bool nRF24L01_DataAvailable(uint8_t PipeIndex);
 
 void nRF24L01_ReceiveData(uint8_t *DestinationData);
 
-void nRF24L01_ReadAllData(uint8_t *data);
+uint8_t nRF24L01_Read1Byte(uint8_t Register);
 #endif  /* _NRF24L01_H */
