@@ -36,7 +36,8 @@ uint8_t after[100] = 0;
 int i= 0;
 int test = 0;
 int dem = 0;
-
+int max = 0;
+int tx = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
@@ -88,35 +89,13 @@ void main()
 	while (1)
 	{
 		timer = micros();
-		if (GPIO_ReadPIN(NRF24L01_IRQ_PIN) == 0)
-		{
-			check[i] = nRF24L01_Read1Byte(STATUS_REG);
-			test = check [i];
-			if (test & STATUS_MAX_RT)
-			{
-				nRF24L01_Write1Byte(STATUS_REG, STATUS_MAX_RT);
-				after[i] = nRF24L01_Read1Byte(STATUS_REG);
-				GPIO_PinToggle(PA2);
-				nRF24L01_ReadMulBytes(RX_ADDR_P0_REG, Address, 5);
-				nRF24L01_TxMode(Address, 10);
-				nRF24L01_Command(FLUSH_TX);
-			}
-			else if (test & STATUS_TX_DS)
-			{
-				test = 0;
-			}
-			else if (test & STATUS_RX_DR)
-			{
-				test = 0;
-			}
-			i++;
-		}
-
 #if (IS_TX == TRUE)
+		//nRF24L01_Command(FLUSH_TX);
 		nRF24L01_Transmit(TxData);
+
 		GPIO_PinToggle(GREEN_LED);
 		dem++;
-		while (micros() - timer < 100000);
+
 #else
 		if (nRF24L01_DataAvailable(1) == 1)
 		{
@@ -125,6 +104,38 @@ void main()
 			GPIO_PinToggle(GREEN_LED);
 		}
 #endif
+		while (nRF24L01_Read1Byte(OBSERVE_TX_REG) < 3)
+		{
+			test = 0;
+		}
+		if (GPIO_ReadPIN(NRF24L01_IRQ_PIN) == 0)
+		{
+			check[i] = nRF24L01_Read1Byte(STATUS_REG);
+			test = check [i];
+			if ((test & STATUS_MAX_RT) == STATUS_MAX_RT)
+			{
+				nRF24L01_Write1Byte(STATUS_REG, STATUS_MAX_RT);
+				after[i] = nRF24L01_Read1Byte(STATUS_REG);
+				GPIO_PinToggle(PA2);
+				nRF24L01_TxMode(Address, 0);
+				nRF24L01_Disable();
+				max ++;
+			}
+			if ((test & STATUS_TX_DS) == STATUS_TX_DS)
+			{
+				nRF24L01_Write1Byte(STATUS_REG, 0x10);
+				nRF24L01_Read1Byte(STATUS_REG);
+				nRF24L01_TxMode(Address, 0);
+				tx ++;
+				test = 0;
+			}
+			if ((test & STATUS_RX_DR) == STATUS_RX_DR)
+			{
+				test = 0;
+			}
+			i++;
+		}
+		while (micros() - timer < 1000000);
 	}
 }
 /***********************************************************************************************************************

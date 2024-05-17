@@ -13,8 +13,8 @@ void nRF24L01_Write1Byte(uint8_t Register, uint8_t Data);
 static void nRF24L01_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size);
  uint8_t nRF24L01_Read1Byte(uint8_t Register);
 void nRF24L01_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size);
-static void nRF24L01_Enable(void);
-static void nRF24L01_Disable(void);
+ void nRF24L01_Enable(void);
+ void nRF24L01_Disable(void);
 static void TimerDelayUs(int time);
 /***********************************************************************************************************************
  * Variables
@@ -43,12 +43,12 @@ void nRF24L01_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size)
 	SPI1_ReadMulBytes(nRF24_COMMAND_READ(Register), Des, Size);
 }
 
-static void nRF24L01_Enable(void)
+ void nRF24L01_Enable(void)
 {
 	GPIO_PinHigh(NRF24L01_CE_PIN);
 }
 
-static void nRF24L01_Disable(void)
+ void nRF24L01_Disable(void)
 {
 	GPIO_PinLow(NRF24L01_CE_PIN);
 }
@@ -171,27 +171,31 @@ void nRF24L01_Init(void)
 	nRF24L01_Disable();
 	nRF24L01_Reset(ALL_REGISTER);
 
+	nRF24L01_Write1Byte(CONFIG_REG, 0);
+	CheckpointFail |= checkpointFail(CONFIG_REG, 0);
+
 	nRF24L01_Write1Byte(EN_AA_REG, 1);
 	CheckpointFail |= checkpointFail(EN_AA_REG, 1);
 
-	nRF24L01_Write1Byte(EN_RXADDR_REG, 1);
-	CheckpointFail |= checkpointFail(EN_RXADDR_REG, 1);
+	nRF24L01_Write1Byte(EN_RXADDR_REG, 3);
+	CheckpointFail |= checkpointFail(EN_RXADDR_REG, 3);
 
-	nRF24L01_Write1Byte(RF_CH_REG, 0);
-	CheckpointFail |= checkpointFail(RF_CH_REG, 0);
+	nRF24L01_Write1Byte(RF_SETUP_REG, 0);
+	CheckpointFail |= checkpointFail(RF_SETUP_REG, 0);
 
-	nRF24L01_Write1Byte(RX_PW_P0_REG, 32);
-	CheckpointFail |= checkpointFail(RX_PW_P0_REG, 12);
 
-	nRF24L01_Write1Byte(RF_SETUP_REG, 0b00100110);
-	CheckpointFail |= checkpointFail(RF_SETUP_REG, 0b00100110);
+	nRF24L01_Write1Byte(SETUP_RETR_REG, 0b00100011);
+	CheckpointFail |= checkpointFail(SETUP_RETR_REG, 0b00101111);
 
-	nRF24L01_Write1Byte(CONFIG_REG, 0xe);
-	CheckpointFail |= checkpointFail(CONFIG_REG, 0xe);
+	nRF24L01_Write1Byte(FEATURE_REG, 0b100);
+	CheckpointFail |= checkpointFail(FEATURE_REG, 0b100);
 
-	nRF24L01_Write1Byte(SETUP_RETR_REG, 0b00111111);
-	CheckpointFail |= checkpointFail(SETUP_RETR_REG, 0b01111111);
+	nRF24L01_Write1Byte(DYNPD_REG, 1);
+	CheckpointFail |= checkpointFail(DYNPD_REG, 1);
 
+	nRF24L01_Write1Byte(STATUS_REG, BIT_6);
+	nRF24L01_Write1Byte(STATUS_REG, BIT_5);
+	nRF24L01_Write1Byte(STATUS_REG, BIT_4);
 	if (CheckpointFail > 1)
 		while (1);
 }
@@ -199,6 +203,9 @@ void nRF24L01_Init(void)
 void nRF24L01_TxMode(uint8_t *Address, uint8_t Channel)
 {
 	nRF24L01_Disable();
+	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
+	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
+	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);
 	nRF24L01_Write1Byte(CONFIG_REG, 0xe);
 	TimerDelayUs(10000);
 	nRF24L01_Enable();
@@ -208,15 +215,19 @@ void nRF24L01_TxMode(uint8_t *Address, uint8_t Channel)
 void nRF24L01_Transmit(uint8_t *Data)
 {
 	nRF24L01_Disable();
-	SPI1_WriteMulBytes(nRF24_COMMAND_WRITE_TX_PAYLOAD, Data, 12);
-	nRF24L01_Write1Byte(CONFIG_REG, 0xe);
+	SPI1_WriteMulBytes(nRF24_COMMAND_WRITE_TX_PAYLOAD, Data, 5);
 	nRF24L01_Enable();
 }
 
 void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 {
 	nRF24L01_Disable();
+	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
+	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
+	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);
 	nRF24L01_Write1Byte(CONFIG_REG, 0xf);
+	nRF24L01_Write1Byte(RX_PW_P0_REG, 0xf);
+	nRF24L01_Write1Byte(RX_PW_P1_REG, 0xf);
 	TimerDelayUs(10000);
 	nRF24L01_Enable();
 	TimerDelayUs(150);

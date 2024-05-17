@@ -141,6 +141,7 @@ uint8_t SPI1_Read1Byte(uint8_t Register)
 	SPI1->DR = Register;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
 	SPI1->DR = 0;
+	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}  //
 	while ((SPI1->SR & SPI_SR_RXNE) == 0) {}  				/* wait while buffer is empty */
 	data = SPI1->DR;
 	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
