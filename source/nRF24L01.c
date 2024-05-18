@@ -5,7 +5,13 @@
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
-
+#define RF_SETUP_250KB			0b00100000
+#define RF_SETUP_1MB			0b00000000
+#define RF_SETUP_2MB			0b00001000
+#define RF_SETUP__18dBm			0b00000000
+#define RF_SETUP__12dBm			0b00000010
+#define RF_SETUP__6dBm			0b00000100
+#define RF_SETUP_0dBm			0b00000110
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -180,12 +186,12 @@ void nRF24L01_Init(void)
 	nRF24L01_Write1Byte(EN_RXADDR_REG, 3);
 	CheckpointFail |= checkpointFail(EN_RXADDR_REG, 3);
 
-	nRF24L01_Write1Byte(RF_SETUP_REG, 0);
-	CheckpointFail |= checkpointFail(RF_SETUP_REG, 0);
+	nRF24L01_Write1Byte(RF_SETUP_REG, RF_SETUP_2MB | RF_SETUP_0dBm);
+	CheckpointFail |= checkpointFail(RF_SETUP_REG, RF_SETUP_2MB | RF_SETUP_0dBm);
 
 
-	nRF24L01_Write1Byte(SETUP_RETR_REG, 0b00101111);
-	CheckpointFail |= checkpointFail(SETUP_RETR_REG, 0b00101111);
+	nRF24L01_Write1Byte(SETUP_RETR_REG, 0b00100011);
+	CheckpointFail |= checkpointFail(SETUP_RETR_REG, 0b00100011);
 
 	nRF24L01_Write1Byte(FEATURE_REG, 0b100);
 	CheckpointFail |= checkpointFail(FEATURE_REG, 0b100);
