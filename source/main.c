@@ -27,10 +27,11 @@
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
+volatile int irq = 0;
 uint32_t timer = 0;
 uint8_t Address[5];
 uint8_t RxData[100];
-uint8_t TxData[] = "Hello World\n";
+uint8_t TxData[] = "Hello world";
 uint8_t check[100] = 0;
 uint8_t after[100] = 0;
 int i= 0;
@@ -38,6 +39,8 @@ int test = 0;
 int dem = 0;
 int max = 0;
 int tx = 0;
+volatile int success = 0;
+int rx_dr = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
@@ -66,8 +69,7 @@ void main()
 	GPIO_PinHigh(GREEN_LED);
 	GPIO_SetOutPut(USB_ENABLE_PIN, General_Push_Pull);
 	GPIO_PinLow(USB_ENABLE_PIN);
-	GPIO_SetOutPut(PA2, General_Push_Pull);
-	GPIO_PinLow(PA2);
+	GPIO_SetInterrupt(PA3, FALLING_EDGE);
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
 #if (IS_TX == TRUE)
@@ -104,10 +106,6 @@ void main()
 			GPIO_PinToggle(GREEN_LED);
 		}
 #endif
-		while (nRF24L01_Read1Byte(OBSERVE_TX_REG) < 3)
-		{
-			test = 0;
-		}
 		if (GPIO_ReadPIN(NRF24L01_IRQ_PIN) == 0)
 		{
 			check[i] = nRF24L01_Read1Byte(STATUS_REG);
@@ -116,7 +114,6 @@ void main()
 			{
 				nRF24L01_Write1Byte(STATUS_REG, STATUS_MAX_RT);
 				after[i] = nRF24L01_Read1Byte(STATUS_REG);
-				GPIO_PinToggle(PA2);
 				nRF24L01_TxMode(Address, 0);
 				nRF24L01_Disable();
 				max ++;
@@ -131,11 +128,27 @@ void main()
 			}
 			if ((test & STATUS_RX_DR) == STATUS_RX_DR)
 			{
-				test = 0;
+				rx_dr++;
 			}
 			i++;
 		}
 		while (micros() - timer < 1000000);
+	}
+}
+
+
+void EXTI3_IRQHandler(void)
+{
+	EXTI->PR |= BIT_3;
+	irq = nRF24L01_Read1Byte(STATUS_REG);
+	if ((irq & STATUS_MAX_RT) == STATUS_MAX_RT)
+	{
+		nRF24L01_Write1Byte(STATUS_REG, STATUS_MAX_RT);
+	}
+	else
+	{
+		nRF24L01_TxMode(Address, 0);
+		success++;
 	}
 }
 /***********************************************************************************************************************
