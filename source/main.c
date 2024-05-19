@@ -9,11 +9,26 @@
 #include "USB_HW.h"
 #include "USB_IRQ.h"
 #include "string.h"
+/* Pin connection:
+	Bluepill				NRF24L01
+	GND					->	GND
+	PB10: optional LED 	->	No connection
+	PA3					-> 	IRQ
+	PA5					-> 	SCK
+	PA6					->	MISO
+	PA7					->	MOSI
+	PB0					->	CSN
+	PB1					->	CE
+ */
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
 #define MS								3120U
-#define IS_TX							TRUE
+/* Change IS_TX definition to FALSE/TRUE to set device as PTX or PRX
+	IS_TX == FALSE -> device is receiver
+	IS_RX == TRUE  -> device is transmitter
+*/
+#define IS_TX							FALSE
 #define GREEN_LED						PB10
 #define USB_ENABLE_PIN					PB5
 /***********************************************************************************************************************
@@ -65,11 +80,7 @@ volatile uint8_t irq= 0;
 	GPIO_SetInterrupt(PA3, FALLING_EDGE);
 	/* nRF24L01 initialization */
 	nRF24L01_Init();
-#if (IS_TX == TRUE)
 	Address[0] = 0xEE;
-#else
-	Address[0] = 0xEE;
-#endif
 	Address[1] = 0xDD;
 	Address[2] = 0xCC;
 	Address[3] = 0xBB;

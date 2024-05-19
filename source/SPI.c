@@ -23,12 +23,7 @@
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
-/*
-PA5 SPI1_SCK
-PA6 SPI1_MISO
-PA7 SPI1_MOSI
-PB0 GPIO_NSS
-*/
+
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
@@ -85,12 +80,6 @@ void SPI1_Init(void)
 	SPI1->CR1 |= SPI_CR1_MSTR;			/* Master mode */
 	SPI1->CR1 |= SPI_CR1_SPE;
 	SPIInit_b = TRUE;
-}
-
-
-void SPI1_InterruptInit(void)
-{
-
 }
 
 __inline void SPI1_Start(void)
@@ -150,16 +139,10 @@ uint8_t SPI1_Read1Byte(uint8_t Register)
 
 void SPI1_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size)
 {
-	int i= 0 ;
-	if (Register == 0b01100001)
-		i = 1;
 	SPI1_Start();
 	SPI1->DR = Register;
 	while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
 	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
-	//SPI1->DR = 0;
-	//while ((SPI1->SR & SPI_SR_TXE) != SPI_SR_TXE){}
-	//while ((SPI1->SR & SPI_SR_RXNE) == 0) {}
 	DummySpi = SPI1->DR;
 	while (Size > 0)
 	{
