@@ -13,10 +13,9 @@
  * Definitions
  **********************************************************************************************************************/
 #define MS								3120U
-#define IS_TX							TRUE
+#define IS_TX							FALSE
 #define GREEN_LED						PB10
 #define USB_ENABLE_PIN					PB5
-#define FIFO_STATUS_RX_FULL				0b10
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -24,18 +23,13 @@
 /***********************************************************************************************************************
  * Variables
  **********************************************************************************************************************/
-volatile int irq = 0;
 uint32_t timer = 0;
 uint8_t Address[5];
 uint8_t RxData[100];
 uint8_t TxData[] = "ABCDEFGHIKLMNOPQRSTVXYZ123456789";
-int i= 0;
+volatile uint8_t irq= 0;
 int test = 0;
-int dem = 0;
-int max = 0;
-int tx = 0;
-volatile int success = 0;
-int rx_dr = 0;
+bool DataAvailable = FALSE;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
@@ -85,36 +79,28 @@ int rx_dr = 0;
 #endif
 	while (1)
 	{
-		timer = micros();
 #if (IS_TX == TRUE)
 		nRF24L01_Transmit(TxData);
-		GPIO_PinToggle(GREEN_LED);
 #else
 		test = nRF24L01_Read1Byte(STATUS_REG);
 		if ((test & 0b1110) != 0b1110)
 		{
 			nRF24L01_Disable();
-			for (i=0;i<=255;i++)
-				RxData[i]=0;
 			nRF24L01_Write1Byte(STATUS_REG, STATUS_RX_DR);
 			nRF24L01_ReceiveData(RxData);
-
 			while ((test & FIFO_STATUS_RX_FULL)
 				   == FIFO_STATUS_RX_FULL)
 			{
 				test = nRF24L01_Read1Byte(FIFO_STATUS_REG);
-				nRF24L01_ReceiveData(&RxData[32]);
+				nRF24L01_ReceiveData(&RxData[PACKET_SIZE]);
 			}
 			nRF24L01_Command(FLUSH_RX);
 			nRF24L01_RxMode(Address, 0);
-			success++;
-			if (RxData[1] == 'B')
-				success ++;
+			GPIO_PinToggle(GREEN_LED);
 			GPIO_PinToggle(PC13);
-			check = 1;
+			USB_SendString(1, RxData, PACKET_SIZE);
 		}
 #endif
-		while (micros() - timer < 1000000);
 	}
 }
 
@@ -134,13 +120,12 @@ void EXTI3_IRQHandler(void)
 	{
 		nRF24L01_TxMode(Address, 0);
 		GPIO_PinToggle(PC13);
-		success++;
+		GPIO_PinToggle(GREEN_LED);
 	}
 #else
 	if ((irq & STATUS_RX_DR) == STATUS_RX_DR)
 	{
-		irq++;
-		check = 0;
+
 	}
 #endif
 }

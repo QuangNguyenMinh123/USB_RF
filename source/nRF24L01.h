@@ -62,6 +62,10 @@
 
 #define NRF24L01_CE_PIN					PB1
 #define NRF24L01_IRQ_PIN				PA3
+
+#define PACKET_SIZE						32
+
+#define FIFO_STATUS_RX_FULL				0b10
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -86,6 +90,14 @@ void nRF24L01_Transmit(uint8_t *data);
 bool nRF24L01_DataAvailable(uint8_t PipeIndex);
 
 void nRF24L01_ReceiveData(uint8_t *DestinationData);
+
+uint8_t nRF24L01_Read1Byte(uint8_t Register);
+
+void nRF24L01_Enable(void);
+
+void nRF24L01_Disable(void);
+
+void nRF24L01_Write1Byte(uint8_t Register, uint8_t Data);
 
 uint8_t nRF24L01_Read1Byte(uint8_t Register);
 #endif  /* _NRF24L01_H */

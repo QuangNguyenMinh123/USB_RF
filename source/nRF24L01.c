@@ -13,8 +13,6 @@
 #define RF_SETUP__6dBm			0b00000100
 #define RF_SETUP_0dBm			0b00000110
 
-#define PACKET_SIZE				32
-
 #define SETUP_RETR_250uS		0b00000000
 #define SETUP_RETR_500uS		0b00010000
 #define SETUP_RETR_750uS		0b00100000
@@ -52,10 +50,10 @@
  **********************************************************************************************************************/
 void nRF24L01_Write1Byte(uint8_t Register, uint8_t Data);
 static void nRF24L01_WriteMulBytes(uint8_t Register, uint8_t *Data, uint8_t Size);
- uint8_t nRF24L01_Read1Byte(uint8_t Register);
+uint8_t nRF24L01_Read1Byte(uint8_t Register);
 void nRF24L01_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size);
- void nRF24L01_Enable(void);
- void nRF24L01_Disable(void);
+void nRF24L01_Enable(void);
+void nRF24L01_Disable(void);
 static void TimerDelayUs(int time);
 /***********************************************************************************************************************
  * Variables
@@ -175,7 +173,7 @@ void nRF24L01_Reset(uint8_t Register)
 		if (Buffer[0] != 0xEF || Buffer[1] != 0xEF || Buffer[2] != 0xEF
 			|| Buffer[3] != 0xEF || Buffer[4] != 0xEF)
 		{
-			//while (1);
+			while (1);
 		}
 		/*  End checkpoint */
 		nRF24L01_Write1Byte(RX_PW_P0_REG, 0);
