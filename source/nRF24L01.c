@@ -211,7 +211,7 @@ void nRF24L01_Init(void)
 void nRF24L01_TxMode(uint8_t *Address, uint8_t Channel)
 {
 	nRF24L01_Disable();
-	nRF24L01_Write1Byte(RF_CH_REG, 1);
+	nRF24L01_Write1Byte(RF_CH_REG, Channel);
 	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
 	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
 	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);
@@ -233,7 +233,7 @@ void nRF24L01_Transmit(uint8_t *Data)
 void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 {
 	nRF24L01_Disable();
-	nRF24L01_Write1Byte(RF_CH_REG, 1);
+	nRF24L01_Write1Byte(RF_CH_REG, Channel);
 	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
 	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
 	nRF24L01_Write1Byte(CONFIG_REG, 0xf);
