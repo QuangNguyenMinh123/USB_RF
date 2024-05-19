@@ -13,7 +13,40 @@
 #define RF_SETUP__6dBm			0b00000100
 #define RF_SETUP_0dBm			0b00000110
 
-#define PACKET_SIZE				10
+#define PACKET_SIZE				32
+
+#define SETUP_RETR_250uS		0b00000000
+#define SETUP_RETR_500uS		0b00010000
+#define SETUP_RETR_750uS		0b00100000
+#define SETUP_RETR_1000uS		0b00000000
+#define SETUP_RETR_1250uS		0b00000000
+#define SETUP_RETR_1500uS		0b00000000
+#define SETUP_RETR_1750uS		0b00000000
+#define SETUP_RETR_2000uS		0b00000000
+#define SETUP_RETR_2250uS		0b00000000
+#define SETUP_RETR_2500uS		0b00000000
+#define SETUP_RETR_2750uS		0b00000000
+#define SETUP_RETR_3000uS		0b00000000
+#define SETUP_RETR_3250uS		0b00000000
+#define SETUP_RETR_3500uS		0b00000000
+#define SETUP_RETR_3750uS		0b00000000
+#define SETUP_RETR_4000uS		0b00000000
+#define SETUP_RETR_0_RE_TRANSMIT		0b00000000
+#define SETUP_RETR_1_RE_TRANSMIT		0b00000001
+#define SETUP_RETR_2_RE_TRANSMIT		0b00000010
+#define SETUP_RETR_3_RE_TRANSMIT		0b00000011
+#define SETUP_RETR_4_RE_TRANSMIT		0b00000100
+#define SETUP_RETR_5_RE_TRANSMIT		0b00000101
+#define SETUP_RETR_6_RE_TRANSMIT		0b00000110
+#define SETUP_RETR_7_RE_TRANSMIT		0b00000111
+#define SETUP_RETR_8_RE_TRANSMIT		0b00001000
+#define SETUP_RETR_9_RE_TRANSMIT		0b00001001
+#define SETUP_RETR_10_RE_TRANSMIT		0b00001010
+#define SETUP_RETR_11_RE_TRANSMIT		0b00001011
+#define SETUP_RETR_12_RE_TRANSMIT		0b00001100
+#define SETUP_RETR_13_RE_TRANSMIT		0b00001101
+#define SETUP_RETR_14_RE_TRANSMIT		0b00001110
+#define SETUP_RETR_15_RE_TRANSMIT		0b00001111
 /***********************************************************************************************************************
  * Prototypes
  **********************************************************************************************************************/
@@ -192,8 +225,10 @@ void nRF24L01_Init(void)
 	CheckpointFail |= checkpointFail(RF_SETUP_REG, RF_SETUP_2MB | RF_SETUP_0dBm);
 
 
-	nRF24L01_Write1Byte(SETUP_RETR_REG, 0b00100000);
-	CheckpointFail |= checkpointFail(SETUP_RETR_REG, 0b00100000);
+	nRF24L01_Write1Byte(SETUP_RETR_REG,
+						SETUP_RETR_750uS | SETUP_RETR_3_RE_TRANSMIT);
+	CheckpointFail |= checkpointFail(SETUP_RETR_REG,
+						SETUP_RETR_750uS | SETUP_RETR_3_RE_TRANSMIT);
 
 	nRF24L01_Write1Byte(FEATURE_REG, 0);
 	CheckpointFail |= checkpointFail(FEATURE_REG, 0);
