@@ -56,6 +56,9 @@
 #define FLUSH_RX                        0xE2
 #define REUSE_TX_PL                     0xE3
 #define NOP                             0xFF
+#define STATUS_MAX_RT					0b10000
+#define STATUS_TX_DS					0b100000
+#define STATUS_RX_DR					0b1000000
 
 #define NRF24L01_CE_PIN					PB1
 #define NRF24L01_IRQ_PIN				PA3
