@@ -233,12 +233,11 @@ void nRF24L01_Transmit(uint8_t *Data)
 void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 {
 	nRF24L01_Disable();
+	nRF24L01_Write1Byte(RF_CH_REG, 1);
 	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
 	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
-	nRF24L01_WriteMulBytes(RX_ADDR_P1_REG, Address, 5);
 	nRF24L01_Write1Byte(CONFIG_REG, 0xf);
 	nRF24L01_Write1Byte(RX_PW_P0_REG, PACKET_SIZE);
-	nRF24L01_Write1Byte(RX_PW_P1_REG, PACKET_SIZE);
 	TimerDelayUs(10000);
 	nRF24L01_Enable();
 	TimerDelayUs(150);
