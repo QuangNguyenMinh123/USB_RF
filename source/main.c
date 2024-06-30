@@ -128,9 +128,9 @@ void main()
 void EXTI3_IRQHandler(void)
 {
 	EXTI->PR |= BIT_3;
- 	irq = nRF24L01_Read1Byte(STATUS_REG);
-	nRF24L01_Disable();
 #if (IS_TX == TRUE)
+	irq = nRF24L01_Read1Byte(STATUS_REG);
+	nRF24L01_Disable();
 	if ((irq & STATUS_MAX_RT) == STATUS_MAX_RT)
 	{
 		nRF24L01_Write1Byte(STATUS_REG, STATUS_MAX_RT);
@@ -145,7 +145,7 @@ void EXTI3_IRQHandler(void)
 #else
 	if ((irq & STATUS_RX_DR) == STATUS_RX_DR)
 	{
-
+		irq = 0;
 	}
 #endif
 }

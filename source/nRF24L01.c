@@ -269,7 +269,7 @@ void nRF24L01_RxMode(uint8_t *Address, uint8_t Channel)
 	nRF24L01_Write1Byte(RF_CH_REG, Channel);
 	nRF24L01_WriteMulBytes(TX_ADDR_REG, Address, 5);
 	nRF24L01_WriteMulBytes(RX_ADDR_P0_REG, Address, 5);
-	nRF24L01_Write1Byte(CONFIG_REG, 0xf);
+	nRF24L01_Write1Byte(CONFIG_REG, 0xf | BIT_5 | BIT_4);
 	nRF24L01_Write1Byte(RX_PW_P0_REG, PACKET_SIZE);
 	TimerDelayUs(10000);
 	nRF24L01_Enable();
