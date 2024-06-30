@@ -115,7 +115,7 @@ void main()
 				nRF24L01_ReceiveData(&RxData[PACKET_SIZE]);
 			}
 			nRF24L01_Command(FLUSH_RX);
-			nRF24L01_RxMode(Address, 0);
+			nRF24L01_RxMode(Address, RF_CH);
 			GPIO_PinToggle(GREEN_LED);
 			GPIO_PinToggle(PC13);
 			USB_SendString(1, RxData, PACKET_SIZE);
@@ -138,7 +138,7 @@ void EXTI3_IRQHandler(void)
 	}
 	else if ((irq & STATUS_TX_DS) == STATUS_TX_DS)
 	{
-		nRF24L01_TxMode(Address, 0);
+		nRF24L01_TxMode(Address, RF_CH);
 		GPIO_PinToggle(PC13);
 		GPIO_PinToggle(GREEN_LED);
 	}
