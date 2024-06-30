@@ -134,7 +134,7 @@ uint8_t SPI1_Read1Byte(uint8_t Register)
 	data = SPI1->DR;
 	while ((SPI1->SR & SPI_SR_BSY) == SPI_SR_BSY){}
 	SPI1_Stop();
-	return data;
+	 return data;
 }
 
 void SPI1_ReadMulBytes(uint8_t Register, uint8_t *Des, uint8_t Size)

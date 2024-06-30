@@ -39,19 +39,21 @@
  * Variables
  **********************************************************************************************************************/
 uint8_t Address[5];
+int RF_CH = 0;
 #if (IS_TX == TRUE)
 uint32_t timer = 0;
 uint8_t TxData[] = "ABCDEFGHIKLMNOPQRSTVXYZ123456789";
 #else
 uint8_t RxData[100];
-int test = 0;
+int dummy = 0;
 bool DataAvailable = FALSE;
 #endif
 volatile uint8_t irq= 0;
+int success = 0;
 /***********************************************************************************************************************
  * Code
  **********************************************************************************************************************/
- void main()
+void main()
 {
 	/* Clock initialization */
 	CLOCK_Init(8);
@@ -79,17 +81,18 @@ volatile uint8_t irq= 0;
 	GPIO_PinLow(USB_ENABLE_PIN);
 	GPIO_SetInterrupt(PA3, FALLING_EDGE);
 	/* nRF24L01 initialization */
-	nRF24L01_Init();
 	Address[0] = 0xEE;
 	Address[1] = 0xDD;
 	Address[2] = 0xCC;
 	Address[3] = 0xBB;
 	Address[4] = 0xAA;
-
+	nRF24L01_Init();
 #if (IS_TX == TRUE)
-	nRF24L01_TxMode(Address, 0);
+		RF_CH = 46;
+		nRF24L01_TxMode(Address, RF_CH);
 #else
-	nRF24L01_RxMode(Address, 0);
+		RF_CH = 50;
+		nRF24L01_RxMode(Address, RF_CH);
 #endif
 	while (1)
 	{
@@ -98,16 +101,17 @@ volatile uint8_t irq= 0;
 		nRF24L01_Transmit(TxData);
 		while (micros() - timer < 1000000);
 #else
-		test = nRF24L01_Read1Byte(STATUS_REG);
-		if ((test & 0b1110) != 0b1110)
+		dummy = nRF24L01_Read1Byte(STATUS_REG);
+		if ((dummy & 0b1110) != 0b1110)
 		{
+			success++;
 			nRF24L01_Disable();
 			nRF24L01_Write1Byte(STATUS_REG, STATUS_RX_DR);
 			nRF24L01_ReceiveData(RxData);
-			while ((test & FIFO_STATUS_RX_FULL)
+			while ((dummy & FIFO_STATUS_RX_FULL)
 				   == FIFO_STATUS_RX_FULL)
 			{
-				test = nRF24L01_Read1Byte(FIFO_STATUS_REG);
+				dummy = nRF24L01_Read1Byte(FIFO_STATUS_REG);
 				nRF24L01_ReceiveData(&RxData[PACKET_SIZE]);
 			}
 			nRF24L01_Command(FLUSH_RX);
@@ -124,7 +128,7 @@ volatile uint8_t irq= 0;
 void EXTI3_IRQHandler(void)
 {
 	EXTI->PR |= BIT_3;
-	irq = nRF24L01_Read1Byte(STATUS_REG);
+ 	irq = nRF24L01_Read1Byte(STATUS_REG);
 	nRF24L01_Disable();
 #if (IS_TX == TRUE)
 	if ((irq & STATUS_MAX_RT) == STATUS_MAX_RT)
